@@ -9,3 +9,6 @@
 > dotnet ef migrations add InitialCreate
 > 要再安裝 Microsoft.EntityFrameworkCore.Design 3.0.0
 > dotnet ef database update // update the migrations
+> Go to file: Ctrl + P
+> test URL: http://localhost:5000/api/values 
+> asynchronous 
