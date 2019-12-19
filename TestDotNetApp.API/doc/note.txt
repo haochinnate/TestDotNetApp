@@ -12,3 +12,11 @@
 > Go to file: Ctrl + P
 > test URL: http://localhost:5000/api/values 
 > asynchronous 
+
+> Angular CLI (\AppData\Roaming\npm\node_modules\@angular\cli\bin\ng)
+  npm install -g @angular/cli 
+  ng new my-dream-app (ng new TestDotNetApp-SPA)(can not use '.')
+  cd my-dream-app
+  ng serve
+> -SPA/src/app/app.module.ts
+> -SPA/src/app/app.component.ts 用 @Component 來decorate (is class, but also has Angular features?)
