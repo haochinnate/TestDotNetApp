@@ -20,3 +20,15 @@
   ng serve
 > -SPA/src/app/app.module.ts
 > -SPA/src/app/app.component.ts 用 @Component 來decorate (is class, but also has Angular features?)
+> extensions for Angular projects
+  Angular Snippets
+  Angular Files
+  Angular Language Service
+  Auto Rename Tag
+  Bracket Pair Colorizer
+  Debugger for Chrome
+  Material Icon Theme
+  Prettier
+  TSLint
+  Angular2-switcher
+
