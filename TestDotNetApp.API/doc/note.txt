@@ -12,6 +12,7 @@
 > Go to file: Ctrl + P
 > test URL: http://localhost:5000/api/values 
 > asynchronous 
+----------------------------------------------------------------------------------
 
 > Angular CLI (\AppData\Roaming\npm\node_modules\@angular\cli\bin\ng)
   npm install -g @angular/cli 
@@ -31,4 +32,7 @@
   Prettier
   TSLint
   Angular2-switcher
-
+> Alt + O 從 value.component.ts 移到 value.component.html
+  Alt + I 移到 value.component.css
+  Alt + U 移到 value.component.ts
+> Go to file: Ctrl + P (again)
