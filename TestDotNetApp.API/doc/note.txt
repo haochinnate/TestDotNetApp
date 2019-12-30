@@ -36,3 +36,14 @@
   Alt + I 移到 value.component.css
   Alt + U 移到 value.component.ts
 > Go to file: Ctrl + P (again)
+> -SPA and .API 兩個都要執行
+---------------------------------------------------------------------------------
+
+> BootStrap
+  cd testdotnetapp-spa
+  npm install bootstrap font-awesome
+
+
+
+
+

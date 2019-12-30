@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\CodingWorkspace\\Github\\TestDotNetApp\\TestDotNetApp.API\\TestDotNetApp.API.csproj": {}
+    "D:\\CodingWorkspace\\Github\\TestDotNetApp\\testdotnetapp.api\\TestDotNetApp.API.csproj": {}
   },
   "projects": {
-    "D:\\CodingWorkspace\\Github\\TestDotNetApp\\TestDotNetApp.API\\TestDotNetApp.API.csproj": {
+    "D:\\CodingWorkspace\\Github\\TestDotNetApp\\testdotnetapp.api\\TestDotNetApp.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\CodingWorkspace\\Github\\TestDotNetApp\\TestDotNetApp.API\\TestDotNetApp.API.csproj",
+        "projectUniqueName": "D:\\CodingWorkspace\\Github\\TestDotNetApp\\testdotnetapp.api\\TestDotNetApp.API.csproj",
         "projectName": "TestDotNetApp.API",
-        "projectPath": "D:\\CodingWorkspace\\Github\\TestDotNetApp\\TestDotNetApp.API\\TestDotNetApp.API.csproj",
+        "projectPath": "D:\\CodingWorkspace\\Github\\TestDotNetApp\\testdotnetapp.api\\TestDotNetApp.API.csproj",
         "packagesPath": "C:\\Users\\Qinhuai\\.nuget\\packages\\",
-        "outputPath": "D:\\CodingWorkspace\\Github\\TestDotNetApp\\TestDotNetApp.API\\obj\\",
+        "outputPath": "D:\\CodingWorkspace\\Github\\TestDotNetApp\\testdotnetapp.api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
