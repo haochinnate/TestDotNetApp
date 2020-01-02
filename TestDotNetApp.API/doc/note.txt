@@ -44,6 +44,15 @@
   npm install bootstrap font-awesome
 
 
+---------------------------------------------------------------------------------
+Section 3:
 
+Hashing a password, password -> SHA512 -> #$@#$#@ (not secure)
+Hashing and Salting a password, password -> Hash+Salt -> #$#$#!@#!@
+ 
+model and datacontext changed  
 
+> dotnet ef migrations add AddedUserEntity // create new migration
+  // go to migrations folder to see create result 
+> dotnet ef database update // update the migrations
 
