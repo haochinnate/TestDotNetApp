@@ -31,6 +31,9 @@ namespace TestDotNetApp.API
             (Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
             services.AddCors();
+            // service is create once per request with in scope?
+            // inject to controller
+            services.AddScoped<IAuthRepository, AuthRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
