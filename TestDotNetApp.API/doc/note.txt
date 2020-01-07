@@ -56,3 +56,7 @@ model and datacontext changed
   // go to migrations folder to see create result 
 > dotnet ef database update // update the migrations
 
+
+> debug 要先產生 launch.json, 按debug後 選擇 TestDotnetApp.API.exe
+
+
