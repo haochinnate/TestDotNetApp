@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\CodingWorkspace\\Github\\TestDotNetApp\\testdotnetapp.api\\TestDotNetApp.API.csproj": {}
+    "d:\\CodingWorkspace\\Github\\TestDotNetApp\\TestDotNetApp.API\\TestDotNetApp.API.csproj": {}
   },
   "projects": {
-    "D:\\CodingWorkspace\\Github\\TestDotNetApp\\testdotnetapp.api\\TestDotNetApp.API.csproj": {
+    "d:\\CodingWorkspace\\Github\\TestDotNetApp\\TestDotNetApp.API\\TestDotNetApp.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\CodingWorkspace\\Github\\TestDotNetApp\\testdotnetapp.api\\TestDotNetApp.API.csproj",
+        "projectUniqueName": "d:\\CodingWorkspace\\Github\\TestDotNetApp\\TestDotNetApp.API\\TestDotNetApp.API.csproj",
         "projectName": "TestDotNetApp.API",
-        "projectPath": "D:\\CodingWorkspace\\Github\\TestDotNetApp\\testdotnetapp.api\\TestDotNetApp.API.csproj",
+        "projectPath": "d:\\CodingWorkspace\\Github\\TestDotNetApp\\TestDotNetApp.API\\TestDotNetApp.API.csproj",
         "packagesPath": "C:\\Users\\Qinhuai\\.nuget\\packages\\",
-        "outputPath": "D:\\CodingWorkspace\\Github\\TestDotNetApp\\testdotnetapp.api\\obj\\",
+        "outputPath": "d:\\CodingWorkspace\\Github\\TestDotNetApp\\TestDotNetApp.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -52,6 +52,14 @@
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
               "version": "[3.0.0, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[5.6.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[5.6.0, )"
             }
           },
           "imports": [
