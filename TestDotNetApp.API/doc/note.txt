@@ -77,3 +77,7 @@ model and datacontext changed
 
 > 安裝 Microsoft.IdentityModel.Tokens 5.6.0
        System.IdentityModel.Tokens.Jwt 5.6.0
+
+> injection IConfiguration 
+  使用 _config.GetSection("AppSettings:Token").Value
+  要在 appsettings.json 新增 "AppSettings" :{"Tokens": "super secret key"}
