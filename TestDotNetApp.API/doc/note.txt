@@ -80,4 +80,6 @@ model and datacontext changed
 
 > injection IConfiguration 
   使用 _config.GetSection("AppSettings:Token").Value
-  要在 appsettings.json 新增 "AppSettings" :{"Tokens": "super secret key"}
+  要在 appsettings.json 新增 "AppSettings" :{"Token": "super secret key"}
+
+> JWT.io 可以觀看 tokens decoded的內容
