@@ -83,3 +83,7 @@ model and datacontext changed
   要在 appsettings.json 新增 "AppSettings" :{"Token": "super secret key"}
 
 > JWT.io 可以觀看 tokens decoded的內容
+
+> 安裝 Microsoft.AspNetCore.Authentication.JwtBearer 3.0.0
+> Authentication Middleware, 在Startup.cs裡面 要設定一些東西
+  還有controller 要加 attribute
