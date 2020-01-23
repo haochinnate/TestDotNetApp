@@ -87,3 +87,11 @@ model and datacontext changed
 > 安裝 Microsoft.AspNetCore.Authentication.JwtBearer 3.0.0
 > Authentication Middleware, 在Startup.cs裡面 要設定一些東西
   還有controller 要加 attribute
+
+> appsettings.json 不要上傳到github比較好
+  git rm appsettings.json --cached
+
+> on production: using environment variables
+  或是使用 dotnet user-secrets (only for development?)
+  設定語法: dotnet user-secrets set "AppSettings:Tokens" "super secret key"
+  觀看語法: dotnet user-secrets list
