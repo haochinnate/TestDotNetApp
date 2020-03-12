@@ -50,46 +50,55 @@ namespace TestDotNetApp.API.Controllers
         [HttpPost("login")]
         public async Task<ActionResult> Login(UserForLoginDto userForLoginDto)
         {
-            // check is user exist
-            var userFromRepo = await _repo.Login(userForLoginDto.Username.ToLower(), userForLoginDto.Password);
+            // try
+            // {
+                throw new Exception("computer says no!");
 
-            if (userFromRepo == null)
-            {
-                return Unauthorized();
-            }
+                // check is user exist
+                var userFromRepo = await _repo.Login(userForLoginDto.Username.ToLower(), userForLoginDto.Password);
 
-            #region Build a token
+                if (userFromRepo == null)
+                {
+                    return Unauthorized();
+                }
+
+                #region Build a token
     
-            // build a token that return to user
-            // this token contains two Claims (Id, Username)
-            var claims = new []
-            {
-                new Claim(ClaimTypes.NameIdentifier, userFromRepo.Id.ToString()),
-                new Claim(ClaimTypes.Name, userFromRepo.UserName),
-            };
+                // build a token that return to user
+                // this token contains two Claims (Id, Username)
+                var claims = new []
+                {
+                    new Claim(ClaimTypes.NameIdentifier, userFromRepo.Id.ToString()),
+                    new Claim(ClaimTypes.Name, userFromRepo.UserName),
+                };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.
-                GetBytes(_config.GetSection("AppSettings:Token").Value));
+                var key = new SymmetricSecurityKey(Encoding.UTF8.
+                    GetBytes(_config.GetSection("AppSettings:Token").Value));
 
-            var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+                var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 
-            // token descripter
-            var tokenDescripter = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.Now.AddDays(1),
-                SigningCredentials = credentials
-            };
+                // token descripter
+                var tokenDescripter = new SecurityTokenDescriptor
+                {
+                    Subject = new ClaimsIdentity(claims),
+                    Expires = DateTime.Now.AddDays(1),
+                    SigningCredentials = credentials
+                };
 
-            // token handler(to create token based on token descripter)
-            var tokenHandler = new JwtSecurityTokenHandler();
+                // token handler(to create token based on token descripter)
+                var tokenHandler = new JwtSecurityTokenHandler();
 
-            var token = tokenHandler.CreateToken(tokenDescripter);
-            #endregion
+                var token = tokenHandler.CreateToken(tokenDescripter);
+                #endregion
 
-            return Ok(new {
-                token = tokenHandler.WriteToken(token)
-            });
+                return Ok(new {
+                    token = tokenHandler.WriteToken(token)
+                });
+            // }
+            // catch (System.Exception)
+            // {
+            //     return StatusCode(500, "catch block in login");
+            // }
         } 
     }
 }

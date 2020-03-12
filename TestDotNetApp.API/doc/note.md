@@ -1,4 +1,4 @@
-### Section 4:
+# Section 4: Client side login and register
 
 * 在 app.module.ts 中 import FormsModule
   > import {FormsModule} from '@angular/forms';
@@ -16,3 +16,6 @@ input 項目裡面 則用 [(ngModel)]="model.username" 來binding
 * testdotnetapp.api 執行 dotnet watch run 
 
 * testdotnetapp-spa 執行 ng serve
+
+# Section 5: Error Handling
+
