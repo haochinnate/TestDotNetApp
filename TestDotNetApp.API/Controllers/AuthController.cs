@@ -52,7 +52,7 @@ namespace TestDotNetApp.API.Controllers
         {
             // try
             // {
-                throw new Exception("computer says no!");
+                // throw new Exception("computer says no!");
 
                 // check is user exist
                 var userFromRepo = await _repo.Login(userForLoginDto.Username.ToLower(), userForLoginDto.Password);
