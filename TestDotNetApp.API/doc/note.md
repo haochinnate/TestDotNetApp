@@ -29,4 +29,15 @@ input 項目裡面 則用 [(ngModel)]="model.username" 來binding
 
 * error.interceptor.ts 也需要是 injectable的
 
-# Section 6:
+# Section 6: Adding 3rd part components to our app
+
+* 安裝 [AlertifyJS](https://alertifyjs.com/)
+
+```powershell
+cd -spa
+npm install alertifyjs
+# npm install @types/alertifyjs
+```
+* create an Angular service wrapper around the methods of AlertifyJS provider, so we can inject this service to create our own componets
+
+* 如果在 alertify.service.ts 裡面 import 有問題的話, 有去做 建立 'src/typings.d.ts' 檔, 並更新 'tsconfig.json' 加入 typeRoots
