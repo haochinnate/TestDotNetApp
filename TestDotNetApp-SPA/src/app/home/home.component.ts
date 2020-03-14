@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
     this.registerMode = true;
   }
 
-  // no use 
+  // no use
   // getValues() {
   //   this.http.get('http://localhost:5000/api/values').subscribe(
   //     response => {

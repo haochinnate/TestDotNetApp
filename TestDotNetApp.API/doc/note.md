@@ -41,3 +41,23 @@ npm install alertifyjs
 * create an Angular service wrapper around the methods of AlertifyJS provider, so we can inject this service to create our own componets
 
 * 如果在 alertify.service.ts 裡面 import 有問題的話, 有去做 建立 'src/typings.d.ts' 檔, 並更新 'tsconfig.json' 加入 typeRoots
+
+* help to manage JWT: [Angular2-JWT GitHub](https://github.com/auth0/angular2-jwt)
+
+```powershell
+cd -spa
+
+# installation with npm
+npm install @auth0/angular-jwt
+```
+
+範例程式 Usage: Standalone
+```ts
+import { JwtHelperService } from "@auth0/angular-jwt";
+
+const helper = new JwtHelperService();
+
+const decodedToken = helper.decodeToken(myRawToken);
+const expirationDate = helper.getTokenExpirationDate(myRawToken);
+const isExpired = helper.isTokenExpired(myRawToken);
+```
