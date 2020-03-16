@@ -10,7 +10,8 @@ import { AlertifyService } from '../_services/alertify.service';
 export class NavComponent implements OnInit {
   model: any = {}; //  empty object to store username and password
 
-  constructor(private authService: AuthService, private alertify: AlertifyService) { }
+  // private authService doesn't have error likes in course video
+  constructor(public authService: AuthService, private alertify: AlertifyService) { }
 
   ngOnInit() {
   }
