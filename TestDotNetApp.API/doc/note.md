@@ -61,3 +61,11 @@ const decodedToken = helper.decodeToken(myRawToken);
 const expirationDate = helper.getTokenExpirationDate(myRawToken);
 const isExpired = helper.isTokenExpired(myRawToken);
 ```
+
+* ngx bootstrap by Valor Software, to improve Dropdown
+```powershell
+cd -spa
+
+# installation with npm
+npm install ngx-bootstrap --save
+```
