@@ -82,3 +82,17 @@ cd -spa
 # installation with npm, to use free themes
 npm install bootswatch
 ```
+
+# Section 7: Routing in Angular 
+
+* Traditional websites vs. Single Page Application 
+
+http://localhost/index.html 
+http://localhost/foo.html
+
+http://localhost
+http://localhost/foo
+
+* in order to achieve this, we need to tell our application about how to find the different pars of our application
+
+* member-list -> car-list
