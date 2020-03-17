@@ -31,7 +31,7 @@ input 項目裡面 則用 [(ngModel)]="model.username" 來binding
 
 # Section 6: Adding 3rd part components to our app
 
-* 安裝 [AlertifyJS](https://alertifyjs.com/)
+## 安裝 [AlertifyJS](https://alertifyjs.com/)
 
 ```powershell
 cd -spa
@@ -41,6 +41,8 @@ npm install alertifyjs
 * create an Angular service wrapper around the methods of AlertifyJS provider, so we can inject this service to create our own componets
 
 * 如果在 alertify.service.ts 裡面 import 有問題的話, 有去做 建立 'src/typings.d.ts' 檔, 並更新 'tsconfig.json' 加入 typeRoots
+
+## Agular2-JWT
 
 * help to manage JWT: [Angular2-JWT GitHub](https://github.com/auth0/angular2-jwt)
 
@@ -62,10 +64,21 @@ const expirationDate = helper.getTokenExpirationDate(myRawToken);
 const isExpired = helper.isTokenExpired(myRawToken);
 ```
 
+## ngx-bootstrap
+
 * ngx bootstrap by Valor Software, to improve Dropdown
 ```powershell
 cd -spa
 
 # installation with npm
 npm install ngx-bootstrap --save
+```
+
+## bootswatch
+
+```powershell
+cd -spa
+
+# installation with npm, to use free themes
+npm install bootswatch
 ```
