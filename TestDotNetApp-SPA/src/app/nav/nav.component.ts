@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../_services/auth.service';
 import { AlertifyService } from '../_services/alertify.service';
 
@@ -11,7 +12,8 @@ export class NavComponent implements OnInit {
   model: any = {}; //  empty object to store username and password
 
   // private authService doesn't have error likes in course video
-  constructor(public authService: AuthService, private alertify: AlertifyService) { }
+  constructor(public authService: AuthService, private alertify: AlertifyService, 
+              private router: Router) { }
 
   ngOnInit() {
   }
@@ -25,6 +27,9 @@ export class NavComponent implements OnInit {
       // console.log('Failed to login');
       // console.log(error);
       this.alertify.error(error);
+    }, () => {
+      // if complete, then go to this pages
+      this.router.navigate(['/cars']);
     });
   }
 
@@ -38,5 +43,6 @@ export class NavComponent implements OnInit {
     localStorage.removeItem('token');
     // console.log('logged out');
     this.alertify.message('logged out');
+    this.router.navigate(['/home']);
   }
 }

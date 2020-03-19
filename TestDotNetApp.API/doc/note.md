@@ -96,3 +96,14 @@ http://localhost/foo
 * in order to achieve this, we need to tell our application about how to find the different pars of our application
 
 * member-list -> car-list
+
+* 在 componet.html 裡面 輸入 a-routerlink 快速填寫
+
+* guard, 產生 auth.guard.ts 檔案
+```powershell
+cd -spa
+
+cd src/app/_guards/
+
+ng g guard auth --skipTests
+```
