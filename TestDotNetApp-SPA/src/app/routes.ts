@@ -6,9 +6,17 @@ import { ListsComponent } from './lists/lists.component';
 import { AuthGuard } from './_guards/auth.guard';
 
 export const appRoutes: Routes = [
-    { path: 'home', component: HomeComponent},
-    { path: 'cars', component: CarListComponent, canActivate: [AuthGuard]},
-    { path: 'messages', component: MessagesComponent},
-    { path: 'lists', component: ListsComponent},
-    { path: '**', redirectTo: 'home', pathMatch: 'full'} // order is important!
+    { path: '', component: HomeComponent},
+    {
+        path: '', // path of "/[children members]", if 'dumny' means /dumnycars'
+        runGuardsAndResolvers: 'always',
+        canActivate: [AuthGuard],
+        children: [
+            // { path: 'cars', component: CarListComponent, canActivate: [AuthGuard]},
+            { path: 'cars', component: CarListComponent},
+            { path: 'messages', component: MessagesComponent},
+            { path: 'lists', component: ListsComponent},
+        ]
+    },
+    { path: '**', redirectTo: '', pathMatch: 'full'} // order is important!
 ];
