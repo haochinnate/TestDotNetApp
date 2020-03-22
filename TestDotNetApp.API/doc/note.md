@@ -107,3 +107,13 @@ cd src/app/_guards/
 
 ng g guard auth --skipTests
 ```
+
+# Section 8: Extending the API
+
+* 另外建一個 CarModel class, 原本是在User內做擴充
+
+* DataContext class 加入兩個新的 DbSet, CarModels 和 Photos
+
+```powershell
+dotnet ef migrations add NewCarModelClass
+```
