@@ -117,3 +117,40 @@ ng g guard auth --skipTests
 ```powershell
 dotnet ef migrations add NewCarModelClass
 ```
+
+```powershell
+dotnet ef --help
+dotnet ef migrations -h
+dotnet ef migraitons list
+```
+
+* 打開 DB Browser, 有個table叫做 _EFMigrationsHistory, 可以知道有哪些migration已經影響db了
+
+```powershell
+# 因為 先前建立的 migrations 中
+# Photo的 onDelete: ReferentialAction.Restrict 我們不想要
+dotnet ef migraitons remove # 移除最後一個migration
+
+# recover
+dotnet ef migrations add NewCarModelClass
+dotnet ef database update # reply migration
+
+# 如果這時候執行 migration remove 會跳出 error, 因為已經apply到db
+dotnet ef migrations remove 
+
+# 所以要go back early migrations
+dotnet ef database update AddedUserEntity # update 前一個 migrations的名稱, 但是會失敗, 因為有一些 limitations, 要去看網站, 有些沒支援
+
+# 正確方式: drop/remove last migrations, recreate by update
+dotnet ef database drop # 會清空...
+dotnet ef migrations remove 
+dotnet ef database update # recreate database
+
+# 那要如何保存資料?
+
+```
+
+* 修改 CarModel(User) 跟 Photo 的 relationship 再建立一次 migrations.
+在Photo中 加入 CarModel 和 CarModelId properties, 當User砍掉的時候, 相對應的Photo 也會砍掉 Cascade(變成 onDelete: ReferentialAction.Cascade)
+
+

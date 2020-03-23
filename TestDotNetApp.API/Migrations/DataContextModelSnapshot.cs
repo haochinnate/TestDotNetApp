@@ -75,7 +75,7 @@ namespace TestDotNetApp.API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("CarModelId")
+                    b.Property<int>("CarModelId")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("DateAdded")
@@ -133,9 +133,11 @@ namespace TestDotNetApp.API.Migrations
 
             modelBuilder.Entity("TestDotNetApp.API.Models.Photo", b =>
                 {
-                    b.HasOne("TestDotNetApp.API.Models.CarModel", null)
+                    b.HasOne("TestDotNetApp.API.Models.CarModel", "CarModel")
                         .WithMany("Photo")
-                        .HasForeignKey("CarModelId");
+                        .HasForeignKey("CarModelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

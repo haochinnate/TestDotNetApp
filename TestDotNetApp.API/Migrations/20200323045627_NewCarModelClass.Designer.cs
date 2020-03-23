@@ -9,7 +9,7 @@ using TestDotNetApp.API.Data;
 namespace TestDotNetApp.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200322143206_NewCarModelClass")]
+    [Migration("20200323045627_NewCarModelClass")]
     partial class NewCarModelClass
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -77,7 +77,7 @@ namespace TestDotNetApp.API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("CarModelId")
+                    b.Property<int>("CarModelId")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("DateAdded")
@@ -135,9 +135,11 @@ namespace TestDotNetApp.API.Migrations
 
             modelBuilder.Entity("TestDotNetApp.API.Models.Photo", b =>
                 {
-                    b.HasOne("TestDotNetApp.API.Models.CarModel", null)
+                    b.HasOne("TestDotNetApp.API.Models.CarModel", "CarModel")
                         .WithMany("Photo")
-                        .HasForeignKey("CarModelId");
+                        .HasForeignKey("CarModelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

@@ -43,7 +43,7 @@ namespace TestDotNetApp.API.Migrations
                     Description = table.Column<string>(nullable: true),
                     DateAdded = table.Column<DateTime>(nullable: false),
                     IsMain = table.Column<bool>(nullable: false),
-                    CarModelId = table.Column<int>(nullable: true)
+                    CarModelId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -53,7 +53,7 @@ namespace TestDotNetApp.API.Migrations
                         column: x => x.CarModelId,
                         principalTable: "CarModels",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
