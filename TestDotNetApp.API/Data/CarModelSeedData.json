@@ -1,0 +1,882 @@
+[
+    {
+      "Maker": "BMW",
+      "ModelName": "Lois",
+      "EnergyForm": "Petrol",
+      "DateOfPublish": "2020-10-19",
+      "Length": 3939,
+      "Width": 1593,
+      "Height": 1411,
+      "Price": 1340000,
+      "HorsePower": 146.5,
+      "AirbagsNumber": 9,
+      "BootCapacity": 444.2,
+      "SizeAndType": "seden",
+      "FuelConsumption": 11.7,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/43.jpg",
+          "isMain": true,
+          "description": "Aliqua consectetur aliqua ullamco fugiat eu ipsum incididunt nulla officia magna."
+        }
+      ]
+    },
+    {
+      "Maker": "Mazda",
+      "ModelName": "Tami",
+      "EnergyForm": "Petrol",
+      "DateOfPublish": "2019-01-27",
+      "Length": 4647,
+      "Width": 1747,
+      "Height": 1322,
+      "Price": 1909000,
+      "HorsePower": 285.9,
+      "AirbagsNumber": 5,
+      "BootCapacity": 418.5,
+      "SizeAndType": "SUV",
+      "FuelConsumption": 12.5,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/30.jpg",
+          "isMain": true,
+          "description": "Id sint commodo Lorem est aliqua et sunt sunt incididunt."
+        }
+      ]
+    },
+    {
+      "Maker": "Skoda",
+      "ModelName": "Katina",
+      "EnergyForm": "Petrol",
+      "DateOfPublish": "2018-08-25",
+      "Length": 4561,
+      "Width": 1800,
+      "Height": 1339,
+      "Price": 1333000,
+      "HorsePower": 251.6,
+      "AirbagsNumber": 8,
+      "BootCapacity": 592.6,
+      "SizeAndType": "seden",
+      "FuelConsumption": 14.6,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/33.jpg",
+          "isMain": true,
+          "description": "Labore deserunt ullamco aliqua in est commodo sunt cillum duis Lorem."
+        }
+      ]
+    },
+    {
+      "Maker": "Mazda",
+      "ModelName": "Georgina",
+      "EnergyForm": "Petrol",
+      "DateOfPublish": "2020-05-14",
+      "Length": 4661,
+      "Width": 1508,
+      "Height": 1425,
+      "Price": 1969000,
+      "HorsePower": 202.9,
+      "AirbagsNumber": 4,
+      "BootCapacity": 585.2,
+      "SizeAndType": "seden",
+      "FuelConsumption": 18.3,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/17.jpg",
+          "isMain": true,
+          "description": "Adipisicing ad do exercitation ad incididunt proident ea est occaecat commodo laboris."
+        }
+      ]
+    },
+    {
+      "Maker": "Benz",
+      "ModelName": "Mae",
+      "EnergyForm": "Petrol",
+      "DateOfPublish": "2018-10-21",
+      "Length": 4181,
+      "Width": 1775,
+      "Height": 1445,
+      "Price": 1652000,
+      "HorsePower": 252.8,
+      "AirbagsNumber": 8,
+      "BootCapacity": 468.8,
+      "SizeAndType": "SUV",
+      "FuelConsumption": 10.9,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/32.jpg",
+          "isMain": true,
+          "description": "Amet incididunt minim eiusmod sunt sint."
+        }
+      ]
+    },
+    {
+      "Maker": "Audi",
+      "ModelName": "Rae",
+      "EnergyForm": "Petrol",
+      "DateOfPublish": "2020-11-09",
+      "Length": 4446,
+      "Width": 1384,
+      "Height": 1306,
+      "Price": 1553000,
+      "HorsePower": 118.2,
+      "AirbagsNumber": 5,
+      "BootCapacity": 383.1,
+      "SizeAndType": "CUV",
+      "FuelConsumption": 13.9,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/25.jpg",
+          "isMain": true,
+          "description": "Do fugiat adipisicing eu culpa sint nulla ullamco nisi irure id ullamco laboris pariatur pariatur."
+        }
+      ]
+    },
+    {
+      "Maker": "BMW",
+      "ModelName": "Lakisha",
+      "EnergyForm": "Petrol",
+      "DateOfPublish": "2020-07-03",
+      "Length": 4485,
+      "Width": 1800,
+      "Height": 1725,
+      "Price": 1564000,
+      "HorsePower": 278.1,
+      "AirbagsNumber": 8,
+      "BootCapacity": 410.4,
+      "SizeAndType": "SUV",
+      "FuelConsumption": 13.4,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/78.jpg",
+          "isMain": true,
+          "description": "Pariatur occaecat et ut sint enim eiusmod."
+        }
+      ]
+    },
+    {
+      "Maker": "BMW",
+      "ModelName": "Janet",
+      "EnergyForm": "Petrol",
+      "DateOfPublish": "2020-05-11",
+      "Length": 3943,
+      "Width": 1514,
+      "Height": 1397,
+      "Price": 1966000,
+      "HorsePower": 287.4,
+      "AirbagsNumber": 5,
+      "BootCapacity": 522.6,
+      "SizeAndType": "wagon",
+      "FuelConsumption": 17,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/91.jpg",
+          "isMain": true,
+          "description": "Nisi commodo eu velit consequat."
+        }
+      ]
+    },
+    {
+      "Maker": "Mazda",
+      "ModelName": "Lourdes",
+      "EnergyForm": "Petrol",
+      "DateOfPublish": "2018-09-26",
+      "Length": 4404,
+      "Width": 1364,
+      "Height": 1471,
+      "Price": 894000,
+      "HorsePower": 121.9,
+      "AirbagsNumber": 5,
+      "BootCapacity": 549.3,
+      "SizeAndType": "SUV",
+      "FuelConsumption": 11.3,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/44.jpg",
+          "isMain": true,
+          "description": "Reprehenderit duis aute est ipsum pariatur labore excepteur veniam laboris nulla sint."
+        }
+      ]
+    },
+    {
+      "Maker": "Skoda",
+      "ModelName": "Hannah",
+      "EnergyForm": "Petrol",
+      "DateOfPublish": "2018-10-25",
+      "Length": 4975,
+      "Width": 1479,
+      "Height": 1490,
+      "Price": 1094000,
+      "HorsePower": 132,
+      "AirbagsNumber": 5,
+      "BootCapacity": 420.2,
+      "SizeAndType": "CUV",
+      "FuelConsumption": 15.6,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/49.jpg",
+          "isMain": true,
+          "description": "Reprehenderit est minim non ipsum proident tempor est adipisicing aliquip."
+        }
+      ]
+    },
+    {
+      "Maker": "BMW",
+      "ModelName": "Laurel",
+      "EnergyForm": "Petrol",
+      "DateOfPublish": "2018-02-18",
+      "Length": 4790,
+      "Width": 1442,
+      "Height": 1451,
+      "Price": 633000,
+      "HorsePower": 123.9,
+      "AirbagsNumber": 6,
+      "BootCapacity": 473.4,
+      "SizeAndType": "CUV",
+      "FuelConsumption": 17.2,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/67.jpg",
+          "isMain": true,
+          "description": "Cillum et laboris ex irure nostrud."
+        }
+      ]
+    },
+    {
+      "Maker": "BMW",
+      "ModelName": "Leola",
+      "EnergyForm": "Petrol",
+      "DateOfPublish": "2018-09-06",
+      "Length": 4725,
+      "Width": 1400,
+      "Height": 1665,
+      "Price": 1533000,
+      "HorsePower": 198.8,
+      "AirbagsNumber": 6,
+      "BootCapacity": 366.4,
+      "SizeAndType": "CUV",
+      "FuelConsumption": 12.3,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/76.jpg",
+          "isMain": true,
+          "description": "Qui et velit occaecat sit qui irure occaecat commodo quis non proident."
+        }
+      ]
+    },
+    {
+      "Maker": "Audi",
+      "ModelName": "Miriam",
+      "EnergyForm": "Petrol",
+      "DateOfPublish": "2020-06-17",
+      "Length": 4431,
+      "Width": 1320,
+      "Height": 1771,
+      "Price": 1728000,
+      "HorsePower": 215.5,
+      "AirbagsNumber": 4,
+      "BootCapacity": 434.8,
+      "SizeAndType": "seden",
+      "FuelConsumption": 15.1,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/47.jpg",
+          "isMain": true,
+          "description": "Velit ut officia eiusmod qui excepteur fugiat ipsum qui dolor laborum."
+        }
+      ]
+    },
+    {
+      "Maker": "Skoda",
+      "ModelName": "Sue",
+      "EnergyForm": "Petrol",
+      "DateOfPublish": "2018-09-29",
+      "Length": 4375,
+      "Width": 1337,
+      "Height": 1629,
+      "Price": 1078000,
+      "HorsePower": 195.7,
+      "AirbagsNumber": 5,
+      "BootCapacity": 467.2,
+      "SizeAndType": "wagon",
+      "FuelConsumption": 11,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/74.jpg",
+          "isMain": true,
+          "description": "Ullamco in sunt aliqua sint reprehenderit sit aute laboris consequat culpa ex."
+        }
+      ]
+    },
+    {
+      "Maker": "Skoda",
+      "ModelName": "Angeline",
+      "EnergyForm": "Petrol",
+      "DateOfPublish": "2020-08-07",
+      "Length": 4563,
+      "Width": 1714,
+      "Height": 1755,
+      "Price": 1621000,
+      "HorsePower": 169.5,
+      "AirbagsNumber": 5,
+      "BootCapacity": 503,
+      "SizeAndType": "wagon",
+      "FuelConsumption": 10.6,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/30.jpg",
+          "isMain": true,
+          "description": "Est minim consectetur velit tempor aute in ut sint."
+        }
+      ]
+    },
+    {
+      "Maker": "Skoda",
+      "ModelName": "Herminia",
+      "EnergyForm": "Petrol",
+      "DateOfPublish": "2020-03-13",
+      "Length": 4054,
+      "Width": 1535,
+      "Height": 1642,
+      "Price": 1689000,
+      "HorsePower": 142.6,
+      "AirbagsNumber": 4,
+      "BootCapacity": 434.2,
+      "SizeAndType": "wagon",
+      "FuelConsumption": 13.4,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/81.jpg",
+          "isMain": true,
+          "description": "Irure aliqua ut sint officia labore anim occaecat anim fugiat duis."
+        }
+      ]
+    },
+    {
+      "Maker": "Audi",
+      "ModelName": "Sheena",
+      "EnergyForm": "Petrol",
+      "DateOfPublish": "2020-12-09",
+      "Length": 4026,
+      "Width": 1460,
+      "Height": 1679,
+      "Price": 1044000,
+      "HorsePower": 259,
+      "AirbagsNumber": 9,
+      "BootCapacity": 555.3,
+      "SizeAndType": "seden",
+      "FuelConsumption": 16.6,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/1.jpg",
+          "isMain": true,
+          "description": "Fugiat culpa qui fugiat cupidatat dolor."
+        }
+      ]
+    },
+    {
+      "Maker": "BMW",
+      "ModelName": "Dolores",
+      "EnergyForm": "Petrol",
+      "DateOfPublish": "2020-01-17",
+      "Length": 4056,
+      "Width": 1616,
+      "Height": 1777,
+      "Price": 1110000,
+      "HorsePower": 266.3,
+      "AirbagsNumber": 8,
+      "BootCapacity": 539.4,
+      "SizeAndType": "wagon",
+      "FuelConsumption": 11.1,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/21.jpg",
+          "isMain": true,
+          "description": "Laborum incididunt magna sit incididunt dolor veniam minim nisi."
+        }
+      ]
+    },
+    {
+      "Maker": "BMW",
+      "ModelName": "Marla",
+      "EnergyForm": "Petrol",
+      "DateOfPublish": "2020-04-29",
+      "Length": 4518,
+      "Width": 1394,
+      "Height": 1536,
+      "Price": 1601000,
+      "HorsePower": 292.7,
+      "AirbagsNumber": 6,
+      "BootCapacity": 446.6,
+      "SizeAndType": "CUV",
+      "FuelConsumption": 13.9,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/36.jpg",
+          "isMain": true,
+          "description": "Adipisicing cupidatat ea aute ullamco aute laboris excepteur excepteur commodo dolor ullamco ipsum aute duis."
+        }
+      ]
+    },
+    {
+      "Maker": "Mazda",
+      "ModelName": "Luisa",
+      "EnergyForm": "Petrol",
+      "DateOfPublish": "2020-02-28",
+      "Length": 4754,
+      "Width": 1399,
+      "Height": 1792,
+      "Price": 1800000,
+      "HorsePower": 213.1,
+      "AirbagsNumber": 7,
+      "BootCapacity": 556.6,
+      "SizeAndType": "wagon",
+      "FuelConsumption": 13.7,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/71.jpg",
+          "isMain": true,
+          "description": "Eiusmod ullamco id culpa quis qui reprehenderit sint aliqua mollit enim do."
+        }
+      ]
+    },
+    {
+      "Maker": "Audi",
+      "ModelName": "Sylvia",
+      "EnergyForm": "HEV",
+      "DateOfPublish": "2020-09-16",
+      "Length": 4584,
+      "Width": 1460,
+      "Height": 1716,
+      "Price": 1366000,
+      "HorsePower": 291.8,
+      "AirbagsNumber": 9,
+      "BootCapacity": 393.4,
+      "SizeAndType": "CUV",
+      "FuelConsumption": 11.2,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/11.jpg",
+          "isMain": true,
+          "description": "Ea do nostrud tempor est ipsum do excepteur veniam ad culpa."
+        }
+      ]
+    },
+    {
+      "Maker": "Mazda",
+      "ModelName": "Phoebe",
+      "EnergyForm": "PHEV",
+      "DateOfPublish": "2019-09-15",
+      "Length": 4412,
+      "Width": 1746,
+      "Height": 1497,
+      "Price": 830000,
+      "HorsePower": 212,
+      "AirbagsNumber": 8,
+      "BootCapacity": 462.6,
+      "SizeAndType": "CUV",
+      "FuelConsumption": 13.6,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/84.jpg",
+          "isMain": true,
+          "description": "Aliquip et eu Lorem ullamco velit sint voluptate occaecat ut."
+        }
+      ]
+    },
+    {
+      "Maker": "BMW",
+      "ModelName": "Ila",
+      "EnergyForm": "Petrol",
+      "DateOfPublish": "2018-09-16",
+      "Length": 4918,
+      "Width": 1498,
+      "Height": 1699,
+      "Price": 877000,
+      "HorsePower": 229.2,
+      "AirbagsNumber": 7,
+      "BootCapacity": 535.7,
+      "SizeAndType": "wagon",
+      "FuelConsumption": 14.1,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/42.jpg",
+          "isMain": true,
+          "description": "Sit fugiat ullamco deserunt do cupidatat deserunt."
+        }
+      ]
+    },
+    {
+      "Maker": "Benz",
+      "ModelName": "Luann",
+      "EnergyForm": "HEV",
+      "DateOfPublish": "2020-10-28",
+      "Length": 4728,
+      "Width": 1706,
+      "Height": 1632,
+      "Price": 1471000,
+      "HorsePower": 177.4,
+      "AirbagsNumber": 6,
+      "BootCapacity": 359,
+      "SizeAndType": "CUV",
+      "FuelConsumption": 18.2,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/98.jpg",
+          "isMain": true,
+          "description": "Commodo dolore aute mollit enim ea dolor tempor ut in sit ex sunt."
+        }
+      ]
+    },
+    {
+      "Maker": "Benz",
+      "ModelName": "Latonya",
+      "EnergyForm": "PHEV",
+      "DateOfPublish": "2020-08-12",
+      "Length": 4535,
+      "Width": 1588,
+      "Height": 1415,
+      "Price": 1151000,
+      "HorsePower": 214.1,
+      "AirbagsNumber": 5,
+      "BootCapacity": 506.1,
+      "SizeAndType": "CUV",
+      "FuelConsumption": 15.7,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/80.jpg",
+          "isMain": true,
+          "description": "Occaecat nostrud officia velit eiusmod in anim tempor id tempor laborum elit."
+        }
+      ]
+    },
+    {
+      "Maker": "BMW",
+      "ModelName": "Beatriz",
+      "EnergyForm": "HEV",
+      "DateOfPublish": "2019-07-08",
+      "Length": 4556,
+      "Width": 1550,
+      "Height": 1698,
+      "Price": 1203000,
+      "HorsePower": 231.1,
+      "AirbagsNumber": 4,
+      "BootCapacity": 352.1,
+      "SizeAndType": "CUV",
+      "FuelConsumption": 12.8,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/71.jpg",
+          "isMain": true,
+          "description": "Anim nulla minim cupidatat cillum commodo quis nisi tempor do dolore nisi ipsum magna."
+        }
+      ]
+    },
+    {
+      "Maker": "Benz",
+      "ModelName": "Anita",
+      "EnergyForm": "EV",
+      "DateOfPublish": "2018-03-22",
+      "Length": 4373,
+      "Width": 1651,
+      "Height": 1672,
+      "Price": 1720000,
+      "HorsePower": 209,
+      "AirbagsNumber": 7,
+      "BootCapacity": 589.9,
+      "SizeAndType": "seden",
+      "FuelConsumption": 16.3,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/74.jpg",
+          "isMain": true,
+          "description": "Aute in anim pariatur duis ex in consequat cupidatat."
+        }
+      ]
+    },
+    {
+      "Maker": "Mazda",
+      "ModelName": "Tameka",
+      "EnergyForm": "EV",
+      "DateOfPublish": "2019-07-11",
+      "Length": 4057,
+      "Width": 1537,
+      "Height": 1642,
+      "Price": 1830000,
+      "HorsePower": 168.5,
+      "AirbagsNumber": 5,
+      "BootCapacity": 400.5,
+      "SizeAndType": "SUV",
+      "FuelConsumption": 14.1,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/3.jpg",
+          "isMain": true,
+          "description": "Exercitation non irure ullamco labore nostrud proident anim officia fugiat tempor do."
+        }
+      ]
+    },
+    {
+      "Maker": "Mazda",
+      "ModelName": "Angelia",
+      "EnergyForm": "PHEV",
+      "DateOfPublish": "2019-12-08",
+      "Length": 3971,
+      "Width": 1597,
+      "Height": 1698,
+      "Price": 1893000,
+      "HorsePower": 103.4,
+      "AirbagsNumber": 6,
+      "BootCapacity": 553.7,
+      "SizeAndType": "CUV",
+      "FuelConsumption": 15.2,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/31.jpg",
+          "isMain": true,
+          "description": "Et laboris aliqua incididunt pariatur sunt ea fugiat ullamco elit do cupidatat aliquip occaecat."
+        }
+      ]
+    },
+    {
+      "Maker": "Audi",
+      "ModelName": "Ola",
+      "EnergyForm": "PHEV",
+      "DateOfPublish": "2018-09-30",
+      "Length": 4456,
+      "Width": 1494,
+      "Height": 1459,
+      "Price": 1889000,
+      "HorsePower": 213.7,
+      "AirbagsNumber": 7,
+      "BootCapacity": 403.3,
+      "SizeAndType": "SUV",
+      "FuelConsumption": 15.3,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/80.jpg",
+          "isMain": true,
+          "description": "Aliquip veniam pariatur irure ullamco quis consequat sunt adipisicing mollit ad."
+        }
+      ]
+    },
+    {
+      "Maker": "Skoda",
+      "ModelName": "Celia",
+      "EnergyForm": "EV",
+      "DateOfPublish": "2020-06-10",
+      "Length": 4037,
+      "Width": 1550,
+      "Height": 1416,
+      "Price": 664000,
+      "HorsePower": 160.2,
+      "AirbagsNumber": 9,
+      "BootCapacity": 573.8,
+      "SizeAndType": "wagon",
+      "FuelConsumption": 14.5,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/31.jpg",
+          "isMain": true,
+          "description": "Officia commodo labore occaecat elit ad labore eu culpa mollit elit aliquip id sint laboris."
+        }
+      ]
+    },
+    {
+      "Maker": "Audi",
+      "ModelName": "Ana",
+      "EnergyForm": "PHEV",
+      "DateOfPublish": "2018-03-20",
+      "Length": 4585,
+      "Width": 1654,
+      "Height": 1788,
+      "Price": 686000,
+      "HorsePower": 134.3,
+      "AirbagsNumber": 4,
+      "BootCapacity": 456.9,
+      "SizeAndType": "CUV",
+      "FuelConsumption": 11.2,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/79.jpg",
+          "isMain": true,
+          "description": "Adipisicing commodo ea dolor voluptate quis nostrud sint excepteur nulla."
+        }
+      ]
+    },
+    {
+      "Maker": "Skoda",
+      "ModelName": "Barbra",
+      "EnergyForm": "EV",
+      "DateOfPublish": "2020-04-26",
+      "Length": 3934,
+      "Width": 1735,
+      "Height": 1669,
+      "Price": 686000,
+      "HorsePower": 201.9,
+      "AirbagsNumber": 9,
+      "BootCapacity": 360.6,
+      "SizeAndType": "wagon",
+      "FuelConsumption": 12.7,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/2.jpg",
+          "isMain": true,
+          "description": "Esse ipsum eu non est laborum."
+        }
+      ]
+    },
+    {
+      "Maker": "BMW",
+      "ModelName": "Adrian",
+      "EnergyForm": "EV",
+      "DateOfPublish": "2020-12-25",
+      "Length": 4202,
+      "Width": 1774,
+      "Height": 1565,
+      "Price": 1678000,
+      "HorsePower": 163,
+      "AirbagsNumber": 7,
+      "BootCapacity": 585.3,
+      "SizeAndType": "CUV",
+      "FuelConsumption": 11.8,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/28.jpg",
+          "isMain": true,
+          "description": "Veniam aliqua Lorem sunt velit ad fugiat consequat incididunt officia."
+        }
+      ]
+    },
+    {
+      "Maker": "Benz",
+      "ModelName": "Daphne",
+      "EnergyForm": "Petrol",
+      "DateOfPublish": "2019-02-06",
+      "Length": 4927,
+      "Width": 1345,
+      "Height": 1464,
+      "Price": 1817000,
+      "HorsePower": 285.5,
+      "AirbagsNumber": 9,
+      "BootCapacity": 561.1,
+      "SizeAndType": "seden",
+      "FuelConsumption": 10.8,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/8.jpg",
+          "isMain": true,
+          "description": "Cupidatat dolore nostrud qui nostrud."
+        }
+      ]
+    },
+    {
+      "Maker": "Audi",
+      "ModelName": "June",
+      "EnergyForm": "Petrol",
+      "DateOfPublish": "2019-05-09",
+      "Length": 4599,
+      "Width": 1568,
+      "Height": 1763,
+      "Price": 1212000,
+      "HorsePower": 153.5,
+      "AirbagsNumber": 6,
+      "BootCapacity": 593,
+      "SizeAndType": "wagon",
+      "FuelConsumption": 12.9,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/56.jpg",
+          "isMain": true,
+          "description": "Cupidatat officia sunt fugiat magna velit tempor nisi fugiat irure ea amet."
+        }
+      ]
+    },
+    {
+      "Maker": "Mazda",
+      "ModelName": "Theresa",
+      "EnergyForm": "HEV",
+      "DateOfPublish": "2019-10-22",
+      "Length": 4140,
+      "Width": 1768,
+      "Height": 1430,
+      "Price": 1369000,
+      "HorsePower": 286.1,
+      "AirbagsNumber": 6,
+      "BootCapacity": 359.7,
+      "SizeAndType": "seden",
+      "FuelConsumption": 18.7,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/12.jpg",
+          "isMain": true,
+          "description": "Eiusmod et elit laborum occaecat nisi enim aliquip."
+        }
+      ]
+    },
+    {
+      "Maker": "Skoda",
+      "ModelName": "Rosemary",
+      "EnergyForm": "PHEV",
+      "DateOfPublish": "2018-11-11",
+      "Length": 4722,
+      "Width": 1496,
+      "Height": 1535,
+      "Price": 756000,
+      "HorsePower": 260.5,
+      "AirbagsNumber": 7,
+      "BootCapacity": 541.3,
+      "SizeAndType": "CUV",
+      "FuelConsumption": 12.8,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/69.jpg",
+          "isMain": true,
+          "description": "Ipsum sunt cillum sint amet pariatur veniam deserunt cillum sint eu duis exercitation excepteur."
+        }
+      ]
+    },
+    {
+      "Maker": "Mazda",
+      "ModelName": "Jannie",
+      "EnergyForm": "HEV",
+      "DateOfPublish": "2018-11-04",
+      "Length": 4655,
+      "Width": 1422,
+      "Height": 1417,
+      "Price": 670000,
+      "HorsePower": 170.1,
+      "AirbagsNumber": 5,
+      "BootCapacity": 443.4,
+      "SizeAndType": "seden",
+      "FuelConsumption": 10.1,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/94.jpg",
+          "isMain": true,
+          "description": "Amet incididunt eu anim et sunt amet dolore id esse ullamco fugiat do."
+        }
+      ]
+    },
+    {
+      "Maker": "Mazda",
+      "ModelName": "Dora",
+      "EnergyForm": "HEV",
+      "DateOfPublish": "2020-05-12",
+      "Length": 4643,
+      "Width": 1592,
+      "Height": 1320,
+      "Price": 889000,
+      "HorsePower": 204.6,
+      "AirbagsNumber": 4,
+      "BootCapacity": 350.4,
+      "SizeAndType": "wagon",
+      "FuelConsumption": 10.8,
+      "Photos": [
+        {
+          "url": "https://randomuser.me/api/portraits/women/67.jpg",
+          "isMain": true,
+          "description": "Non reprehenderit duis commodo non duis ullamco voluptate velit ad deserunt eu."
+        }
+      ]
+    }
+  ]

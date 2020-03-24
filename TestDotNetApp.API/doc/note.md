@@ -133,7 +133,7 @@ dotnet ef migraitons remove # 移除最後一個migration
 
 # recover
 dotnet ef migrations add NewCarModelClass
-dotnet ef database update # reply migration
+dotnet ef database update # apply migration
 
 # 如果這時候執行 migration remove 會跳出 error, 因為已經apply到db
 dotnet ef migrations remove 
@@ -153,4 +153,4 @@ dotnet ef database update # recreate database
 * 修改 CarModel(User) 跟 Photo 的 relationship 再建立一次 migrations.
 在Photo中 加入 CarModel 和 CarModelId properties, 當User砍掉的時候, 相對應的Photo 也會砍掉 Cascade(變成 onDelete: ReferentialAction.Cascade)
 
-
+* [json generator](json_generator_carmodel.txt) and [seeding data example](carmodelseeding.json)
