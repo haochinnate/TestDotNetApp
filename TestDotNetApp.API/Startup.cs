@@ -36,11 +36,12 @@ namespace TestDotNetApp.API
         {
             services.AddDbContext<DataContext>(x => x.UseSqlite
             (Configuration.GetConnectionString("DefaultConnection")));
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();
             services.AddCors();
             // service is create once per request with in scope?
             // inject to controller
             services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<IMatchingRepository, MatchingRepository>();
 
             // specify authentication scheme
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

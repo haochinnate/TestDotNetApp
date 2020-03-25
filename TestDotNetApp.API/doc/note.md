@@ -154,3 +154,9 @@ dotnet ef database update # recreate database
 在Photo中 加入 CarModel 和 CarModelId properties, 當User砍掉的時候, 相對應的Photo 也會砍掉 Cascade(變成 onDelete: ReferentialAction.Cascade)
 
 * [json generator](json_generator_carmodel.txt) and [seeding data example](carmodelseeding.json)
+
+* 課程建立 \Data\IDatingRepository 和 DatingRepository (改叫做IMatchingRepository, MatchingRepository)
+
+* 要安裝 package Microsoft.AspNetCore.Mvc.NewtonsoftJson
+
+* 課程建立 \Controllers\UsersController (改叫做CarModelsController)
