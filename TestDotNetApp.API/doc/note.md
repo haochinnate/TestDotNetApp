@@ -1,3 +1,107 @@
+# Section 2: Building a Walking Skeleton
+
+* code . 
+* dotnet watch run 
+* Show all commands: Ctrl+Shift+P
+* nuget add package 
+* Microsoft.EntityFrameworkCore 3.0.0
+* Microsoft.EntityFrameworkCore.Sqlite 3.0.0
+* dotnet tool install --global dotnet-ef --version 3.0.0
+* dotnet ef migrations -h
+* dotnet ef migrations add InitialCreate
+* 要再安裝 Microsoft.EntityFrameworkCore.Design 3.0.0
+* dotnet ef database update // update the migrations
+* Go to file: Ctrl + P
+* test URL: http://localhost:5000/api/values 
+* asynchronous 
+
+## Angular 
+
+> Angular CLI (\AppData\Roaming\npm\node_modules\@angular\cli\bin\ng)
+  npm install -g @angular/cli 
+  ng new my-dream-app (ng new TestDotNetApp-SPA)(can not use '.')
+  cd my-dream-app
+  ng serve
+
+> -SPA/src/app/app.module.ts
+
+> -SPA/src/app/app.component.ts 用 @Component 來decorate (is class, but also has Angular features?)
+
+> extensions for Angular projects
+  Angular Snippets
+  Angular Files
+  Angular Language Service
+  Auto Rename Tag
+  Bracket Pair Colorizer
+  Debugger for Chrome
+  Material Icon Theme
+  Prettier
+  TSLint
+  Angular2-switcher
+> Alt + O 從 value.component.ts 移到 value.component.html
+  Alt + I 移到 value.component.css
+  Alt + U 移到 value.component.ts
+> Go to file: Ctrl + P (again)
+> -SPA and .API 兩個都要執行
+
+> BootStrap
+  cd testdotnetapp-spa
+  npm install bootstrap font-awesome
+
+
+# Section 3: Security
+
+Hashing a password, password -> SHA512 -> #$@#$#@ (not secure)
+Hashing and Salting a password, password -> Hash+Salt -> #$#$#!@#!@
+ 
+model and datacontext changed  
+
+```powershell
+dotnet ef migrations add AddedUserEntity # create new migration
+  # go to migrations folder to see create result 
+dotnet ef database update // update the migrations
+```
+
+*  debug 要先產生 launch.json, 按debug後 選擇 TestDotnetApp.API.exe
+
+*  http://localhost:5000/api/auth/register Postman中, Body 選擇 raw & JSON 
+  輸入參數
+  {
+	"username": "",
+	"password": ""
+  }
+
+  public async Task<IActionResult> Register([FromBody]UserForRegisterDto userForRegisterDto)
+  沒有用 [ApiController] 的話 要用 if(!ModelState.IsValid) return BadRequest(ModelState) 處理
+  並參數搭配 [FromBody] attribute: 
+  
+*  Token Authentication 
+  JSON Web Tokens (JWTs) 
+  self-contained and can contain: credentials, claims, other information
+  不用再去data store 驗證一次user, 直接用token驗證 看是否能用 api
+
+* 安裝 Microsoft.IdentityModel.Tokens 5.6.0
+       System.IdentityModel.Tokens.Jwt 5.6.0
+
+* injection IConfiguration 
+  使用 _config.GetSection("AppSettings:Token").Value
+  要在 appsettings.json 新增 "AppSettings" :{"Token": "super secret key"}
+
+* JWT.io 可以觀看 tokens decoded的內容
+
+* 安裝 Microsoft.AspNetCore.Authentication.JwtBearer 3.0.0
+* Authentication Middleware, 在Startup.cs裡面 要設定一些東西
+  還有controller 要加 attribute
+
+* appsettings.json 不要上傳到github比較好
+  git rm appsettings.json --cached
+
+* on production: using environment variables
+  或是使用 dotnet user-secrets (only for development?)
+  設定語法: dotnet user-secrets set "AppSettings:Tokens" "super secret key"
+  觀看語法: dotnet user-secrets list
+
+
 # Section 4: Client side login and register
 
 * 在 app.module.ts 中 import FormsModule
@@ -160,3 +264,26 @@ dotnet ef database update # recreate database
 * 要安裝 package Microsoft.AspNetCore.Mvc.NewtonsoftJson
 
 * 課程建立 \Controllers\UsersController (改叫做CarModelsController)
+
+* 在postman試API: GET http://localhost:5000/api/carmodels, 會有 JsonSerializationExcaption 因為 CarModel -> Photo -> CarModel, self reference loop, 用以下方式解決
+
+```csharp
+// 原本是這樣
+services.AddControllers().AddNewtonsoftJson(); 
+
+// 改成這樣
+services.AddControllers().AddNewtonsoftJson( opt => {
+    opt.SerializerSettings.ReferenceLoopHandling = 
+    Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+}); 
+```
+
+## Section 77. Shaping the data to return with DTOs
+
+* 建立Dto類別: UserForListDto(CarModel), UserForDetailedDto(CarModel), 避免傳入太多資料
+
+## Section 78. Using AutoMapper Part 1
+
+
+## Section 79. Using AutoMapper Part 2
+
