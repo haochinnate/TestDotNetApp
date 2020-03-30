@@ -2,6 +2,9 @@ using TestDotNetApp.API.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using AutoMapper;
+using TestDotNetApp.API.Dtos;
+using System.Collections.Generic;
 
 namespace TestDotNetApp.API.Controllers
 {
@@ -13,10 +16,13 @@ namespace TestDotNetApp.API.Controllers
         // original in course is UsersController, the api to get users 
 
         private readonly IMatchingRepository _repo;
+        private readonly IMapper _mapper;
+
         // private readonly IConfiguration _config;
-        public CarModelsController(IMatchingRepository repo)
+        public CarModelsController(IMatchingRepository repo, IMapper mapper)
         {
             _repo = repo;
+            _mapper = mapper;
             // _config = config;
         }
 
@@ -27,7 +33,10 @@ namespace TestDotNetApp.API.Controllers
         {
             var carModels = await _repo.GetCarModels();
 
-            return Ok(carModels);
+            // return object of Dto class instead of Model class
+            var carModelsToReturn = _mapper.Map<IEnumerable<CarModelForListDto>>(carModels);
+            
+            return Ok(carModelsToReturn);
         }
         
         [HttpGet("{Id}")]
@@ -35,9 +44,11 @@ namespace TestDotNetApp.API.Controllers
         {
             var carModel = await _repo.GetCarModel(id);
 
-            return Ok(carModel);
-        }
+            // return object of Dto class instead of Model class
+            var carModelToReturn = _mapper.Map<CarModelForDetailedDto>(carModel);
 
+            return Ok(carModelToReturn);
+        }
         
     }
 }

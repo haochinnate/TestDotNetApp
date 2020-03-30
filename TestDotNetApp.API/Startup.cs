@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
@@ -41,6 +42,10 @@ namespace TestDotNetApp.API
                 Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             });
             services.AddCors();
+
+            // add auto mapper
+            services.AddAutoMapper(typeof(MatchingRepository).Assembly);
+
             // service is create once per request with in scope?
             // inject to controller
             services.AddScoped<IAuthRepository, AuthRepository>();

@@ -280,10 +280,28 @@ services.AddControllers().AddNewtonsoftJson( opt => {
 
 ## Section 77. Shaping the data to return with DTOs
 
-* 建立Dto類別: UserForListDto(CarModel), UserForDetailedDto(CarModel), 避免傳入太多資料
+* 建立Dto類別: UserForListDto(CarModel), UserForDetailedDto(CarModel), 避免傳入太多資料, 或傳入不需要的資料
 
 ## Section 78. Using AutoMapper Part 1
 
+* ctrl+shift+p, Add Package 安裝 AutoMapper.Extension.Microsoft.DependencyInjection 7.0.0
+
+* tell service container about automapper, 在 Startup.cs 的 ConfigureServices function 中加入
+
+```csharp
+services.AddAutoMapper(typeof(MatchingRepository).Assembly);
+```
+
+* 修改 CarModelsController 中 回傳的物件, 變成 Dto class的物件
+
+* 還要告訴mapper 要如何對應 Dto 類別 跟 Model 類別, 建立一個 Helpers\AutoMapperProfiles 類別
 
 ## Section 79. Using AutoMapper Part 2
 
+* mapper 裡面可以再設定各 member 要如何對應(轉換)
+```csharp
+CreateMap<CarModel, CarModelForListDto>()
+    .ForMember(dest => dest.PhotoUrl, opt => 
+      opt.MapFrom(src => src.Photos.FirstOrDefault(p => p.IsMain).Url));
+```
+            

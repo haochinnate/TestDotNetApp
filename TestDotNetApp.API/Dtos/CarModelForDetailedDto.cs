@@ -22,6 +22,6 @@ namespace TestDotNetApp.API.Dtos
         public string SizeAndType { get; set; }
         public double FuelConsumption { get; set; }
         public string PhotoUrl { get; set; }
-        public ICollection<Photo> Photos { get; set; }
+        public ICollection<PhotosForDetailedDto> Photos { get; set; }
     }
 }
