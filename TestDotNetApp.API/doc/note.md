@@ -304,4 +304,57 @@ CreateMap<CarModel, CarModelForListDto>()
     .ForMember(dest => dest.PhotoUrl, opt => 
       opt.MapFrom(src => src.Photos.FirstOrDefault(p => p.IsMain).Url));
 ```
-            
+    
+# Section 9: Building a great looking User Interface
+
+## Section 82. Introduction to Interfaces in Typescript
+
+```typescript
+// OK
+let name = "daffy"
+name = 10
+
+// OK 
+let name: any = "daffy"
+name = 10
+
+// compile failed
+let name: string = "daffy"
+name = 10
+
+interface Duck{
+  name: string
+  hasWings: boolean
+}
+
+// both properties are needed 
+let daffy:Duck
+daffy = {
+  name: 'Daffy'
+  hasWings: true
+}
+
+// 如果要property 是 optional, 那就要在宣告加 '?' 符號
+// 例如 hasWings?: boolean 
+```
+
+* An interface is only used by TypeScript at __compile itme__, and is then removed. Interfaces 不會出現在最後的 JavaScript 輸出。
+
+* Interfaces 優點:
+  * Compile time checking
+  * Intellisense
+  * Auto Completion
+
+## Section 83. Adding Interfaces to our Typescript code
+
+* optional 的 property要擺在 必要的property後面
+
+## Section 84. Creating another Angular service
+
+* 再建一個service 用來取得 carmodel (user)
+
+## Section 85. Retrieving the Members into the Member List Component 
+
+## Section 86. Creating Member Cards to display on our Member list page
+
+## Section 87. Giving our Members some style with CSS
