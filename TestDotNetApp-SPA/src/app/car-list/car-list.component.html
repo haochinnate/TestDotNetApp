@@ -1,3 +1,10 @@
-<p>
+<!-- <p>
   car-list works!
-</p>
+</p> -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2 col-md-3 col-sm-6">
+      <p *ngFor="let carmodel of carmodels">{{carmodel.modelName}}</p>
+    </div>
+  </div>
+</div>

@@ -353,7 +353,22 @@ daffy = {
 
 * 再建一個service 用來取得 carmodel (user)
 
+* environment.ts 檔案 設定 base url, 之前 AuthService 是在 class 裡面自己設定
+
+```typescript
+// carmodel.service.ts 用下列方式來設定 baseurl
+baseUrl = environment.apiurl;
+```
+
+* production的時候可以用另外一個 environment.prod.ts 來設定 url
+
+* 在 carmodel.service 內 建立一個 httpOption 裡面包含 token 用來傳入 get function 
+
 ## Section 85. Retrieving the Members into the Member List Component 
+
+* MemberListComponent 即是 CarListComponent
+
+* 在 component 中使用 service 來取得資料, 並在 html 中列出來
 
 ## Section 86. Creating Member Cards to display on our Member list page
 
