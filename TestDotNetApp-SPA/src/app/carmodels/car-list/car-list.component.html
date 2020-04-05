@@ -1,0 +1,11 @@
+<!-- <p>
+  car-list works!
+</p> -->
+<div class="container mt-5">
+  <div class="row">
+    <div *ngFor="let carmodel of carmodels" class="col-lg-2 col-md-3 col-sm-6">
+      <!-- <p *ngFor="let carmodel of carmodels">{{carmodel.modelName}}</p> -->
+      <app-car-card [carmodel]="carmodel"></app-car-card>
+    </div>
+  </div>
+</div>

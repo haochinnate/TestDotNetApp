@@ -372,4 +372,12 @@ baseUrl = environment.apiurl;
 
 ## Section 86. Creating Member Cards to display on our Member list page
 
+* 建立資料夾 members (即carmodels), 把 car-list componet 放進去, 然後要refactor 引入路徑
+
+* 建立 CarCardComponent 也放在 carmodels 資料夾中
+
+* 用 bootstrap 的 [card](https://getbootstrap.com/docs/4.4/components/card/) component
+
+* 在 car-list component 中 "[carmodel]" 當成 input property
+
 ## Section 87. Giving our Members some style with CSS

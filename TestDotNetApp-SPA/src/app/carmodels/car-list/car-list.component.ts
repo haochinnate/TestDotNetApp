@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Carmodel } from '../_models/carmodel';
-import { CarmodelService } from '../_services/carmodel.service';
-import { AlertifyService } from '../_services/alertify.service';
+import { Carmodel } from '../../_models/carmodel';
+import { CarmodelService } from '../../_services/carmodel.service';
+import { AlertifyService } from '../../_services/alertify.service';
 
 @Component({
   selector: 'app-car-list',

@@ -1,7 +1,7 @@
 import {Routes} from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { MessagesComponent } from './messages/messages.component';
-import { CarListComponent } from './car-list/car-list.component';
+import { CarListComponent } from './carmodels/car-list/car-list.component';
 import { ListsComponent } from './lists/lists.component';
 import { AuthGuard } from './_guards/auth.guard';
 

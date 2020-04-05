@@ -13,10 +13,11 @@ import { AuthService } from './_services/auth.service';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
-import { CarListComponent } from './car-list/car-list.component';
+import { CarListComponent } from './carmodels/car-list/car-list.component';
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { appRoutes } from './routes';
+import { CarCardComponent } from './carmodels/car-card/car-card.component';
 
 @NgModule({
    declarations: [
@@ -26,7 +27,8 @@ import { appRoutes } from './routes';
       RegisterComponent,
       CarListComponent,
       ListsComponent,
-      MessagesComponent
+      MessagesComponent,
+      CarCardComponent
    ],
    imports: [
       BrowserModule,
