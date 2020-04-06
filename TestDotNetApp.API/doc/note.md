@@ -381,3 +381,21 @@ baseUrl = environment.apiurl;
 * 在 car-list component 中 "[carmodel]" 當成 input property
 
 ## Section 87. Giving our Members some style with CSS
+
+* car-card.component.css 中 加入針對 image的動畫效果
+
+## Section 88. Adding animated buttons to the member cards
+
+* ul.list-inline.member-icons.animate.text-center
+* unorder list, inline list, 按鈕會出現在每行水平
+* member-icons: class for ability to style 
+* animate: class for apply animation styles to button
+* text-center: buttons are centrally aligned inside each member card
+
+## Section 89. Using Auth0 jwtModule to send up jwt tokens automatically
+
+## Section 90. Creating the Member Detailed View component class
+
+## Section 91. Designing the Member detailed view template - left hand side
+
+## Section 92. Adding a tabbed panel for the right hand side of the Member detailed page
