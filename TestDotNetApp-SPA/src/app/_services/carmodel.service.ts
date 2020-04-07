@@ -4,12 +4,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Carmodel } from '../_models/carmodel';
 
-const httpOption = {
-  headers: new HttpHeaders({
-    Authorization: 'Bearer ' + localStorage.getItem('token')
-  })
-};
-
 @Injectable({
   providedIn: 'root'
 })
@@ -19,10 +13,10 @@ export class CarmodelService {
   constructor(private http: HttpClient) { }
 
   getCarModels(): Observable<Carmodel []> {
-    return this.http.get<Carmodel []>(this.baseUrl + 'carmodels', httpOption);
+    return this.http.get<Carmodel []>(this.baseUrl + 'carmodels');
   }
 
   getCarModel(id): Observable<Carmodel> {
-    return this.http.get<Carmodel>(this.http.get + 'carmodels/' + id, httpOption);
+    return this.http.get<Carmodel>(this.http.get + 'carmodels/' + id);
   }
 }

@@ -394,6 +394,14 @@ baseUrl = environment.apiurl;
 
 ## Section 89. Using Auth0 jwtModule to send up jwt tokens automatically
 
+* https://github.com/auth0/angular2-jwt, 看 Usage: Injection 章節
+
+* This library provides an HttpInterceptor which automatically attaches a JSON Web Token to HttpClient requests.
+
+* 不只有 login, 幾乎所有的http request 都應該要有 jwt token
+
+* 在 app.module.ts 中加入JwtModule 控制白名單跟黑名單
+
 ## Section 90. Creating the Member Detailed View component class
 
 ## Section 91. Designing the Member detailed view template - left hand side
