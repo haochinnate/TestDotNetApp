@@ -404,6 +404,12 @@ baseUrl = environment.apiurl;
 
 ## Section 90. Creating the Member Detailed View component class
 
+* 建立 car-detail component 
+
+* 在 route.ts 中 增加 網址路徑 規則: { path: 'cars/:id', component: CarDetailComponent}
+
+* 在 car-card component 中, 要設定button 連去 car-detail component: [routerLink]="['/car/', carmodel.id]"
+
 ## Section 91. Designing the Member detailed view template - left hand side
 
 ## Section 92. Adding a tabbed panel for the right hand side of the Member detailed page

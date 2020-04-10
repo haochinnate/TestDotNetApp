@@ -18,6 +18,7 @@ import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { appRoutes } from './routes';
 import { CarCardComponent } from './carmodels/car-card/car-card.component';
+import { CarDetailComponent } from './carmodels/car-detail/car-detail.component';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -32,7 +33,8 @@ export function tokenGetter() {
       CarListComponent,
       ListsComponent,
       MessagesComponent,
-      CarCardComponent
+      CarCardComponent,
+      CarDetailComponent
    ],
    imports: [
       BrowserModule,
