@@ -24,7 +24,7 @@ export class CarDetailComponent implements OnInit {
   loadCarmodel() {
     // this.route.snapshot.params.id or this.route.snapshot.param['id'] ?
     // + operator is for force pass parameter as int
-    this.carmodelService.getCarModel(+this.route.snapshot.params.id).subscribe((carmodel: Carmodel) => {
+    this.carmodelService.getCarModel(+this.route.snapshot.params['id']).subscribe((carmodel: Carmodel) => {
       this.carmodel = carmodel;
     }, error => {
       this.alertify.error(error);

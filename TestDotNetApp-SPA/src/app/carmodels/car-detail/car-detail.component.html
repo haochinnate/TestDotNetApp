@@ -1,3 +1,40 @@
-<p>
+<!-- <p>
   {{carmodel?.modelName}}
-</p>
+</p> -->
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <img class="card-img-top img-thumbnail" src="{{carmodel?.photoUrl}}" alt="{{carmodel?.modelName}}">
+        <div class="card-body">
+          <div>
+            <strong>Model:</strong>
+            <p>{{carmodel?.maker}}, {{carmodel?.modelName}} {{carmodel?.levelName}}</p>
+          </div>
+          <div>
+            <strong>Published Date:</strong>
+            <p>{{carmodel?.published}}</p>
+          </div>
+          <div>
+            <strong>Energy Info:</strong>
+            <p>{{carmodel?.energyForm}}, {{carmodel.fuelConsumption}}km/l</p>
+          </div>
+          <div>
+            <strong>Price:</strong>
+            <p>{{carmodel?.price}}</p>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="btn-group d-flex">
+            <button class="btn btn-primary w-100">Like</button>
+            <button class="btn btn-success w-100">Message</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8">
+
+    </div>
+  </div>
+</div>
