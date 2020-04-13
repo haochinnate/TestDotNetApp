@@ -4,6 +4,7 @@
 
 <div class="container mt-4">
   <div class="row">
+    <!-- left hand side -->
     <div class="col-sm-4">
       <div class="card">
         <img class="card-img-top img-thumbnail" src="{{carmodel?.photoUrl}}" alt="{{carmodel?.modelName}}">
@@ -33,8 +34,47 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-8">
 
+    <!-- right hand side -->
+    <div class="col-sm-8">
+      <div class="tab-panel">
+        <tabset class="car-tabset">
+          <tab heading="About {{carmodel?.modelName}}">
+            <h4>Description</h4>
+            <p>{{carmodel?.introduction}}</p>
+            <h4>Maker</h4>
+            <p>{{carmodel?.maker}}</p>
+            <h4>Level Name</h4>
+            <p>{{carmodel?.levelName}}</p>
+          </tab>
+          
+          <tab heading="Size Information">
+            <h4>Length</h4>
+            <p>{{carmodel?.length}}</p>
+            <h4>Width</h4>
+            <p>{{carmodel?.width}}</p>
+            <h4>Height</h4>
+            <p>{{carmodel?.height}}</p>
+            <h4>Boot Capacity</h4>
+            <p>{{carmodel?.bootCapacity}}</p>
+            <h4>Size and Type</h4>
+            <p>{{carmodel?.sizeAndType}}</p>
+          </tab>
+
+          <tab heading="Photos">
+            <p>Photos will go here</p>
+          </tab>
+          
+          <tab heading="Message">
+            <p>Message will go here</p>
+          </tab>
+        </tabset>
+      </div>
     </div>
+
+    <!-- i
+    horsePower: number;
+    airbagsNumber: number;-->
+
   </div>
 </div>

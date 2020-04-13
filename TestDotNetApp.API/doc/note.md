@@ -412,4 +412,11 @@ baseUrl = environment.apiurl;
 
 ## Section 91. Designing the Member detailed view template - left hand side
 
+* put more componet to car-detail component 
+
 ## Section 92. Adding a tabbed panel for the right hand side of the Member detailed page
+
+* 用 ngx-bootstrap 的 TabModule, 在 app.module.ts 中 加入 imports
+
+* import { BsDropdownModule, TabsModule } from 'ngx-bootstrap';
+
