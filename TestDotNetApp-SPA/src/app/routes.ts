@@ -5,6 +5,8 @@ import { CarListComponent } from './carmodels/car-list/car-list.component';
 import { CarDetailComponent } from './carmodels/car-detail/car-detail.component';
 import { ListsComponent } from './lists/lists.component';
 import { AuthGuard } from './_guards/auth.guard';
+import { CarDetailResolver } from './_resolvers/car-detail.resolver';
+import { CarListResolver } from './_resolvers/car-list.resolver';
 
 export const appRoutes: Routes = [
     { path: '', component: HomeComponent},
@@ -14,8 +16,8 @@ export const appRoutes: Routes = [
         canActivate: [AuthGuard],
         children: [
             // { path: 'cars', component: CarListComponent, canActivate: [AuthGuard]},
-            { path: 'cars', component: CarListComponent},
-            { path: 'cars/:id', component: CarDetailComponent},
+            { path: 'cars', component: CarListComponent, resolve: {carmodels: CarListResolver}},
+            { path: 'cars/:id', component: CarDetailComponent, resolve: {carmodel: CarDetailResolver}},
             { path: 'messages', component: MessagesComponent},
             { path: 'lists', component: ListsComponent},
         ]

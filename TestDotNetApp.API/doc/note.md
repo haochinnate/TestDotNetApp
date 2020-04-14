@@ -420,3 +420,25 @@ baseUrl = environment.apiurl;
 
 * import { BsDropdownModule, TabsModule } from 'ngx-bootstrap';
 
+## Section 93. Using Route Resolver to retrieve data
+
+* to avoid using safe navigation operator "?" in side our member
+
+* 新建立 _resolvers 資料夾 跟 car-detail.resolver.ts 檔案
+
+* 找不到 carmodel(user) 的話, 導回 /cars (/members)
+
+* 在 app.module.ts 中的 providers 中, 加入 car-detail resolver
+          
+* route.ts 檔案中也要加  { path: 'cars/:id', component: CarDetailComponent, __resolve: {carmodel: CarDetailResolver}}__
+
+* car-detail component ts 檔中, 變成不是呼叫 this.loadCarmodel() 來取得物件. 變成用 this.carmodel = data['carmodel'] 來取得, 其中 'carmodel' 這個字串是在 route.ts 中 上一項定義的
+
+* 在 html 檔案中, 就可以把 "?" operator 拿掉
+
+* 在建立另外一個 car-list.resolver.ts
+
+## Section 94. Adding a photo gallery to our application
+
+# Section 10: Updating Resources
+

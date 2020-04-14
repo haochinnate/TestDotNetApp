@@ -19,6 +19,8 @@ import { MessagesComponent } from './messages/messages.component';
 import { appRoutes } from './routes';
 import { CarCardComponent } from './carmodels/car-card/car-card.component';
 import { CarDetailComponent } from './carmodels/car-detail/car-detail.component';
+import { CarDetailResolver } from './_resolvers/car-detail.resolver';
+import { CarListResolver } from './_resolvers/car-list.resolver';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -54,7 +56,12 @@ export function tokenGetter() {
    ],
    providers: [
       ErrorInterceptorProvider,
-      AuthService
+      AuthService,
+      CarDetailResolver,
+      CarListResolver
+      // AlertifyService,
+      // AuthGuard,
+      // CarmodelService
    ],
    bootstrap: [
       AppComponent

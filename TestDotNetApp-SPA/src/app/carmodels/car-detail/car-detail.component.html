@@ -7,19 +7,19 @@
     <!-- left hand side -->
     <div class="col-sm-4">
       <div class="card">
-        <img class="card-img-top img-thumbnail" src="{{carmodel?.photoUrl}}" alt="{{carmodel?.modelName}}">
+        <img class="card-img-top img-thumbnail" src="{{carmodel.photoUrl}}" alt="{{carmodel.modelName}}">
         <div class="card-body">
           <div>
             <strong>Model:</strong>
-            <p>{{carmodel?.maker}}, {{carmodel?.modelName}} {{carmodel?.levelName}}</p>
+            <p>{{carmodel.maker}}, {{carmodel.modelName}} {{carmodel.levelName}}</p>
           </div>
           <div>
             <strong>Published Date:</strong>
-            <p>{{carmodel?.published}}</p>
+            <p>{{carmodel.published}}</p>
           </div>
           <div>
             <strong>Energy Info:</strong>
-            <p>{{carmodel?.energyForm}}, {{carmodel.fuelConsumption}}km/l</p>
+            <p>{{carmodel.energyForm}}, {{carmodel.fuelConsumption}}km/l</p>
           </div>
           <div>
             <strong>Price:</strong>
@@ -39,26 +39,26 @@
     <div class="col-sm-8">
       <div class="tab-panel">
         <tabset class="car-tabset">
-          <tab heading="About {{carmodel?.modelName}}">
+          <tab heading="About {{carmodel.modelName}}">
             <h4>Description</h4>
-            <p>{{carmodel?.introduction}}</p>
+            <p>{{carmodel.introduction}}</p>
             <h4>Maker</h4>
-            <p>{{carmodel?.maker}}</p>
+            <p>{{carmodel.maker}}</p>
             <h4>Level Name</h4>
-            <p>{{carmodel?.levelName}}</p>
+            <p>{{carmodel.levelName}}</p>
           </tab>
           
           <tab heading="Size Information">
             <h4>Length</h4>
-            <p>{{carmodel?.length}}</p>
+            <p>{{carmodel.length}}</p>
             <h4>Width</h4>
-            <p>{{carmodel?.width}}</p>
+            <p>{{carmodel.width}}</p>
             <h4>Height</h4>
-            <p>{{carmodel?.height}}</p>
+            <p>{{carmodel.height}}</p>
             <h4>Boot Capacity</h4>
-            <p>{{carmodel?.bootCapacity}}</p>
+            <p>{{carmodel.bootCapacity}}</p>
             <h4>Size and Type</h4>
-            <p>{{carmodel?.sizeAndType}}</p>
+            <p>{{carmodel.sizeAndType}}</p>
           </tab>
 
           <tab heading="Photos">

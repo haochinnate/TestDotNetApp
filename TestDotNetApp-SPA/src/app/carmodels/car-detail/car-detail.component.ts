@@ -17,18 +17,21 @@ export class CarDetailComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.loadCarmodel();
+    // this.loadCarmodel();
+    this.route.data.subscribe(data => {
+      this.carmodel = data['carmodel'];
+    });
   }
 
   // cars/4
-  loadCarmodel() {
-    // this.route.snapshot.params.id or this.route.snapshot.param['id'] ?
-    // + operator is for force pass parameter as int
-    this.carmodelService.getCarModel(+this.route.snapshot.params['id']).subscribe((carmodel: Carmodel) => {
-      this.carmodel = carmodel;
-    }, error => {
-      this.alertify.error(error);
-    });
-  }
+  // loadCarmodel() {
+  //   // this.route.snapshot.params.id or this.route.snapshot.param['id'] ?
+  //   // + operator is for force pass parameter as int
+  //   this.carmodelService.getCarModel(+this.route.snapshot.params['id']).subscribe((carmodel: Carmodel) => {
+  //     this.carmodel = carmodel;
+  //   }, error => {
+  //     this.alertify.error(error);
+  //   });
+  // }
 
 }
