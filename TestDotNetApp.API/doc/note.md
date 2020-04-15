@@ -438,7 +438,15 @@ baseUrl = environment.apiurl;
 
 * 在建立另外一個 car-list.resolver.ts
 
+* 找不到carmodel 還是沒導回@@
+
 ## Section 94. Adding a photo gallery to our application
+
+* 用 [ngx-gallery](https://www.npmjs.com/package/ngx-gallery), npm install ngx-gallery --save
+
+* npm audit fix
+
+* 只用後會有問題, 還要另外在 app.module.ts 中 加CustomHammerConfig, 這是別人提供的解法
 
 # Section 10: Updating Resources
 
