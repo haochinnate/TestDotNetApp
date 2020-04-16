@@ -22,6 +22,7 @@ import { CarCardComponent } from './carmodels/car-card/car-card.component';
 import { CarDetailComponent } from './carmodels/car-detail/car-detail.component';
 import { CarDetailResolver } from './_resolvers/car-detail.resolver';
 import { CarListResolver } from './_resolvers/car-list.resolver';
+import { CarEditComponent } from './carmodels/car-edit/car-edit.component';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -44,7 +45,8 @@ export class CustomHammerConfig extends HammerGestureConfig {
       ListsComponent,
       MessagesComponent,
       CarCardComponent,
-      CarDetailComponent
+      CarDetailComponent,
+      CarEditComponent
    ],
    imports: [
       BrowserModule,

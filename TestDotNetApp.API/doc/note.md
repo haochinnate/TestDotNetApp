@@ -450,3 +450,25 @@ baseUrl = environment.apiurl;
 
 # Section 10: Updating Resources
 
+## Section 96. Introduction
+
+* nothing 
+
+## Section 97. Creating a Member Edit Component
+
+* 建一個新的 car-edit component (member-edit component), 在 app.module.ts declarations 要加入
+
+* routes.ts 中, 原本課程是 {path: 'member/edit', component: MemberEditComponent}, 因為只能編輯自己的資料
+
+* 可能改成 member/edit/id 這邊開始會差異比較多
+
+* { path: 'cars/edit/:id', component: CarEditComponent},
+
+
+## Section 98. Designing the template for the member profile edit page - part 1
+
+## Section 99. Designing the Member Edit Template - part 2
+
+## Section 100. Adding a CanDeactive route guard
+
+## Section 101. Persisting the Member updates

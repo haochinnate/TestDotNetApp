@@ -12,7 +12,7 @@ export class NavComponent implements OnInit {
   model: any = {}; //  empty object to store username and password
 
   // private authService doesn't have error likes in course video
-  constructor(public authService: AuthService, private alertify: AlertifyService, 
+  constructor(public authService: AuthService, private alertify: AlertifyService,
               private router: Router) { }
 
   ngOnInit() {

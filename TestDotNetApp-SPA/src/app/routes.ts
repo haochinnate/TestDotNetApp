@@ -7,6 +7,7 @@ import { ListsComponent } from './lists/lists.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { CarDetailResolver } from './_resolvers/car-detail.resolver';
 import { CarListResolver } from './_resolvers/car-list.resolver';
+import { CarEditComponent } from './carmodels/car-edit/car-edit.component';
 
 export const appRoutes: Routes = [
     { path: '', component: HomeComponent},
@@ -18,6 +19,7 @@ export const appRoutes: Routes = [
             // { path: 'cars', component: CarListComponent, canActivate: [AuthGuard]},
             { path: 'cars', component: CarListComponent, resolve: {carmodels: CarListResolver}},
             { path: 'cars/:id', component: CarDetailComponent, resolve: {carmodel: CarDetailResolver}},
+            { path: 'cars/edit/:id', component: CarEditComponent},
             { path: 'messages', component: MessagesComponent},
             { path: 'lists', component: ListsComponent},
         ]
