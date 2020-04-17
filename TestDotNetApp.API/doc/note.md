@@ -464,6 +464,9 @@ baseUrl = environment.apiurl;
 
 * { path: 'cars/edit/:id', component: CarEditComponent},
 
+* 課程中要再用一個resolver 來取得目前登入的 user, 才能決定要edit 哪個user的資料, 先照樣建立一個 car-edit resolver
+
+* 在 routes.ts 裡面 { path: 'cars/edit/:id', component: CarEditComponent, resolve: {carmodel: CarEditResolver}},
 
 ## Section 98. Designing the template for the member profile edit page - part 1
 

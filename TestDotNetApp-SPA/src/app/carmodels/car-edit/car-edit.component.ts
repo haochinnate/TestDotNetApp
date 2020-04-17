@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Carmodel } from 'src/app/_models/carmodel';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-car-edit',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./car-edit.component.css']
 })
 export class CarEditComponent implements OnInit {
+  carmodel: Carmodel;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.data.subscribe(data => {
+      this.carmodel = data['carmodel'];
+    });
   }
 
 }
