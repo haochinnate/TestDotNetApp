@@ -472,6 +472,9 @@ baseUrl = environment.apiurl;
 
 ## Section 99. Designing the Member Edit Template - part 2
 
+* @ViewChild('editForm', {static: true}) editForm: NgForm;
+* 用ViewChild 可以取得 html 中的元件 
+
 ## Section 100. Adding a CanDeactive route guard
 
 ## Section 101. Persisting the Member updates
