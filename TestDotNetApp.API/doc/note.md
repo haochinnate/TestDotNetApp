@@ -477,4 +477,8 @@ baseUrl = environment.apiurl;
 
 ## Section 100. Adding a CanDeactive route guard
 
+* 增加 guard 避免使用者未儲存就跳離開網頁: PreventUnsavedChanges
+
+* 但是用 這個還有問題是, 從瀏覽器 "關閉" 分頁無法得知, 所以還要另外加 listener
+
 ## Section 101. Persisting the Member updates

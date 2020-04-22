@@ -24,6 +24,8 @@ import { CarDetailResolver } from './_resolvers/car-detail.resolver';
 import { CarListResolver } from './_resolvers/car-list.resolver';
 import { CarEditComponent } from './carmodels/car-edit/car-edit.component';
 import { CarEditResolver } from './_resolvers/car-edit.resolver';
+import { AuthGuard } from './_guards/auth.guard';
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -72,9 +74,10 @@ export class CustomHammerConfig extends HammerGestureConfig {
       CarDetailResolver,
       CarListResolver,
       { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig},
-      CarEditResolver
+      CarEditResolver,
+      AuthGuard,
+      PreventUnsavedChanges
       // AlertifyService,
-      // AuthGuard,
       // CarmodelService
    ],
    bootstrap: [
