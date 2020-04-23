@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using AutoMapper;
 using TestDotNetApp.API.Dtos;
 using System.Collections.Generic;
+using System.Security.Claims;
+using System;
 
 namespace TestDotNetApp.API.Controllers
 {
@@ -50,5 +52,28 @@ namespace TestDotNetApp.API.Controllers
             return Ok(carModelToReturn);
         }
         
+        [HttpPut("{Id}")]
+        public async Task<IActionResult> UpdateCarModel(int id, CarModelForUpdateDto carModelForUpdateDto)
+        {
+            // check the user was attempting to update their profile matches the token
+            // if (id != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
+            // {
+            //     return Unauthorized();
+            // }
+            
+            // 原先課程的範例是 update 自己的 資料, 改成 update 任意車的資料, 所以應該不用上面的 check
+
+            var carModelFromRepo = await _repo.GetCarModel(id);
+
+            _mapper.Map(carModelForUpdateDto, carModelFromRepo);
+
+            // save the changes
+            if (await _repo.SaveAll())
+            {
+                return NoContent();
+            }
+
+            throw new Exception($"Updating carmodel {id} failed on save");
+        }
     }
 }

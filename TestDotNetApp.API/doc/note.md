@@ -481,4 +481,10 @@ baseUrl = environment.apiurl;
 
 * 但是用 這個還有問題是, 從瀏覽器 "關閉" 分頁無法得知, 所以還要另外加 listener
 
+* HostListener: 就是瀏覽器, 接收event 來處理 關閉分頁的情況
+
 ## Section 101. Persisting the Member updates
+
+* 建立一個新的 UpdateDto 類別
+
+* 在 CarModelsController 增加一個 UpdateCarModel function 是 'HttpPut'
