@@ -488,3 +488,44 @@ baseUrl = environment.apiurl;
 * 建立一個新的 UpdateDto 類別
 
 * 在 CarModelsController 增加一個 UpdateCarModel function 是 'HttpPut'
+
+* 實務上還要注意 哪些是 要放在 UpdateDto裡面的, 如果 Dto 的 property有, 但是 postman 那邊沒有的話, 好像會給預設值
+
+## Section 102. Finishing off the Member edit component
+
+* 在 car-model service (user-service) 中, 建立 update 的 function 連結 API, updateCarModel
+
+* car-edit component 中, 修改 updateCarmodel function
+
+# Section 11: Adding Photo upload functionality to the application
+
+## Section 105. Where should we store the photos?
+
+* DB: least efficitent place to store objects such as photographs
+
+* File System
+
+* Cloud provider
+
+* Use Cloudinary
+
+
+## Section 106. Using Cloudinary as a photo storage solution
+
+## Section 107. Creating the Photos Controller Part 1
+
+## Section 108. Creating the Photos Controller Part 2
+
+## Section 109. Testing the Photo upload with Postman
+
+## Section 110. Creating the Photo upload component in Angular
+
+## Section 111. Adding a 3rd Party File Uploader
+
+## Section 112. Configuring the 3rd Party File Uploader
+
+## Section 113. Adding the Set Main photo functionality to the API
+
+## Section 114. Adding the Set Main photo functionality to the SPA
+
+## Section 115. Using the array filter method to provide instant feedback in the SPA

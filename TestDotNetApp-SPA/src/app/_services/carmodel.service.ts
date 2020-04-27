@@ -19,4 +19,9 @@ export class CarmodelService {
   getCarModel(id): Observable<Carmodel> {
     return this.http.get<Carmodel>(this.baseUrl + 'carmodels/' + id);
   }
+
+  updateCarModel(id: number, carmodel: Carmodel) {
+    return this.http.put(this.baseUrl + 'carmodels/' + id, carmodel);
+  }
+
 }

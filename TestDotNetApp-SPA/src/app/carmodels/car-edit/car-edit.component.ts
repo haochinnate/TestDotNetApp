@@ -3,6 +3,9 @@ import { Carmodel } from 'src/app/_models/carmodel';
 import { ActivatedRoute } from '@angular/router';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { NgForm } from '@angular/forms';
+import { CarmodelService } from 'src/app/_services/carmodel.service';
+import { AuthService } from 'src/app/_services/auth.service';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-car-edit',
@@ -21,7 +24,10 @@ export class CarEditComponent implements OnInit {
     }
   }
 
-  constructor(private route: ActivatedRoute, private alertify: AlertifyService) { }
+  constructor(private route: ActivatedRoute,
+              private alertify: AlertifyService,
+              private carmodelService: CarmodelService,
+              private authService: AuthService) { }
 
   ngOnInit() {
     this.route.data.subscribe(data => {
@@ -30,8 +36,21 @@ export class CarEditComponent implements OnInit {
   }
 
   updateCarmodel() {
-    console.log(this.carmodel);
-    this.alertify.success('Profile updated successfully');
-    this.editForm.reset(this.carmodel); // to only clean the dirty state
+    // console.log(this.carmodel);
+    // this.userService.updateUser(this.authService.decodedToken.nameid, this.user).subscribe(next => {
+    //   this.alertify.success('Profile updated successfully');
+    //   this.editForm.reset(this.user); // to only clean the dirty state
+    // }, error => {
+    //   this.alertify.error(error));
+    // });
+
+    this.carmodelService.updateCarModel(this.carmodel.id, this.carmodel).subscribe(
+      next => {
+        this.alertify.success('Profile updated successfully');
+        this.editForm.reset(this.carmodel); // to only clean the dirty state
+      }, error => {
+        this.alertify.error(error);
+      }
+    );
   }
 }
