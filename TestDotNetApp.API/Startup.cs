@@ -43,6 +43,8 @@ namespace TestDotNetApp.API
             });
             services.AddCors();
 
+            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
+
             // add auto mapper
             services.AddAutoMapper(typeof(MatchingRepository).Assembly);
 

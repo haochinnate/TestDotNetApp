@@ -507,10 +507,36 @@ baseUrl = environment.apiurl;
 
 * Cloud provider
 
-* Use Cloudinary
-
+* Use [Cloudinary](https://cloudinary.com/)
 
 ## Section 106. Using Cloudinary as a photo storage solution
+
+* [Documentation-Upload Image](https://cloudinary.com/documentation/upload_images)
+  * [.NET version](https://cloudinary.com/documentation/dotnet_image_and_video_upload#server_side_upload)
+
+* [Documentation-Image transformations](https://cloudinary.com/documentation/image_transformations)
+
+* HTTPS, 用 cloud_name, api_key, api_secret
+
+* usr our API as a kind of proxy, user load the image to our API and then our API directly upload the photo into cloudinary
+
+* 在 appsetting.json 中 加入 cloudinary的設定
+
+* 建立一個新的類別 CloudinarySettings 來存
+
+* 在 Startup 類別的 ConfigureServices function, 加入下列程式碼取得 appsetting.json 的設定 
+
+```csharp
+    services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
+```
+
+* 在 Photo 類別中, 要增加 PublicId, 用來記 cloudinary那邊的資訊
+
+* dotnet ef migrations add AddPublicId
+
+* dotnet ef database update
+
+* nuget 新增 package: CloudinaryDotNet
 
 ## Section 107. Creating the Photos Controller Part 1
 

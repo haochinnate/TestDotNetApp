@@ -9,6 +9,7 @@ namespace TestDotNetApp.API.Models
         public string Description { get; set; }
         public DateTime DateAdded { get; set; }
         public bool IsMain { get; set; }
+        public string PublicId { get; set; }
         public CarModel CarModel { get; set; }
         public int CarModelId { get; set; }
     }
