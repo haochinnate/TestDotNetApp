@@ -540,6 +540,12 @@ baseUrl = environment.apiurl;
 
 ## Section 107. Creating the Photos Controller Part 1
 
+* 新建 PhotosController, 並在裡面設定 Account 和 Cloudinary object 
+
+* 建立 PhotoForCreationDto 類別, 用來建立 photo 的
+
+* 實作 AddPhotoForCarmodel function
+
 ## Section 108. Creating the Photos Controller Part 2
 
 ## Section 109. Testing the Photo upload with Postman
