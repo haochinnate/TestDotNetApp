@@ -42,6 +42,17 @@ namespace TestDotNetApp.API.Controllers
             _cloudinary = new Cloudinary(account);
         }
 
+        [HttpGet("{id}", Name="GetPhoto")]
+        public async Task<ActionResult> GetPhoto(int id)
+        {
+            var photoFromRepo = await _repo.GetPhoto(id);
+
+            var photo = _mapper.Map<PhotoForReturnDto>(photoFromRepo);
+
+            return Ok(photo);
+        }
+
+
         [HttpPost]
         public async Task<IActionResult> AddPhotoForCarmodel(int carmodelId, 
             PhotoForCreationDto photoForCreationDto)
@@ -88,7 +99,13 @@ namespace TestDotNetApp.API.Controllers
 
             if (await _repo.SaveAll())
             {
-                return Ok();
+                // return Ok();
+                // do not return "photo" object directly, use object of PhotoForReturnDto
+
+                // photo will have Id after SaveAll() success
+                var photoToReturn = _mapper.Map<PhotoForReturnDto>(photo);
+                return CreatedAtRoute("GetPhoto", new { carmodelId = carmodelId, id = photo.Id},
+                    photoToReturn);
             }
             else
             {

@@ -548,6 +548,14 @@ baseUrl = environment.apiurl;
 
 ## Section 108. Creating the Photos Controller Part 2
 
+* 在 PhotosController 中 新增一個 HttpGet function, 用來 GetPhoto
+
+* 在 IMatchingRepository 介面跟實作類別中, 增加一個 method GetPhotos, 為了給 controller 使用
+
+* 另外建一個 PhotoForReturnDto class, AutoMapperProfiles 裡面也要加對應
+
+* 完成 AddPhotoForCarmodel function
+
 ## Section 109. Testing the Photo upload with Postman
 
 ## Section 110. Creating the Photo upload component in Angular

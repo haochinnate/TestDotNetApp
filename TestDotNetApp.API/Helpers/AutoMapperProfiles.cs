@@ -27,6 +27,12 @@ namespace TestDotNetApp.API.Helpers
 
             // CarModelForUpdateDto -> CarModel
             CreateMap<CarModelForUpdateDto, CarModel>();
+
+            // Photo -> PhotosForReturnDto
+            CreateMap<Photo, PhotoForReturnDto>();
+
+            // PhotoForCreationDto -> Photo
+            CreateMap<PhotoForCreationDto, Photo>();
         }
     }
 }

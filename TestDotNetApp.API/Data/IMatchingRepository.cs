@@ -11,5 +11,6 @@ namespace TestDotNetApp.API.Data
         Task<bool> SaveAll();
         Task<IEnumerable<CarModel>> GetCarModels();
         Task<CarModel> GetCarModel(int id);
+        Task<Photo> GetPhoto(int id);
     }
 }
