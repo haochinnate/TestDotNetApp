@@ -55,7 +55,7 @@ namespace TestDotNetApp.API.Controllers
 
         [HttpPost]
         public async Task<IActionResult> AddPhotoForCarmodel(int carmodelId, 
-            PhotoForCreationDto photoForCreationDto)
+            [FromForm]PhotoForCreationDto photoForCreationDto)
         {
             // 原先課程的範例是 上傳 user 的圖片, 所以需要確認 ID, 這邊不用
             // check the user was attempting to update their profile matches the token

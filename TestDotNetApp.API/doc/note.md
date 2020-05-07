@@ -558,6 +558,26 @@ baseUrl = environment.apiurl;
 
 ## Section 109. Testing the Photo upload with Postman
 
+Debug 流程
+
+1. 增加中斷點
+2. dotnet watch run 執行程式
+3. 打開 Visual Code的 debugger, 選擇 .NET Core Attach
+4. 然後按 play button 開始debug
+5. 選擇 .api.dll? api.exe?
+6. 打開 postman
+7. 先執行 POST login 取得 new token
+8. 建立新的 request, POST http://localhost:5000/api/carmodels/43/photos
+9. Header 中 加入 Authorization: Bearer token
+10. Body 中選擇 form-data, KEY 中將 Text 改為 File, 並輸入 "File", 
+11. 然後 VALUE 選擇檔案
+12. 按下 Send
+13. 在 PhotosController function 參數前面 加上 修飾字, 讓他知道是從哪邊來
+14. 再重新執行一次
+
+
+
+
 ## Section 110. Creating the Photo upload component in Angular
 
 ## Section 111. Adding a 3rd Party File Uploader
