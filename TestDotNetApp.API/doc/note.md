@@ -576,9 +576,13 @@ Debug 流程
 14. 再重新執行一次
 
 
-
-
 ## Section 110. Creating the Photo upload component in Angular
+
+* 建立一個 photo-editor component
+
+* app.module.ts 也要加入
+
+* 編輯 html, 匯入 上一層的 photos property
 
 ## Section 111. Adding a 3rd Party File Uploader
 
