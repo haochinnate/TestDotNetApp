@@ -586,6 +586,10 @@ Debug 流程
 
 ## Section 111. Adding a 3rd Party File Uploader
 
+* [ng2-file upload](https://github.com/valor-software/ng2-file-upload)
+
+* 從 demo 複製程式碼
+
 ## Section 112. Configuring the 3rd Party File Uploader
 
 ## Section 113. Adding the Set Main photo functionality to the API
