@@ -590,6 +590,11 @@ Debug 流程
 
 * 從 demo 複製程式碼
 
+* 實作 PhotoEditorComponent
+
+* 傳入 Carmodel 進 PhotoEditComponent 的 method, 為了 傳入 API 要有ID
+  原本課程 是用 authService 取得登入者的ID
+
 ## Section 112. Configuring the 3rd Party File Uploader
 
 ## Section 113. Adding the Set Main photo functionality to the API
