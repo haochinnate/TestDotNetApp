@@ -100,6 +100,7 @@ namespace TestDotNetApp.API
 
             // the order is important
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            // app.UseCors(x => x.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader());
 
             // add Authentication before Authorization 
             app.UseAuthentication();

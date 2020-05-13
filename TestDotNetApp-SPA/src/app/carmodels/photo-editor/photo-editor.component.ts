@@ -31,13 +31,15 @@ export class PhotoEditorComponent implements OnInit {
   initializeUploader() {
     this.uploader = new FileUploader({
       // url: this.baseUrl + 'users/' + this.authService.decodedToken.nameId + '/photos',
-      authToken: 'Baerer ' + localStorage.getItem('token'),
+      authToken: 'Bearer ' + localStorage.getItem('token'),
       isHTML5: true,
       allowedFileType: ['image'],
       removeAfterUpload: true,
       autoUpload: false,
       maxFileSize: 10 * 1024 * 1024, // 10MB
-      url: this.baseUrl + 'carmodels' + this.carmodel.id + '/photos'
+      url: this.baseUrl + 'carmodels/' + this.carmodel.id + '/photos'
     });
+
+    this.uploader.onAfterAddingFile = (file) => {file.withCredentials = false; } ;
   }
 }

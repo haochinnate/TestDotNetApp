@@ -597,6 +597,27 @@ Debug 流程
 
 ## Section 112. Configuring the 3rd Party File Uploader
 
+* Startup class Configure function 裡面 增加 AllowCredentials(), 可以解決 FileUploader 的問題
+
+* 但是 AllowCredentials 表示 允許 cookies to be sent with our requests, 但我們現在的 Authentication, 不是 cookie based authentication, 所以不需要另外增加 particular header
+
+```csharp
+    app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+    app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials());
+
+```
+
+* 還有另一個方式是下面這樣
+
+```csharp
+
+    app.UseCors(x => x.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader());
+```
+
+* 最後解法: 在 PhotoEditorComponent 中, 告訴 FileUploader, 我們的 file 是 not going with credentials
+
+* 設定 PhotoEditorComponent UI, 還有 css
+
 ## Section 113. Adding the Set Main photo functionality to the API
 
 ## Section 114. Adding the Set Main photo functionality to the SPA
