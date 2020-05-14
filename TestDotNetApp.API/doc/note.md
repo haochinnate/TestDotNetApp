@@ -618,7 +618,16 @@ Debug 流程
 
 * 設定 PhotoEditorComponent UI, 還有 css
 
+* this.uploader.onSuccessItem 負責在上傳圖片完成後, 更新 component 中的 photos property
+
 ## Section 113. Adding the Set Main photo functionality to the API
+
+* 顯示目前哪張 photo 是 main, 先在 PhotosController 中 增加API
+
+* 只改一個 property, 這種 simple changes 比較不用 HttpPost?, 
+
+* 課程中也是維持傳入 user的 Id, 自己改成 carmodel Id
+
 
 ## Section 114. Adding the Set Main photo functionality to the SPA
 

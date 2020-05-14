@@ -113,5 +113,31 @@ namespace TestDotNetApp.API.Controllers
             }
         }
 
+        // id of photo
+        [HttpPost("{id}/setMain")]
+        public async Task<IActionResult> SetMainPhoto(int carmodelId, int id)
+        {
+            // if (id != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
+            // {
+            //     return Unauthorized();
+            // }
+            var carModelFromRepo = await _repo.GetCarModel(carmodelId);
+
+            // check the Id is the photo of that user(carmodel)
+            if (!carModelFromRepo.Photos.Any(p => p.Id == id))
+            {
+                return Unauthorized();
+            }
+
+
+            var photoFromRepo= await _repo.GetPhoto(id);
+            if (photoFromRepo.IsMain)
+            {
+                return BadRequest("This is already the main photo");
+            }
+
+            return Ok();
+        }
+        
     }
 }
