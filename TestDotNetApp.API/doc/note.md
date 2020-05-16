@@ -628,6 +628,13 @@ Debug 流程
 
 * 課程中也是維持傳入 user的 Id, 自己改成 carmodel Id
 
+* MatchingRepository 增加 GetMainPhotoForUser(GetMainPhotoForCarmodel) 的 function
+
+* 用 postman 測試, 把 photo Id 42 設定為 main (Body 設定為 {})
+
+[GET] http://localhost:5000/api/carmodels/44
+
+[POST] http://localhost:5000/api/carmodels/44/photos/42/setmain
 
 ## Section 114. Adding the Set Main photo functionality to the SPA
 

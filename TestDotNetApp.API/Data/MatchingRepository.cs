@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using TestDotNetApp.API.Models;
@@ -50,6 +51,10 @@ namespace TestDotNetApp.API.Data
             return photo;
         }
 
-
+        public async Task<Photo> GetMainPhotoForCarmodel(int carmodelrId)
+        {
+            return await _context.Photos.Where(c => c.CarModelId == carmodelrId)
+                .FirstOrDefaultAsync(p => p.IsMain);
+        }
     }
 }

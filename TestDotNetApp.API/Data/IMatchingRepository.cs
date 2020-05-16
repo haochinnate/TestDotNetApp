@@ -12,5 +12,6 @@ namespace TestDotNetApp.API.Data
         Task<IEnumerable<CarModel>> GetCarModels();
         Task<CarModel> GetCarModel(int id);
         Task<Photo> GetPhoto(int id);
+        Task<Photo> GetMainPhotoForCarmodel(int carmodelId);
     }
 }

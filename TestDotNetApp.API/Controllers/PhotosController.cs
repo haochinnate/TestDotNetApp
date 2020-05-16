@@ -136,7 +136,22 @@ namespace TestDotNetApp.API.Controllers
                 return BadRequest("This is already the main photo");
             }
 
-            return Ok();
+            // set current main photo IsMain property to false
+            var currentMainPhoto = await _repo.GetMainPhotoForCarmodel(carmodelId);
+            currentMainPhoto.IsMain = false;
+
+            // set the target photo IsMain property to true
+            photoFromRepo.IsMain = true;
+
+            // save to changed
+            if (await _repo.SaveAll())
+            {
+                return NoContent();
+            }
+            else
+            {
+                return BadRequest("Could not set photo to main");
+            }
         }
         
     }
