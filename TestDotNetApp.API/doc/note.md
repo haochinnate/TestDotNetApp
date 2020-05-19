@@ -638,4 +638,36 @@ Debug 流程
 
 ## Section 114. Adding the Set Main photo functionality to the SPA
 
+* 在 CarmodelService.ts 下面增加 setMainPhoto function, 用來 call API
+
+* 在 PhotoEditComponent 也增加 setMainPhoto function 
+
+* () binding event 
+* [] binding property
+* [ngClass] use property to set the style of button(UI component)
+```html
+   <button type="button" class="btn btn-sm" 
+        (click)="setMainPhoto(photo)"
+        [ngClass]="photo.isMain ? 'btn-success active' : 'btn-secondary'"
+        [disabled]="photo.isMain">Main</button>
+```
+
 ## Section 115. Using the array filter method to provide instant feedback in the SPA
+
+## Section 116. Output properties revisited
+
+## Section 117. Adding the main photo to the Nav bar
+
+## Section 118. Any to Any component communication in Angular
+
+## Section 119. Using BehaviorSubject to add any to any communication to our app
+
+## Section 120. Adding the Delete photo function to the API
+
+## Section 121. Adding the Delete photo functionality to the SPA
+
+## Section 122. Summary
+
+# Section 12: Reactive Forms in Angular 
+
+## Section 123. Introduction

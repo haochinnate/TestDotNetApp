@@ -24,4 +24,9 @@ export class CarmodelService {
     return this.http.put(this.baseUrl + 'carmodels/' + id, carmodel);
   }
 
+  setMainPhoto(carmodelId: number, id: number) {
+    // [POST] http://localhost:5000/api/carmodels/44/photos/42/setmain
+    // send empty object
+    return this.http.post(this.baseUrl + 'carmodels/' + carmodelId + '/photos/' + id + '/setMain', {});
+  }
 }

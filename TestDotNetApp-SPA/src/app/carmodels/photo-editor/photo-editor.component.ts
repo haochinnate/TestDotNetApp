@@ -4,6 +4,8 @@ import { Photo } from 'src/app/_models/Photo';
 import { environment } from '../../../environments/environment';
 import { AuthService } from 'src/app/_services/auth.service';
 import { Carmodel } from 'src/app/_models/carmodel';
+import { CarmodelService } from 'src/app/_services/carmodel.service';
+import { AlertifyService } from 'src/app/_services/alertify.service';
 
 @Component({
   selector: 'app-photo-editor',
@@ -18,7 +20,9 @@ export class PhotoEditorComponent implements OnInit {
   uploader: FileUploader;
   hasBaseDropZoneOver = false;
   baseUrl = environment.apiUrl;
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,
+              private carmodelService: CarmodelService,
+              private alertify: AlertifyService) { }
 
   ngOnInit() {
     this.initializeUploader();
@@ -58,4 +62,14 @@ export class PhotoEditorComponent implements OnInit {
       }
     };
   }
+
+  setMainPhoto(photo: Photo) {
+    // this.carmodel.id original is this.authService.decodedToken.nameid
+    this.carmodelService.setMainPhoto(this.carmodel.id, photo.id).subscribe(() => {
+      console.log('Successfully set to main');
+    }, error => {
+      this.alertify.error(error);
+    });
+  }
+
 }
