@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FileUploader } from 'ng2-file-upload';
 import { Photo } from 'src/app/_models/Photo';
 import { environment } from '../../../environments/environment';
@@ -17,9 +17,14 @@ export class PhotoEditorComponent implements OnInit {
   @Input() photos: Photo[];
   @Input() carmodel: Carmodel;
 
+  // output string for photo URL
+  @Output() getCarmodelPhotoChange = new EventEmitter<string>();
+
   uploader: FileUploader;
   hasBaseDropZoneOver = false;
   baseUrl = environment.apiUrl;
+  currentMainPhoto: Photo;
+
   constructor(private authService: AuthService,
               private carmodelService: CarmodelService,
               private alertify: AlertifyService) { }
@@ -66,7 +71,16 @@ export class PhotoEditorComponent implements OnInit {
   setMainPhoto(photo: Photo) {
     // this.carmodel.id original is this.authService.decodedToken.nameid
     this.carmodelService.setMainPhoto(this.carmodel.id, photo.id).subscribe(() => {
-      console.log('Successfully set to main');
+
+      // change the value of isMain property
+      this.currentMainPhoto = this.photos.filter(p => p.isMain === true)[0];
+      this.currentMainPhoto.isMain = false;
+      photo.isMain = true;
+
+      // emit the photo URL
+      this.getCarmodelPhotoChange.emit(photo.url);
+
+      // console.log('Successfully set to main');
     }, error => {
       this.alertify.error(error);
     });

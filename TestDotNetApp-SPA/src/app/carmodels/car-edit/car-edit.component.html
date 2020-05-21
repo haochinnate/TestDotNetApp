@@ -96,7 +96,9 @@
           
           <tab heading="Edit Photos">
             <!-- <p>Photo edit will go here</p> -->
-            <app-photo-editor [photos]="carmodel.photos" [carmodel]="carmodel"></app-photo-editor>
+            <app-photo-editor [photos]="carmodel.photos" 
+              [carmodel]="carmodel"
+              (getCarmodelPhotoChange)="updateMainPhoto($event)"></app-photo-editor>
           </tab>
 
         </tabset>

@@ -53,4 +53,8 @@ export class CarEditComponent implements OnInit {
       }
     );
   }
+
+  updateMainPhoto(photoUrl: string) {
+    this.carmodel.photoUrl = photoUrl;
+  }
 }

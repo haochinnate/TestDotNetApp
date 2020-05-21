@@ -654,7 +654,30 @@ Debug 流程
 
 ## Section 115. Using the array filter method to provide instant feedback in the SPA
 
+* 在 setMainPhoto function 中, 也要去設定 photo 的 isMain property 讓UI 即時更新
+
+* 下一步 要更新 parent component 的內容, PhotoEditComponent 更新 CarEditComponent. 藉由 Output properties
+
 ## Section 116. Output properties revisited
+
+* 增加 output property
+```typescript
+
+// 使用 angular core 的 event emitter
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
+@Output() getCarmodelPhotoChange = new EventEmitter<string>();
+
+```
+
+* 在 html中, 用 () 因為是 output, updateMainPhoto 是在 CarEditComponent 新增的 function
+```html
+<app-photo-editor [photos]="carmodel.photos" 
+  [carmodel]="carmodel"
+  (getCarmodelPhotoChange)="updateMainPhoto($event)">
+</app-photo-editor>
+```
+
 
 ## Section 117. Adding the main photo to the Nav bar
 
