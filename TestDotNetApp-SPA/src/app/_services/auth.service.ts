@@ -14,6 +14,9 @@ export class AuthService {
   jwtHelper = new JwtHelperService();
   decodedToken: any;
 
+  // I didn't create the User class
+  // currentUser: User;
+
   constructor(private http: HttpClient) { }
 
   login(model: any) {
@@ -21,10 +24,12 @@ export class AuthService {
       .pipe( // post will return Observable<object>, login method return the "token"
         map((response: any) => {
           // see AuthController.cs login method
-          const user = response;
+          const user = response; // this will be Ok response
           if (user) {
             localStorage.setItem('token', user.token);
+            // localStorage.setItem('user', JSON.stringify(user.user));
             this.decodedToken = this.jwtHelper.decodeToken(user.token);
+            // this.currentUser = user.user;
             console.log(this.decodedToken);
           }
         })

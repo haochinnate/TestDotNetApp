@@ -678,8 +678,18 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 </app-photo-editor>
 ```
 
-
 ## Section 117. Adding the main photo to the Nav bar
+
+* 所有的API 都需要 token 去access, 所以希望 token 可以保持越小越好
+
+* 自己範例改成 User 沒有 photo, 所以可能要顯示其他的東西當作範例
+
+* (API層 AuthController class)不直接放在 token 裡面, 而是放在回傳的 Ok ActionResult 中
+  用 mapper 對應到我沒有建立的 UserForListDto, 放到 Ok statement 裡面
+ 
+* (SPA層 auth.service.ts) 也要在login method 中, 存這個資訊到 local storage
+
+* 在 AppComponent 中, 
 
 ## Section 118. Any to Any component communication in Angular
 

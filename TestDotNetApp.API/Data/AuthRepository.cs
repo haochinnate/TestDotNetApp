@@ -16,6 +16,9 @@ namespace TestDotNetApp.API.Data
 
         public async Task<User> Login(string username, string password)
         {
+            // I don't create Photos property in User class, 
+            // this is for showing main photo in nav bar
+            // var user = await _context.Users.Include(p => p.Photos).FirstOrDefaultAsync(x => x.UserName == username);
             var user = await _context.Users.FirstOrDefaultAsync(x => x.UserName == username);
 
             if (user == null)
