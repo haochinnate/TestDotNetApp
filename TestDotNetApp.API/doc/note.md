@@ -689,9 +689,26 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
  
 * (SPA層 auth.service.ts) 也要在login method 中, 存這個資訊到 local storage
 
-* 在 AppComponent 中, 
+* 在 AppComponent 中, 也加入從 local storage 中讀取回來並 assign
+
+* 在 NavComponent 中, 登出後要清除資料 localStorage.removeItem外, authService 也要將物件設定為 null
 
 ## Section 118. Any to Any component communication in Angular
+
+* 在 Edit component 中, 更新main photo 後, 不會馬上更新 NavComponent 顯示 main photo 的元件, 所以要用 any component cmuunication
+
+* service are designed to provice methods or properties across to any component that inject the services
+
+* 一個解決方案是在 AuthService 增加一個 property 存放 MainPhotoUrl
+
+* 另一個解決方案: 使用 BehaviorSubject
+  * is a type of subject(is a type of Observable)
+  * can be subscribed to
+  * Subscribers can receive updated results
+  * A subject is an observer(so we can send values to it)
+  * 需要初始值, 一定要回傳值
+  * on subscription returns last value of subject
+  * can use the getValue() method in non observable code
 
 ## Section 119. Using BehaviorSubject to add any to any communication to our app
 
