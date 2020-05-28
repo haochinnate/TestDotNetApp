@@ -712,6 +712,31 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 ## Section 119. Using BehaviorSubject to add any to any communication to our app
 
+* 在 Auth service 裡面建立一個 BehaviorSubject, 型態為string, 並預設為 assert 資料夾下的一張圖片
+
+```typescript
+  // in AuthService class
+  photoUrl = new BehaviorSubject<string>('../../assets/user.png');
+  currentPhotoUrl = this.photoUrl.asObservable();
+
+   changeMemberPhoto(photoUrl: string) {
+    this.photoUrl.next(photoUrl);
+  }
+
+```
+
+```typescript
+  // in NavComponent class
+  photoUrl: string;
+
+  ngOnInit() {
+    // currentPhotoUrl is observable, so can subscribe
+    this.authService.currentPhotoUrl.subscribe(photoUrl => this.photoUrl = photoUrl);
+  }
+
+```
+
+
 ## Section 120. Adding the Delete photo function to the API
 
 ## Section 121. Adding the Delete photo functionality to the SPA

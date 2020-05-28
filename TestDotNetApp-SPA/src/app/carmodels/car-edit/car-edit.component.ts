@@ -16,6 +16,7 @@ export class CarEditComponent implements OnInit {
   @ViewChild('editForm', {static: true}) editForm: NgForm;
 
   carmodel: Carmodel;
+  photoUrl: string;
 
   @HostListener('window:beforeunload', ['$event'])
   unloadNotification($event: any) {
@@ -33,6 +34,9 @@ export class CarEditComponent implements OnInit {
     this.route.data.subscribe(data => {
       this.carmodel = data['carmodel'];
     });
+
+    // have to know when photo changed
+    this.authService.currentPhotoUrl.subscribe(photoUrl => this.photoUrl = photoUrl);
   }
 
   updateCarmodel() {

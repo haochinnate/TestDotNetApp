@@ -10,12 +10,15 @@ import { AlertifyService } from '../_services/alertify.service';
 })
 export class NavComponent implements OnInit {
   model: any = {}; //  empty object to store username and password
+  photoUrl: string;
 
   // private authService doesn't have error likes in course video
   constructor(public authService: AuthService, private alertify: AlertifyService,
               private router: Router) { }
 
   ngOnInit() {
+    // currentPhotoUrl is observable, so can subscribe
+    this.authService.currentPhotoUrl.subscribe(photoUrl => this.photoUrl = photoUrl);
   }
 
   login() {

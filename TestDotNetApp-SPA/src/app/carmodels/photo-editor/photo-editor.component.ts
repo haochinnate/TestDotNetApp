@@ -79,6 +79,9 @@ export class PhotoEditorComponent implements OnInit {
 
       // emit the photo URL
       this.getCarmodelPhotoChange.emit(photo.url);
+      // this.authService.changeMemberPhoto(photo.url);
+      // this.authService.currentUSer.photoUrl = photoUrl;
+      // localStorage.setItem('user', JSON.stringify(this.authService.currentUser));
 
       // console.log('Successfully set to main');
     }, error => {
