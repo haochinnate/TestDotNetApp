@@ -739,6 +739,13 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 ## Section 120. Adding the Delete photo function to the API
 
+* 在 API 的 PhotosController 增加 DeletePhoto function 
+
+* 要去 Cloudinary 的網站看 delete photo 相關用法
+
+* 有些photo 是傳到 cloudinary, 有些是自己JSON產生, 並不一定都有 public ID, 所以還要另外做判斷
+
+
 ## Section 121. Adding the Delete photo functionality to the SPA
 
 ## Section 122. Summary
