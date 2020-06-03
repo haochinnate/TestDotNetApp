@@ -745,11 +745,44 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 * 有些photo 是傳到 cloudinary, 有些是自己JSON產生, 並不一定都有 public ID, 所以還要另外做判斷
 
+[DELETE] http://localhost:5000/api/carmodels/44/photos/42
+
+[DELETE] http://localhost:5000/api/carmodels/44/photos/43
 
 ## Section 121. Adding the Delete photo functionality to the SPA
+
+* add function to Carmodel Service, to call API function 
+
+* Photo Editor Component 加入 Delete function, call Carmodel Service 裡面的那個
+
+* 在 Photo Editor component 的 html 中 binding click event, 並設定 main photo 的 trash button 是 disable
 
 ## Section 122. Summary
 
 # Section 12: Reactive Forms in Angular 
 
 ## Section 123. Introduction
+
+## Section 124. Introduction to Reactive Forms in Angular
+
+## Section 125. Validation in Reactive forms
+
+## Section 126. Custom Validators in Reactive forms
+
+## Section 127. Providing Validation feedback to the user
+
+## Section 128. Using the Reactive Forms FormBuilder Service
+
+## Section 129. Expanding the Registration form
+
+## Section 130. Handling Dates in Forms
+
+## Section 131. Updating the Register method in the API
+
+## Section 132. Completing the Registration implementation
+
+## Section 133. Fixing the Photos issue for newly registered users
+
+## Section 134. Summary
+
+# Section 13: Action Filters in ASP.NET Core 

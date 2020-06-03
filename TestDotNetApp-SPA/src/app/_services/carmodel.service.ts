@@ -29,4 +29,9 @@ export class CarmodelService {
     // send empty object
     return this.http.post(this.baseUrl + 'carmodels/' + carmodelId + '/photos/' + id + '/setMain', {});
   }
+
+  deletePhoto(carmodelId: number, id: number) {
+    // [DELETE] http://localhost:5000/api/carmodels/44/photos/42
+    return this.http.delete(this.baseUrl + 'carmodels/' + carmodelId + '/photos/' + id);
+  }
 }
