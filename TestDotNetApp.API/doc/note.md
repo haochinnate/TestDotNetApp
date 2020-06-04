@@ -765,6 +765,14 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 ## Section 124. Introduction to Reactive Forms in Angular
 
+* 在 RegisterComponent 中, import FormGroup, 並建立一個物件
+
+* 之後可能需要新增 API 用來增加 carmodel
+
+* 在 app.module.ts 中, imports 增加 ReactiveFormsModule
+
+* RegisterComponent 中, 不再使用 template form, 改為使用 Reactive form
+
 ## Section 125. Validation in Reactive forms
 
 ## Section 126. Custom Validators in Reactive forms
