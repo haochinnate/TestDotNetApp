@@ -773,6 +773,22 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 * RegisterComponent 中, 不再使用 template form, 改為使用 Reactive form
 
+* ReactiveForms, html 中的一些屬性要改變
+
+```html
+
+formControlName="confirmPassword"
+<!--此名稱 要跟 typescript 中 宣告的 一樣-->
+```
+
+```typescript
+    this.registerForm = new FormGroup({
+      username: new FormControl(),
+      password: new FormControl(),
+      confirmPassword: new FormControl()
+    });
+```
+
 ## Section 125. Validation in Reactive forms
 
 ## Section 126. Custom Validators in Reactive forms
