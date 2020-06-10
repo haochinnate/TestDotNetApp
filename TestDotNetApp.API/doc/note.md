@@ -779,6 +779,10 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 formControlName="confirmPassword"
 <!--此名稱 要跟 typescript 中 宣告的 一樣-->
+
+<!--可以印出 FormGroup的資訊, 狀態-->
+<p>Form value: {{registerForm.value | json}}</p>
+<p>Form Status: {{registerForm.status | json}}</p>
 ```
 
 ```typescript
@@ -791,9 +795,55 @@ formControlName="confirmPassword"
 
 ## Section 125. Validation in Reactive forms
 
+* 在 ts file 中 宣告的 FormGroup, 每個 FormControl 可以增加 Validate function 
+
+```typescript
+    this.registerForm = new FormGroup({
+      username: new FormControl('Hello', Validators.required),
+      password: new FormControl('',
+        [Validators.required, Validators.minLength(4), Validators.maxLength(8)]),
+      confirmPassword: new FormControl('', Validators.required)
+    });
+```
+
+* 另外還可以建立 Custom Validator
+
 ## Section 126. Custom Validators in Reactive forms
 
+* 自己建立 validator, 確認 兩格 password 的內容是否一樣
+
+```typescript
+  passwordMatchValidator(g: FormGroup) {
+    return g.get('password').value === g.get('confirmPassword').value ? null : {mismatch: true};
+  }
+```
+
 ## Section 127. Providing Validation feedback to the user
+
+* 根據 error 狀況不同, 顯示不同的提示字眼
+
+```html
+ [ngClass]="{'is-invalid': registerForm.get('username').errors 
+    && registerForm.get('username').touched}"
+
+    <div class="invalid-feedback" 
+      *ngIf="registerForm.get('password').hasError('required') 
+        && registerForm.get('password').touched">
+        Password is required
+    </div>
+
+    <div class="invalid-feedback" 
+      *ngIf="registerForm.get('password').hasError('minlength') 
+        && registerForm.get('password').touched">
+        Password must be at least 4 characters
+    </div>
+
+    <div class="invalid-feedback" 
+      *ngIf="registerForm.get('password').hasError('maxlength') 
+        && registerForm.get('password').touched">
+        Password cannot exceed 8 characters
+    </div>
+```
 
 ## Section 128. Using the Reactive Forms FormBuilder Service
 
