@@ -845,7 +845,18 @@ formControlName="confirmPassword"
     </div>
 ```
 
+```html
+  <!--mismatch 這個關鍵字要跟 register.component.ts 中 設定的一樣  -->
+   <input type="password" 
+      [ngClass]="{'is-invalid': registerForm.get('confirmPassword').errors 
+        && registerForm.get('confirmPassword').touched
+        || registerForm.get('confirmPassword').touched
+        && registerForm.hasError('mismatch')}">
+```
+
 ## Section 128. Using the Reactive Forms FormBuilder Service
+
+* 用 FormBuilder 來取代前一個章節 建立 FormGroup/FormControl 的內容
 
 ## Section 129. Expanding the Registration form
 
