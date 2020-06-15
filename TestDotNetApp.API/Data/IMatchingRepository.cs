@@ -9,6 +9,8 @@ namespace TestDotNetApp.API.Data
         void Add<T>(T entity) where T: class;
         void Delete<T>(T entity) where T: class;
         Task<bool> SaveAll();
+
+        Task<CarModel> AddCarModel(CarModel carmodel);
         Task<IEnumerable<CarModel>> GetCarModels();
         Task<CarModel> GetCarModel(int id);
         Task<Photo> GetPhoto(int id);

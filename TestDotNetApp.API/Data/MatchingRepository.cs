@@ -24,6 +24,14 @@ namespace TestDotNetApp.API.Data
             _context.Remove(entity);
         }
 
+        public async Task<CarModel> AddCarModel(CarModel carmodel)
+        {
+            await _context.CarModels.AddAsync(carmodel);
+            await _context.SaveChangesAsync();
+
+            return carmodel;
+        }
+
         public async Task<CarModel> GetCarModel(int id)
         {
             // in course, this function is return a user (lecture 75)

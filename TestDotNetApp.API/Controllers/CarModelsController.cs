@@ -7,6 +7,7 @@ using TestDotNetApp.API.Dtos;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System;
+using TestDotNetApp.API.Models;
 
 namespace TestDotNetApp.API.Controllers
 {
@@ -27,6 +28,20 @@ namespace TestDotNetApp.API.Controllers
             _mapper = mapper;
             // _config = config;
         }
+
+        // http://localhost:5000/api/carmodels/add
+        [HttpPost("add")]
+        public async Task<IActionResult> Add(CarModelForUpdateDto carmodelForUpdateDto)
+        {
+            var carmodelToCreate = new CarModel();
+            
+            _mapper.Map(carmodelForUpdateDto, carmodelToCreate);
+
+            var createdCarmodel = await _repo.AddCarModel(carmodelToCreate);
+
+            return StatusCode(201);
+        }
+
 
         // http://localhost:5000/api/carmodels/
         //[HttpPost("register")]
