@@ -860,7 +860,43 @@ formControlName="confirmPassword"
 
 ## Section 129. Expanding the Registration form
 
+* 增加其他欄位來填其他資訊
+
 ## Section 130. Handling Dates in Forms
+
+* [Can I use](https://caniuse.com/) 可以查詢 component 在各個 browser支援情況
+
+* ngx bootstrap 的 [Datepicker](https://valor-software.com/ngx-bootstrap/#/datepicker)
+
+```typescript
+// 在 app.module.ts
+import { BsDatePickerModule } from 'ngx-bootstrap'
+
+// 還要 import BrowserAnimationModule
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+```
+
+* 在 style.css 裡面還要import css 檔案
+
+```css
+@import "../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css"
+```
+
+* 在 register.component.html 中, type改為"text", 並增加 bsDatepicker
+
+* 為了要改變顏色, 要另外增加 config 在 ts file中, 使用 partial class 可以讓所有的properties 變成 optional
+
+```typescript
+  bsConfig: Partial<BsDatepickerConfig>;
+
+  this.bsConfig = {
+    containerClass: 'theme-red'
+  };
+
+  // html 那邊用 [bsConfig]="bsConfig" binding
+```
+
+
 
 ## Section 131. Updating the Register method in the API
 
