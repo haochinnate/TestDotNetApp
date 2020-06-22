@@ -1,6 +1,10 @@
 <!-- <p>
   car-list works!
 </p> -->
+<div class="text-center mt-5">
+  <button class="btn btn-primary btn-lg mr-2" [routerLink]="['/cars/', 'add']"> Add new model</button>
+</div>
+
 <div class="container mt-5">
   <div class="row">
     <div *ngFor="let carmodel of carmodels" class="col-lg-2 col-md-3 col-sm-6">

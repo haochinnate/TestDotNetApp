@@ -28,6 +28,7 @@ import { CarEditResolver } from './_resolvers/car-edit.resolver';
 import { AuthGuard } from './_guards/auth.guard';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { PhotoEditorComponent } from './carmodels/photo-editor/photo-editor.component';
+import { CarAddComponent } from './carmodels/car-add/car-add.component';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -52,6 +53,7 @@ export class CustomHammerConfig extends HammerGestureConfig {
       CarCardComponent,
       CarDetailComponent,
       CarEditComponent,
+      CarAddComponent,
       PhotoEditorComponent
    ],
    imports: [

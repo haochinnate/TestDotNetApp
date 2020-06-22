@@ -896,8 +896,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   // html 那邊用 [bsConfig]="bsConfig" binding
 ```
 
-
-
 ## Section 131. Updating the Register method in the API
 
 ## Section 132. Completing the Registration implementation

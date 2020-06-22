@@ -10,6 +10,7 @@ import { CarListResolver } from './_resolvers/car-list.resolver';
 import { CarEditComponent } from './carmodels/car-edit/car-edit.component';
 import { CarEditResolver } from './_resolvers/car-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
+import { CarAddComponent } from './carmodels/car-add/car-add.component';
 
 export const appRoutes: Routes = [
     { path: '', component: HomeComponent},
@@ -20,6 +21,7 @@ export const appRoutes: Routes = [
         children: [
             // { path: 'cars', component: CarListComponent, canActivate: [AuthGuard]},
             { path: 'cars', component: CarListComponent, resolve: {carmodels: CarListResolver}},
+            { path: 'cars/add', component: CarAddComponent},
             { path: 'cars/:id', component: CarDetailComponent,
                 resolve: {carmodel: CarDetailResolver}},
             { path: 'cars/edit/:id', component: CarEditComponent,
