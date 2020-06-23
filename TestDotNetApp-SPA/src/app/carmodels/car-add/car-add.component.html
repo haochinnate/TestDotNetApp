@@ -1,3 +1,246 @@
-<p>
-  car-add works!
-</p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <form [formGroup]="registerForm" (ngSubmit)="createNewCarmodel()"> 
+        <h2 class="text-center text-primary">New Model</h2>
+        <hr>
+        
+  
+
+        <!-- Maker -->
+        <div class="form-group">
+          <input type="text" 
+            [ngClass]="{'is-invalid': registerForm.get('maker').errors 
+              && registerForm.get('maker').touched}"
+            class="form-control" 
+            formControlName="maker"
+            placeholder="Maker">
+          <div class="invalid-feedback">Please enter a maker</div>
+        </div>
+
+        <!-- ModelName -->
+        <div class="form-group">
+          <input type="text" 
+            [ngClass]="{'is-invalid': registerForm.get('modelName').errors 
+              && registerForm.get('modelName').touched}"
+            class="form-control" 
+            formControlName="modelName"
+            placeholder="Model">
+          <div class="invalid-feedback">Please enter a model</div>
+        </div>
+        
+        <!-- LevelName -->
+        <div class="form-group">
+          <input type="text" 
+            [ngClass]="{'is-invalid': registerForm.get('levelName').errors 
+              && registerForm.get('levelName').touched}"
+            class="form-control" 
+            formControlName="levelName"
+            placeholder="Level">
+          <div class="invalid-feedback">Please enter a level</div>
+        </div>
+
+        <!-- Energy Form -->
+        <div class="form-group">
+          <input type="text" 
+            [ngClass]="{'is-invalid': registerForm.get('energyForm').errors 
+              && registerForm.get('energyForm').touched}"
+            class="form-control" 
+            formControlName="energyForm"
+            placeholder="Energy Form">
+          <div class="invalid-feedback">Please enter a energy form</div>
+        </div>
+        
+        <!-- Published Date -->
+        <div class="form-group">
+          <input [ngClass]="{'is-invalid': registerForm.get('published').errors && registerForm.get('published').touched}" class="form-control"
+            placeholder="Date of Published" formControlName="dateOfBirth" type="text" bsDatepicker [bsConfig]="bsConfig">
+          <div class="invalid-feedback" *ngIf="registerForm.get('published').touched && registerForm.get('published').hasError('required')">Date of Published is required</div>
+        </div>
+
+               
+        <!-- Length -->
+        <div class="form-group">
+          <input type="number" 
+            [ngClass]="{'is-invalid': registerForm.get('length').errors 
+              && registerForm.get('length').touched}"
+            class="form-control" 
+            formControlName="length"
+            placeholder="Car Length(mm)">
+          <div class="invalid-feedback">Please enter the car length</div>
+        </div>
+
+        <!-- Width -->
+        <div class="form-group">
+          <input type="number" 
+            [ngClass]="{'is-invalid': registerForm.get('width').errors 
+              && registerForm.get('width').touched}"
+            class="form-control" 
+            formControlName="width"
+            placeholder="Car Width(mm)">
+          <div class="invalid-feedback">Please enter the car width</div>
+        </div>
+
+        <!-- Height -->
+        <div class="form-group">
+          <input type="number" 
+            [ngClass]="{'is-invalid': registerForm.get('height').errors 
+              && registerForm.get('height').touched}"
+            class="form-control" 
+            formControlName="height"
+            placeholder="Car Height(mm)">
+          <div class="invalid-feedback">Please enter the car height</div>
+        </div>
+
+        <!-- Price -->
+        <div class="form-group">
+          <input type="number" 
+            [ngClass]="{'is-invalid': registerForm.get('price').errors 
+              && registerForm.get('price').touched}"
+            class="form-control" 
+            formControlName="price"
+            placeholder="Price(NTD)(w)">
+          <div class="invalid-feedback">Please enter the price</div>
+        </div>
+
+        <!-- Horse Power -->
+        <div class="form-group">
+          <input type="number" 
+            [ngClass]="{'is-invalid': registerForm.get('horsePower').errors 
+              && registerForm.get('horsePower').touched}"
+            class="form-control" 
+            formControlName="horsePower"
+            placeholder="Horse Power">
+          <div class="invalid-feedback">Please enter the horsePower</div>
+        </div>
+
+        <!-- Airbags Number -->
+        <div class="form-group">
+          <input type="number" 
+            [ngClass]="{'is-invalid': registerForm.get('airbagsNumber').errors 
+              && registerForm.get('airbagsNumber').touched}"
+            class="form-control" 
+            formControlName="airbagsNumber"
+            placeholder="Airbags Number">
+          <div class="invalid-feedback">Please enter the airbags number</div>
+        </div>
+
+        <!--   
+        : string;
+        : Date;
+        : number;
+        : number;
+        bootCapacity: number;
+        sizeAndType: string;
+        fuelConsumption: number;
+        photoUrl: string;
+        introduction?: string;
+        photos?: Photo[];
+         -->
+        
+
+
+        <div class="form-group">
+          <label class="control-label" style="margin-right:10px">I am a: </label>
+          <label class="radio-inline">
+            <input class="mr-3" type="radio" value="male" formControlName="gender">Male
+          </label>
+          <label class="radio-inline ml-3">
+            <input class="mr-3" type="radio" value="female" formControlName="gender">Female
+          </label>
+        </div>
+      
+    
+      
+        <div class="form-group">
+          <input [ngClass]="{'is-invalid': registerForm.get('knownAs').errors 
+            && registerForm.get('knownAs').touched}" 
+            class="form-control"
+            placeholder="Known as"
+            formControlName="knownAs">
+          <div class="invalid-feedback" *ngIf="registerForm.get('knownAs').touched
+            && registerForm.get('knownAs').hasError('required')">Known as is required</div>
+        </div>
+      
+ 
+      
+        <div class="form-group">
+          <input [ngClass]="{'is-invalid': registerForm.get('city').errors && registerForm.get('city').touched}" class="form-control"
+            placeholder="City" formControlName="city">
+          <div class="invalid-feedback" *ngIf="registerForm.get('city').touched && registerForm.get('city').hasError('required')">City is required</div>
+        </div>
+      
+        <div class="form-group">
+          <input [ngClass]="{'is-invalid': registerForm.get('country').errors && registerForm.get('country').touched}" class="form-control"
+            placeholder="Country" formControlName="country">
+          <div class="invalid-feedback" *ngIf="registerForm.get('country').touched && registerForm.get('country').hasError('required')">Country is required</div>
+        </div>
+      
+        <!-- <div class="form-group">
+          <label for="favoriteValue">What is your favorite value?</label>
+          <select class="form-control" id="favoriteValue">
+            <option *ngFor="let value of valuesFromHome" [value]="value">{{value.name}}</option>
+          </select>
+        </div> -->
+      
+        <div class="form-group">
+          <input type="password"
+            [ngClass]="{'is-invalid': registerForm.get('password').errors 
+              && registerForm.get('password').touched}" 
+            class="form-control" 
+            formControlName="password"
+            placeholder="Password">
+          
+          <div class="invalid-feedback" 
+            *ngIf="registerForm.get('password').hasError('required') 
+              && registerForm.get('password').touched">
+              Password is required
+          </div>
+      
+          <div class="invalid-feedback" 
+            *ngIf="registerForm.get('password').hasError('minlength') 
+              && registerForm.get('password').touched">
+              Password must be at least 4 characters
+          </div>
+      
+          <div class="invalid-feedback" 
+            *ngIf="registerForm.get('password').hasError('maxlength') 
+              && registerForm.get('password').touched">
+              Password cannot exceed 8 characters
+          </div>
+          <!--required [(ngModel)]="model.password" name="password"-->
+        </div>
+      
+        <div class="form-group">
+          <input type="password" 
+            [ngClass]="{'is-invalid': registerForm.get('confirmPassword').errors 
+              && registerForm.get('confirmPassword').touched
+              || registerForm.get('confirmPassword').touched
+              && registerForm.hasError('mismatch')}" 
+            class="form-control" 
+            formControlName="confirmPassword" 
+            placeholder="Confirm Password">
+      
+          <div class="invalid-feedback" 
+            *ngIf="registerForm.get('confirmPassword').hasError('required') 
+              && registerForm.get('confirmPassword').touched">
+              Password is required
+          </div>
+      
+          <div class="invalid-feedback" 
+            *ngIf="registerForm.hasError('mismatch') 
+              && registerForm.get('confirmPassword').touched">
+              Password must match
+          </div>
+        </div>
+      
+        <div class="form-group text-center">
+          <button class="btn btn-success" [disabled]="!registerForm.valid" type="submit">Create</button>
+          <button class="btn btn-default" type="submit" [routerLink]="['/cars/']" (click)="cancel()">Cancel</button>
+        </div>
+      
+      </form>
+    </div>
+  </div>
+</div>
+
