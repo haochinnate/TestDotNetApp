@@ -13,5 +13,6 @@ namespace TestDotNetApp.API.Dtos
         public int AirbagsNumber { get; set; }
         public double BootCapacity { get; set; }
         public string SizeAndType { get; set; }
+        public double FuelConsumption { get; set; }
     }
 }

@@ -43,6 +43,8 @@ namespace TestDotNetApp.API.Controllers
             return BadRequest("Username already exists!!");
         }
 
+        // var userToCreate = _mapper.Map<User>(userForRegisterDto);
+
         var userToCreate = new User
         {
             UserName = userForRegisterDto.Username,

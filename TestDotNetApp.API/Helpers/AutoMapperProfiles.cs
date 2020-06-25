@@ -33,6 +33,9 @@ namespace TestDotNetApp.API.Helpers
 
             // PhotoForCreationDto -> Photo
             CreateMap<PhotoForCreationDto, Photo>();
+
+            // after add the property to UserForRegisterDto, add this mapping
+            // CreateMap<UserForRegisterDto, User>();
         }
     }
 }

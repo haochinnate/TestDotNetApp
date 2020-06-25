@@ -898,6 +898,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 ## Section 131. Updating the Register method in the API
 
+* 課程是修改 AuthController 的 Register function, 但是我是修改 CarModelsController 的 Add function 
+
+* 課程有再修改 UserForRegisterDto, 和 AutoMapper 中 registerDto -> User class
+
+* 測試 API, 加入成功後回傳的 Headers 會有 Location: http://localhost:5000/api/CarModels/82
+ 
+
+[POST] http://localhost:5000/api/carmodels/add
+
 ## Section 132. Completing the Registration implementation
 
 ## Section 133. Fixing the Photos issue for newly registered users

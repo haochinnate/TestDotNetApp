@@ -39,7 +39,10 @@ namespace TestDotNetApp.API.Controllers
 
             var createdCarmodel = await _repo.AddCarModel(carmodelToCreate);
 
-            return StatusCode(201);
+            var carmodelToReturn = _mapper.Map<CarModelForDetailedDto>(createdCarmodel);
+
+            // return StatusCode(201);
+            return CreatedAtRoute("GetCarModel", new { controller = "CarModels", id = createdCarmodel.Id}, carmodelToReturn);
         }
 
 
@@ -56,7 +59,7 @@ namespace TestDotNetApp.API.Controllers
             return Ok(carModelsToReturn);
         }
         
-        [HttpGet("{Id}")]
+        [HttpGet("{Id}", Name="GetCarModel")]
         public async Task<IActionResult> GetCarModel(int id)
         {
             var carModel = await _repo.GetCarModel(id);

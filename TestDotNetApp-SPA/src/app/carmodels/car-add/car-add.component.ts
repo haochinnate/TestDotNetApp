@@ -12,7 +12,7 @@ import { AlertifyService } from 'src/app/_services/alertify.service';
 export class CarAddComponent implements OnInit {
 
   model: any = {};
-  registerForm: FormGroup;
+  createCarmodelForm: FormGroup;
   bsConfig: Partial<BsDatepickerConfig>;
 
   constructor(private authService: AuthService,
@@ -28,34 +28,22 @@ export class CarAddComponent implements OnInit {
   }
 
   createAddCarmodelForm() {
-    this.registerForm = this.fb.group({
-      gender: ['male'],
-      username: ['', Validators.required],
-      knownAs: ['', Validators.required],
-      dateOfBirth: [null, Validators.required],
-      city: ['', Validators.required],
-      country: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(8)]],
-      confirmPassword: ['', Validators.required]
+    this.createCarmodelForm = this.fb.group({
+      maker: ['', Validators.required],
+      modelName: ['', Validators.required],
+      levelName: ['', Validators.required],
+      energyForm: ['', Validators.required],
+      published: [null, Validators.required],
+      length: ['', Validators.required],
+      width: ['', Validators.required],
+      height: ['', Validators.required],
+      price: ['', Validators.required],
+      horsePower: ['', Validators.required],
+      airbagsNumber: ['', Validators.required],
+      bootCapacity: ['', Validators.required],
+      sizeAndType: ['', Validators.required],
+      fuelConsumption: ['', Validators.required]
     });
-
-    // maker: string;
-    //     modelName: string;
-    //     levelName: string;
-    //     energyForm: string;
-    //     published: Date;
-    //     length: number;
-    //     width: number;
-    //     height: number;
-    //     price: number;
-    //     horsePower: number;
-    //     airbagsNumber: number;
-    //     bootCapacity: number;
-    //     sizeAndType: string;
-    //     fuelConsumption: number;
-    //     photoUrl: string;
-    //     introduction?: string;
-    //     photos?: Photo[];
   }
 
   createNewCarmodel() {
@@ -67,7 +55,7 @@ export class CarAddComponent implements OnInit {
     //   // console.log(error);
     //   this.alertify.error(error);
     // });
-    console.log(this.registerForm.value);
+    console.log(this.createCarmodelForm.value);
   }
 
   cancel() {
