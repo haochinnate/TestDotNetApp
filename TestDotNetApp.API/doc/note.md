@@ -904,10 +904,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 * 測試 API, 加入成功後回傳的 Headers 會有 Location: http://localhost:5000/api/CarModels/82
  
-
 [POST] http://localhost:5000/api/carmodels/add
 
 ## Section 132. Completing the Registration implementation
+
+* 課程是修改 register component 內的 register method, 改為修改在 CarAdd component 的 createNewCarmodel method
+
+* CarAdd component 要 import carmodel service
+
+```typescript
+    if (this.createCarmodelForm.valid) {
+      // parse the form value to empty object
+      // 利用 Object assign 去產生轉型?
+      this.carmodel = Object.assign({}, this.createCarmodelForm.value);
+
+      // 再呼叫 API 去 create
+    }
+```
+
 
 ## Section 133. Fixing the Photos issue for newly registered users
 

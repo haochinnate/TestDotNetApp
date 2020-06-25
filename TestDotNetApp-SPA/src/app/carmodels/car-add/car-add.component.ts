@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { BsDatepickerConfig } from 'ngx-bootstrap';
-import { AuthService } from 'src/app/_services/auth.service';
 import { AlertifyService } from 'src/app/_services/alertify.service';
+import { CarmodelService } from 'src/app/_services/carmodel.service';
+import { Carmodel } from 'src/app/_models/carmodel';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-car-add',
@@ -11,11 +13,12 @@ import { AlertifyService } from 'src/app/_services/alertify.service';
 })
 export class CarAddComponent implements OnInit {
 
-  model: any = {};
+  carmodel: Carmodel;
   createCarmodelForm: FormGroup;
   bsConfig: Partial<BsDatepickerConfig>;
 
-  constructor(private authService: AuthService,
+  constructor(private carmodelService: CarmodelService,
+              private router: Router,
               private alertify: AlertifyService,
               private fb: FormBuilder) { }
 
@@ -47,14 +50,23 @@ export class CarAddComponent implements OnInit {
   }
 
   createNewCarmodel() {
-    // // console.log(this.model);
-    // this.authService.register(this.model).subscribe(() => {
-    //   // console.log('registration successful');
-    //   this.alertify.success('registration successful');
-    // }, error => {
-    //   // console.log(error);
-    //   this.alertify.error(error);
-    // });
+    if (this.createCarmodelForm.valid) {
+      this.carmodel = Object.assign({}, this.createCarmodelForm.value);
+
+      this.carmodelService.createCarmodel(this.carmodel).subscribe(() => {
+        this.alertify.success('carmodel creation successful');
+      }, error => {
+        this.alertify.error(error);
+      }, () => {
+        // this part is for action after complete
+        // course is login automatically
+        // this.authService.login(this.user).subscribe(() => {
+        //   this.router.navigate(['/members']);
+        // });
+        this.router.navigate(['/cars']);
+      });
+    }
+
     console.log(this.createCarmodelForm.value);
   }
 

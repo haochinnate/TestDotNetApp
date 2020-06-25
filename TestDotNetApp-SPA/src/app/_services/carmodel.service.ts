@@ -20,6 +20,10 @@ export class CarmodelService {
     return this.http.get<Carmodel>(this.baseUrl + 'carmodels/' + id);
   }
 
+  createCarmodel(carmodel: Carmodel) {
+    return this.http.post(this.baseUrl + 'carmodels/add/', carmodel);
+  }
+
   updateCarModel(id: number, carmodel: Carmodel) {
     return this.http.put(this.baseUrl + 'carmodels/' + id, carmodel);
   }
