@@ -913,6 +913,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 * CarAdd component 要 import carmodel service
 
 ```typescript
+    // createNewCarmodel() in car-add.component.ts
+
     if (this.createCarmodelForm.valid) {
       // parse the form value to empty object
       // 利用 Object assign 去產生轉型?
@@ -922,9 +924,42 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     }
 ```
 
-
 ## Section 133. Fixing the Photos issue for newly registered users
 
-## Section 134. Summary
+* 在 car-card component html 中, 使用 || 來用預設的 頭像image 
+
+* upload 完 image 之後, 如果是第一張 自動幫他設定為 main, (in photo-editor.component.ts)
 
 # Section 13: Action Filters in ASP.NET Core 
+
+## Section 136. Using a TimeAgo pipe for dates in Angular
+
+## Section 137. Using Action Filters
+
+# Section 14. Paging, Sorting and Filtering
+
+## Section 139. Paging in ASP.NET Core Web API
+
+## Section 140. Adding a PagedList class
+
+## Section 141. Setting up the paging helper classes
+
+## Section 142. Implementing pagination in the API
+
+## Section 143. Setting up pagination in the SPA
+
+## Section 144. Using nix-boostrap pagination module
+
+## Section 145. Filtering in the API
+
+## Section 146. Adding additional filtering parameters to the API
+
+## Section 147. Adding filtering functionality to the SPA
+
+## Section 148. Sorting results in the API
+
+## Section 149. Adding the Sorting functionality to the SPA
+
+# Section 15: Adding the 'Likes' functionality from start to finish
+
+

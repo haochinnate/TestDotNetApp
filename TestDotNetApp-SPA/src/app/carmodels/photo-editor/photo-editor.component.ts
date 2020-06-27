@@ -64,6 +64,14 @@ export class PhotoEditorComponent implements OnInit {
         };
 
         this.photos.push(photo);
+
+        // this statement is for set main photo after first time upload image
+        if (photo.isMain) {
+          this.carmodel.photoUrl = photo.url;
+          // this.authService.changeMemberPhoto(photo.url);
+          // this.authService.currentUser.photoUrl = photoUrl;
+          // localStorage.setItem('user', JSON.stringify(this.authService.currentUser));
+        }
       }
     };
   }
@@ -80,7 +88,7 @@ export class PhotoEditorComponent implements OnInit {
       // emit the photo URL
       this.getCarmodelPhotoChange.emit(photo.url);
       // this.authService.changeMemberPhoto(photo.url);
-      // this.authService.currentUSer.photoUrl = photoUrl;
+      // this.authService.currentUser.photoUrl = photoUrl;
       // localStorage.setItem('user', JSON.stringify(this.authService.currentUser));
 
       // console.log('Successfully set to main');

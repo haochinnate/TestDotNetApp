@@ -1,6 +1,6 @@
 <div class="card mb-4">
   <div class="card-img-wrapper">
-    <img class="card-img-top" src="{{carmodel.photoUrl}}" alt="{{carmodel.modelName}}" >
+    <img class="card-img-top" src="{{carmodel.photoUrl || '../../../../../assets/original.png'}}" alt="{{carmodel.modelName}}" >
     <ul class="list-inline member-icons animate text-center">
       <li class="list-inline-item"><button class="btn btn-primary" 
         [routerLink]="['/cars/', carmodel.id]"><i class="fa fa-car"></i></button></li>
