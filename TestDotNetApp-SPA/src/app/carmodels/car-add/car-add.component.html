@@ -55,10 +55,10 @@
         
         <!-- Published Date -->
         <div class="form-group">
-          <input [ngClass]="{'is-invalid': createCarmodelForm.get('published').errors && createCarmodelForm.get('published').touched}" class="form-control"
-            placeholder="Date of Published" formControlName="published" type="text" bsDatepicker [bsConfig]="bsConfig">
-          <div class="invalid-feedback" *ngIf="createCarmodelForm.get('published').touched 
-            && createCarmodelForm.get('published').hasError('required')">Date of Published is required</div>
+          <input [ngClass]="{'is-invalid': createCarmodelForm.get('dayOfPublish').errors && createCarmodelForm.get('dayOfPublish').touched}" class="form-control"
+            placeholder="Date of Publish" formControlName="dayOfPublish" type="text" bsDatepicker [bsConfig]="bsConfig">
+          <div class="invalid-feedback" *ngIf="createCarmodelForm.get('dayOfPublish').touched 
+            && createCarmodelForm.get('dayOfPublish').hasError('required')">Date of Published is required</div>
         </div>
 
                

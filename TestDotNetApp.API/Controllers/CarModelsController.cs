@@ -31,11 +31,11 @@ namespace TestDotNetApp.API.Controllers
 
         // http://localhost:5000/api/carmodels/add
         [HttpPost("add")]
-        public async Task<IActionResult> Add(CarModelForUpdateDto carmodelForUpdateDto)
+        public async Task<IActionResult> Add(CarModelForDetailedDto carmodelForDetailedDto)
         {
             var carmodelToCreate = new CarModel();
             
-            _mapper.Map(carmodelForUpdateDto, carmodelToCreate);
+            _mapper.Map(carmodelForDetailedDto, carmodelToCreate);
 
             var createdCarmodel = await _repo.AddCarModel(carmodelToCreate);
 

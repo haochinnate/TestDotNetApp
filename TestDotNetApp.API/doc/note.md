@@ -934,6 +934,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 ## Section 136. Using a TimeAgo pipe for dates in Angular
 
+
+
 ## Section 137. Using Action Filters
 
 # Section 14. Paging, Sorting and Filtering

@@ -6,7 +6,8 @@ export interface Carmodel {
     modelName: string;
     levelName: string;
     energyForm: string;
-    published: Date;
+    lastEditedDate: Date;
+    dayOfPublish: Date;
     length: number;
     width: number;
     height: number;

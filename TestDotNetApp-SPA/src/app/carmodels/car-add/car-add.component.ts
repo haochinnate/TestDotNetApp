@@ -36,7 +36,7 @@ export class CarAddComponent implements OnInit {
       modelName: ['', Validators.required],
       levelName: ['', Validators.required],
       energyForm: ['', Validators.required],
-      published: [null, Validators.required],
+      dayOfPublish: [null, Validators.required],
       length: ['', Validators.required],
       width: ['', Validators.required],
       height: ['', Validators.required],
