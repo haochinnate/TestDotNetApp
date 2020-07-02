@@ -934,7 +934,36 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 ## Section 136. Using a TimeAgo pipe for dates in Angular
 
+* 直接在 html 裡面改變顯示格式
 
+```html
+  <p>{{carmodel.dayOfPublish | date: 'mediumDate'}}</p>
+```
+* 搜尋 angular time ago pipe, 使用[這個](https://www.npmjs.com/package/time-ago-pipe)
+
+* 如果使用 Angular 9 則是用 另一個 package: npm install ngx-timeago
+
+* 然後在 app.module.ts 中 增加 TimeagoModule.forRoot()
+
+```powershell
+
+cd testdotnetapp-spa
+npm install time-ago-pipe --save
+
+```
+
+```typescript
+
+import {TimeAgoPipe} from 'time-ago-pipe';
+
+// add to your declarations
+
+@NgModule({
+    imports: [... etc ...],
+    declarations: [..., TimeAgoPipe, ... ]
+})
+
+```
 
 ## Section 137. Using Action Filters
 

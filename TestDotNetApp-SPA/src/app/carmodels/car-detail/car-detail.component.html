@@ -19,11 +19,12 @@
           </div>
           <div>
             <strong>Last Edited Date:</strong>
-            <p>{{carmodel.lastEditedDate}}</p>
+            <p>{{carmodel.lastEditedDate | timeAgo}}</p>
           </div>
           <div>
             <strong>Published Date:</strong>
-            <p>{{carmodel.dayOfPublish}}</p>
+            <p>{{carmodel.dayOfPublish | date: 'mediumDate'}}</p>
+            <!-- <p>{{carmodel.dayOfPublish | date: 'medium'}}</p> -->
           </div>
           <div>
             <strong>Energy Info:</strong>
