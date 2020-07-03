@@ -8,9 +8,11 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System;
 using TestDotNetApp.API.Models;
+using TestDotNetApp.API.Helpers;
 
 namespace TestDotNetApp.API.Controllers
 {
+    [ServiceFilter(typeof(LogCarModelActivity))]
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]

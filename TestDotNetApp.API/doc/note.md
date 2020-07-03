@@ -967,9 +967,19 @@ import {TimeAgoPipe} from 'time-ago-pipe';
 
 ## Section 137. Using Action Filters
 
+* Carmodel class 沒有存 last activated property, 所有就註解掉相關的 code
+
+* 在 API/Helpers 底下新增 LogUserActivity(LogCarModelActivity) class, 實作 IAsyncActionFilter
+
+* add LogUserActivity as service in Startup class
+
+* 在 Controller class 最上面加入 ServiceFilter, 每個 class 內的 function 被call的時候, 都會呼叫 log activity action filter
+
 # Section 14. Paging, Sorting and Filtering
 
 ## Section 139. Paging in ASP.NET Core Web API
+
+
 
 ## Section 140. Adding a PagedList class
 
