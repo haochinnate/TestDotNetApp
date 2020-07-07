@@ -979,9 +979,26 @@ import {TimeAgoPipe} from 'time-ago-pipe';
 
 ## Section 139. Paging in ASP.NET Core Web API
 
+* paging helps avoid performance problems
 
+* parameters are passed by query string
+
+* http://localhost:5000/api/users?pageNumber=1&pageSize=5
+
+* page size should by limited, and should always page results 
+
+* Deferred(推遲,延遲) Execution
+  * store query commands in variable
+  * execution is deferred
+  * IQueryable<T> creates an expression tree
 
 ## Section 140. Adding a PagedList class
+
+* 在 Helper 資料夾裡面增加 PagedList 類別
+
+* 只取部分的資料內容, 利用 IQueryable 的 Skip + Take
+
+* 有用 singleton pattern
 
 ## Section 141. Setting up the paging helper classes
 
