@@ -1002,6 +1002,10 @@ import {TimeAgoPipe} from 'time-ago-pipe';
 
 ## Section 141. Setting up the paging helper classes
 
+* 在 Helper 資料夾裡面增加一個 PaginationHeader 類別, 裡面的內容會放到 http response header
+
+* 在 Extensions 類別中, 增加一個 AddPagination function 
+
 ## Section 142. Implementing pagination in the API
 
 ## Section 143. Setting up pagination in the SPA
