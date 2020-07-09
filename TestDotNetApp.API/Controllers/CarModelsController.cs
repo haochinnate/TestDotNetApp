@@ -49,15 +49,17 @@ namespace TestDotNetApp.API.Controllers
 
 
         // http://localhost:5000/api/carmodels/
-        //[HttpPost("register")]
         [HttpGet]
-        public async Task<IActionResult> GetCarModels()
+        public async Task<IActionResult> GetCarModels(CarModelParams carModelParams)
         {
-            var carModels = await _repo.GetCarModels();
+            var carModels = await _repo.GetCarModels(carModelParams);
 
             // return object of Dto class instead of Model class
             var carModelsToReturn = _mapper.Map<IEnumerable<CarModelForListDto>>(carModels);
             
+            Response.AddPagination(carModels.CurrentPage, carModels.PageSize, 
+                carModels.TotalCount, carModels.TotalPages);
+
             return Ok(carModelsToReturn);
         }
         

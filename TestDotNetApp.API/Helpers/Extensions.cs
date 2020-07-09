@@ -1,5 +1,6 @@
 using System;
 using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 namespace TestDotNetApp.API.Helpers
 {
@@ -17,7 +18,8 @@ namespace TestDotNetApp.API.Helpers
             int currentPage, int itemsPerPage, int totalItems, int totalPages)
         {
             var paginationHeader = new PaginationHeader(currentPage, itemsPerPage, totalItems, totalPages);
-            // TODO...
+            response.Headers.Add("Pagination", JsonConvert.SerializeObject(paginationHeader));
+            response.Headers.Add("Access-Control-Expose-Headers", "Pagination");
         }        
 
         public static int CalculateAge(this DateTime theDateTime)

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using TestDotNetApp.API.Helpers;
 using TestDotNetApp.API.Models;
 
 namespace TestDotNetApp.API.Data
@@ -11,7 +12,7 @@ namespace TestDotNetApp.API.Data
         Task<bool> SaveAll();
 
         Task<CarModel> AddCarModel(CarModel carmodel);
-        Task<IEnumerable<CarModel>> GetCarModels();
+        Task<PagedList<CarModel>> GetCarModels(CarModelParams carmodelParamas);
         Task<CarModel> GetCarModel(int id);
         Task<Photo> GetPhoto(int id);
         Task<Photo> GetMainPhotoForCarmodel(int carmodelId);

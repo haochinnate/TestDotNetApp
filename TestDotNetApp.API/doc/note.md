@@ -1004,9 +1004,45 @@ import {TimeAgoPipe} from 'time-ago-pipe';
 
 * 在 Helper 資料夾裡面增加一個 PaginationHeader 類別, 裡面的內容會放到 http response header
 
-* 在 Extensions 類別中, 增加一個 AddPagination function 
+* 在 Extensions 類別中, 增加一個 AddPagination function, 
+
+* 在 Helper 資料夾裡面, 增加一個 CarModelParams 類別, 裡面存放 PageSize, PageNumber 資訊
 
 ## Section 142. Implementing pagination in the API
+
+* 把 Repo GetCarModels function 從回傳 IEnumerable 改為 PagedList, 然後把 CarModelParams 當作參數傳入, 才可以指定 要取得的頁數/數量
+
+* 實作 GetCarModels function 中, 改為只回傳部分的 objects, 用 async 的 create method 去產生
+
+```csharp
+public async Task<PagedList<CarModel>> GetCarModels(CarModelParams carmodelParams)
+{
+    // pagination 
+    var carmodels = _context.CarModels.Include(p => p.Photos);
+
+    return await PagedList<CarModel>.CreateAsync(carmodels, carmodelParams.PageNumber, carmodelParams.PageSize);
+}
+```
+
+* 改完 Repository 後, 再去改 Controller 的 method, 這邊API 還要再增加 header 的資訊
+
+```csharp
+[HttpGet]
+public async Task<IActionResult> GetCarModels(CarModelParams carModelParams)
+{
+    var carModels = await _repo.GetCarModels(carModelParams);
+
+    // return object of Dto class instead of Model class
+    var carModelsToReturn = _mapper.Map<IEnumerable<CarModelForListDto>>(carModels);
+            
+    Response.AddPagination(carModels.CurrentPage, carModels.PageSize, 
+                carModels.TotalCount, carModels.TotalPages);
+
+    return Ok(carModelsToReturn);
+}
+```
+
+
 
 ## Section 143. Setting up pagination in the SPA
 

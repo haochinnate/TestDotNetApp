@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using TestDotNetApp.API.Helpers;
 using TestDotNetApp.API.Models;
 
 namespace TestDotNetApp.API.Data
@@ -40,11 +41,18 @@ namespace TestDotNetApp.API.Data
             return carModel;
         }
 
-        public async Task<IEnumerable<CarModel>> GetCarModels()
+        public async Task<PagedList<CarModel>> GetCarModels(CarModelParams carmodelParams)
         {
             // in course, this function is return all users (lecture 75)
-            var carModels = await _context.CarModels.Include(p => p.Photos).ToListAsync();
-            return carModels;
+            
+            // original is return IEnumerable<T> all carmodels
+            // var carModels = await _context.CarModels.Include(p => p.Photos).ToListAsync();
+            // return carModels;
+
+            // pagination 
+            var carmodels = _context.CarModels.Include(p => p.Photos);
+
+            return await PagedList<CarModel>.CreateAsync(carmodels, carmodelParams.PageNumber, carmodelParams.PageSize);
         }
 
         public async Task<bool> SaveAll()
