@@ -50,7 +50,7 @@ namespace TestDotNetApp.API.Controllers
 
         // http://localhost:5000/api/carmodels/
         [HttpGet]
-        public async Task<IActionResult> GetCarModels(CarModelParams carModelParams)
+        public async Task<IActionResult> GetCarModels([FromQuery]CarModelParams carModelParams)
         {
             var carModels = await _repo.GetCarModels(carModelParams);
 

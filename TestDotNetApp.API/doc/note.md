@@ -1006,6 +1006,20 @@ import {TimeAgoPipe} from 'time-ago-pipe';
 
 * 在 Extensions 類別中, 增加一個 AddPagination function, 
 
+```csharp
+
+public static void AddPagination(this HttpResponse response, int currentPage, int itemsPerPage, int totalItems, int totalPages)
+{
+    var paginationHeader = new PaginationHeader(currentPage, itemsPerPage, totalItems, totalPages);
+    var camelCaseFormatter = new JsonSerializerSettings();
+    camelCaseFormatter.ContractResolver = new CamelCasePropertyNamesContractResolver();
+  
+    response.Headers.Add("Pagination", JsonConvert.SerializeObject(paginationHeader, camelCaseFormatter));
+    response.Headers.Add("Access-Control-Expose-Headers", "Pagination");
+} 
+
+```
+
 * 在 Helper 資料夾裡面, 增加一個 CarModelParams 類別, 裡面存放 PageSize, PageNumber 資訊
 
 ## Section 142. Implementing pagination in the API
@@ -1028,7 +1042,7 @@ public async Task<PagedList<CarModel>> GetCarModels(CarModelParams carmodelParam
 
 ```csharp
 [HttpGet]
-public async Task<IActionResult> GetCarModels(CarModelParams carModelParams)
+public async Task<IActionResult> GetCarModels([FromQuery]CarModelParams carModelParams)
 {
     var carModels = await _repo.GetCarModels(carModelParams);
 
@@ -1042,6 +1056,17 @@ public async Task<IActionResult> GetCarModels(CarModelParams carModelParams)
 }
 ```
 
+* 在 postman 中, 送出 [GET]http://localhost:5000/api/carmodels
+* 或是 http://localhost:5000/api/carmodels?pageNumber=2
+
+
+* 參數 CarModelParams 要增加 [FromQuery]
+
+* response 的 header 中, 增加 
+  * Pagination: {"CurrentPage":1,"ItemsPerPage":10,"TotalItems":46,"TotalPages":5}
+  * Access-Control-Expose-Headers: Pagination
+  * 這個是 大寫開頭, 但是 angular 那邊是小寫開頭 camel case
+  * 在 Extensions class 的 AddPagination method 增加 format 來解決
 
 
 ## Section 143. Setting up pagination in the SPA
