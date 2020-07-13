@@ -19,7 +19,7 @@ export class CarListComponent implements OnInit {
   ngOnInit() {
     // this.loadCarModels();
     this.route.data.subscribe(data => {
-      this.carmodels = data['carmodels'];
+      this.carmodels = data['carmodels'].result;
     });
   }
 

@@ -9,6 +9,7 @@ using System.Security.Claims;
 using System;
 using TestDotNetApp.API.Models;
 using TestDotNetApp.API.Helpers;
+using System.Diagnostics;
 
 namespace TestDotNetApp.API.Controllers
 {
@@ -53,7 +54,7 @@ namespace TestDotNetApp.API.Controllers
         public async Task<IActionResult> GetCarModels([FromQuery]CarModelParams carModelParams)
         {
             var carModels = await _repo.GetCarModels(carModelParams);
-
+            // Debug.WriteLine($"{carModelParams.PageNumber}, {carModelParams.PageSize}");
             // return object of Dto class instead of Model class
             var carModelsToReturn = _mapper.Map<IEnumerable<CarModelForListDto>>(carModels);
             

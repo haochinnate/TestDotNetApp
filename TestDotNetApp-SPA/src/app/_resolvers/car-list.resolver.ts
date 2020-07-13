@@ -8,6 +8,9 @@ import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class CarListResolver implements Resolve<Carmodel[]> {
+    pageNumber = 1;
+    pageSize = 5;
+
     constructor(private carmodelService: CarmodelService,
                 private router: Router,
                 private alertify: AlertifyService) {
@@ -16,7 +19,7 @@ export class CarListResolver implements Resolve<Carmodel[]> {
 
     resolve(route: ActivatedRouteSnapshot): Observable<Carmodel[]> {
         // to handle if carmodel doesn't exist
-        return this.carmodelService.getCarModels().pipe(
+        return this.carmodelService.getCarModels(this.pageNumber, this.pageSize).pipe(
             catchError(error => {
                 this.alertify.error('Problem retrieving data');
                 this.router.navigate(['/home']);

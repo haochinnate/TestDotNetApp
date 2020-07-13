@@ -1068,8 +1068,38 @@ public async Task<IActionResult> GetCarModels([FromQuery]CarModelParams carModel
   * 這個是 大寫開頭, 但是 angular 那邊是小寫開頭 camel case
   * 在 Extensions class 的 AddPagination method 增加 format 來解決
 
-
 ## Section 143. Setting up pagination in the SPA
+
+* 在 app/_models/ 底下建立新的 interface 叫 pagination, 同時裡面新增一個 PaginatedResult 類別
+
+* 然後在 CarmodelService 中, 修改連結後端的部分, 因為 pagination的相關資訊放在 header 中, 所以要取出來並存起來, 之後才可以用
+
+```typescript
+  getCarModels(page?, itemsPerPage?): Observable<PaginatedResult<Carmodel []>> {
+    const paginatedResult: PaginatedResult<Carmodel []> = new PaginatedResult<Carmodel []>();
+
+    let params = new HttpParams();
+    if (page != null && itemsPerPage != null) {
+      params = params.append('pageNumber', page);
+      params = params.append('pageSize', itemsPerPage);
+    }
+
+    return this.http.get<Carmodel []>(this.baseUrl + 'carmodels', { observe: 'response', params})
+      .pipe(
+        map(response => {
+          paginatedResult.result = response.body;
+
+          if (response.headers.get('Pagination') != null) {
+            paginatedResult.pagination = JSON.parse(response.headers.get('Pagination'));
+          }
+          return paginatedResult;
+        })
+      );
+  }
+
+```
+
+* 其他使用到這個 service 的地方也要做對應的修改, 因為回傳類型已修改
 
 ## Section 144. Using nix-boostrap pagination module
 
