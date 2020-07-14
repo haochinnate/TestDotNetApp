@@ -3,6 +3,7 @@ import { Carmodel } from '../../_models/carmodel';
 import { CarmodelService } from '../../_services/carmodel.service';
 import { AlertifyService } from '../../_services/alertify.service';
 import { ActivatedRoute } from '@angular/router';
+import { Pagination, PaginatedResult } from '../../_models/pagination';
 
 @Component({
   selector: 'app-car-list',
@@ -11,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CarListComponent implements OnInit {
   carmodels: Carmodel[];
+  pagination: Pagination;
 
   constructor(private carmodelService: CarmodelService,
               private alertify: AlertifyService,
@@ -20,14 +22,27 @@ export class CarListComponent implements OnInit {
     // this.loadCarModels();
     this.route.data.subscribe(data => {
       this.carmodels = data['carmodels'].result;
+      this.pagination = data['carmodels'].pagination;
     });
   }
 
-  // loadCarModels() {
-  //   this.carmodelService.getCarModels().subscribe((carmodels: Carmodel[]) => {
-  //     this.carmodels = carmodels;
-  //   }, error => {
-  //     this.alertify.error(error);
-  //   });
-  // }
+  pageChanged(event: any): void {
+    this.pagination.currentPage = event.page;
+    // when page changed, send the API again to get correspond carmodel
+    // and then update
+    this.loadCarModels();
+    // console.log(this.pagination.currentPage);
+  }
+
+  loadCarModels() {
+    this.carmodelService
+      .getCarModels(this.pagination.currentPage, this.pagination.itemsPerPage)
+      .subscribe((res: PaginatedResult<Carmodel[]>) => {
+        this.carmodels = res.result;
+        this.pagination = res.pagination;
+      },
+      error => {
+        this.alertify.error(error);
+      });
+  }
 }

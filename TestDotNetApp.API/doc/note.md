@@ -1103,6 +1103,23 @@ public async Task<IActionResult> GetCarModels([FromQuery]CarModelParams carModel
 
 ## Section 144. Using nix-boostrap pagination module
 
+* [ngx bootstrap-pagination](https://valor-software.com/ngx-bootstrap/#/pagination)
+
+* app.module.ts 要 import PaginationModule
+
+* CarList component 中, 建立對應的 property& method
+
+```html
+<!-- Custom links content -->
+  <pagination [boundaryLinks]="true" 
+              [totalItems]="pagination.totalItems"
+              [itemsPerPage]="pagination.itemsPerPage"
+              [(ngModel)]="pagination.currentPage"
+              (pageChanged)="pageChanged($event)"
+              previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;">
+  </pagination>
+```
+
 ## Section 145. Filtering in the API
 
 ## Section 146. Adding additional filtering parameters to the API
