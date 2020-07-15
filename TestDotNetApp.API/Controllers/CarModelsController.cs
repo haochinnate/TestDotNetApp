@@ -53,7 +53,18 @@ namespace TestDotNetApp.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetCarModels([FromQuery]CarModelParams carModelParams)
         {
+            // the example in course have to know the ID and gender of user
+            // setting the Params before call the function in Repository class
+            // var currentUserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+            // var userFromRepo = await _repo.GetUser(currentUserId);
+            // userParams.UserId = currentUserId;
+            // if (string.IsNullOrEmpty(userParams.Gender))
+            // {
+            //     userParams.Gender = userFromRepo.Gender == "male" ? "female" : "male";
+            // }
+
             var carModels = await _repo.GetCarModels(carModelParams);
+
             // Debug.WriteLine($"{carModelParams.PageNumber}, {carModelParams.PageSize}");
             // return object of Dto class instead of Model class
             var carModelsToReturn = _mapper.Map<IEnumerable<CarModelForListDto>>(carModels);

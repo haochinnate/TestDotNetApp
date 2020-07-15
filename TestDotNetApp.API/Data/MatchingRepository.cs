@@ -52,6 +52,10 @@ namespace TestDotNetApp.API.Data
             // pagination 
             var carmodels = _context.CarModels.Include(p => p.Photos);
 
+            // use the criteria in params to filter the models want to return 
+            // users = users.Where(u => u.Id != userParmas.UserId);
+            // users = users.Where(u => u.Gender == userParams.Gender);
+
             return await PagedList<CarModel>.CreateAsync(carmodels, carmodelParams.PageNumber, carmodelParams.PageSize);
         }
 

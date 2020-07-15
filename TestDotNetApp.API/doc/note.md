@@ -1122,6 +1122,12 @@ public async Task<IActionResult> GetCarModels([FromQuery]CarModelParams carModel
 
 ## Section 145. Filtering in the API
 
+* 在 CarModelParams 裡面再增加 想要篩選的項目/規格/條件
+
+* 在 CarModelsController 裡面, 進來先將傳入的參數 設定到 params 物件當中, 因為後續call repository function 需要用到
+
+* repository 的 function 根據 params 的條件, 用 LinQ 來篩選要回傳的資料
+
 ## Section 146. Adding additional filtering parameters to the API
 
 ## Section 147. Adding filtering functionality to the SPA

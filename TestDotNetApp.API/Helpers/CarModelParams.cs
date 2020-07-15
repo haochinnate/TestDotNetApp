@@ -13,6 +13,12 @@ namespace TestDotNetApp.API.Helpers
             get { return pageSize; }
             set { pageSize = (value > MaxPageSize) ? MaxPageSize : value; }
         }
-        #endregion    
+        #endregion   
+
+        // the criteria of what we're going to filter by
+        public int CarModelLength { get; set; }
+        public int CarModelWidth { get; set; }
+        public int CarModelHeight { get; set; }
+        public string CarModelType { get; set; }
     }
 }
