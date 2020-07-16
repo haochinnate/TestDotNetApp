@@ -1130,6 +1130,12 @@ public async Task<IActionResult> GetCarModels([FromQuery]CarModelParams carModel
 
 ## Section 146. Adding additional filtering parameters to the API
 
+* 在 params 再增加條件
+
+* 在 repository 中, 篩選條件
+
+* 在 postman 中測試 [GET]http://localhost:5000/api/carmodels?MinCarModelLength=4700&MaxCarModelwidth=1400
+
 ## Section 147. Adding filtering functionality to the SPA
 
 ## Section 148. Sorting results in the API

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -50,11 +51,46 @@ namespace TestDotNetApp.API.Data
             // return carModels;
 
             // pagination 
-            var carmodels = _context.CarModels.Include(p => p.Photos);
+            var carmodels = _context.CarModels.Include(p => p.Photos).AsQueryable();
 
             // use the criteria in params to filter the models want to return 
             // users = users.Where(u => u.Id != userParmas.UserId);
             // users = users.Where(u => u.Gender == userParams.Gender);
+            
+            // in course is checking the age of user
+            // var minDob = DateTime.Today.AddYears(-userParams.MaxAge - 1);
+            // var maxDob = DateTime.Today.AddYears(-userParams.MinAge);
+            // users = users.Where(u => u.DateOfBirth >= minDob && u.DateOfBirth <= maxDob);
+
+            #region Filter Length
+            if (carmodelParams.MinCarModelLength != CarModelParams.DefaultMinLength
+                || carmodelParams.MaxCarModelLength != CarModelParams.DefaultMaxLength)
+            {
+
+                carmodels = carmodels.Where(c => c.Length >= carmodelParams.MinCarModelLength
+                    && c.Length <= carmodelParams.MaxCarModelLength);
+            }
+            #endregion
+
+            #region Filter Width    
+            if (carmodelParams.MinCarModelWidth != CarModelParams.DefaultMinLength
+                || carmodelParams.MaxCarModelWidth != CarModelParams.DefaultMaxLength)
+            {
+
+                carmodels = carmodels.Where(c => c.Width >= carmodelParams.MinCarModelWidth
+                    && c.Width <= carmodelParams.MaxCarModelWidth);
+            }
+            #endregion
+
+            #region Filter Height    
+            if (carmodelParams.MinCarModelHeight != CarModelParams.DefaultMinLength
+                || carmodelParams.MaxCarModelHeight != CarModelParams.DefaultMaxLength)
+            {
+
+                carmodels = carmodels.Where(c => c.Height >= carmodelParams.MinCarModelHeight
+                    && c.Height <= carmodelParams.MaxCarModelHeight);
+            }
+            #endregion
 
             return await PagedList<CarModel>.CreateAsync(carmodels, carmodelParams.PageNumber, carmodelParams.PageSize);
         }

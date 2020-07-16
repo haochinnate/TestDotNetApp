@@ -15,10 +15,16 @@ namespace TestDotNetApp.API.Helpers
         }
         #endregion   
 
+        internal static int DefaultMinLength = 0;
+        internal static int DefaultMaxLength = 6000;
+
         // the criteria of what we're going to filter by
-        public int CarModelLength { get; set; }
-        public int CarModelWidth { get; set; }
-        public int CarModelHeight { get; set; }
+        public int MinCarModelLength { get; set; } = DefaultMinLength;
+        public int MaxCarModelLength { get; set; } = DefaultMaxLength;
+        public int MinCarModelWidth { get; set; } = DefaultMinLength;
+        public int MaxCarModelWidth { get; set; } = DefaultMaxLength;
+        public int MinCarModelHeight { get; set; } = DefaultMinLength;
+        public int MaxCarModelHeight { get; set; } = DefaultMaxLength;
         public string CarModelType { get; set; }
     }
 }
