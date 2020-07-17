@@ -1138,6 +1138,10 @@ public async Task<IActionResult> GetCarModels([FromQuery]CarModelParams carModel
 
 ## Section 147. Adding filtering functionality to the SPA
 
+* 在 CarList component中 增加 元件讓使用者可以填入 filtering 的條件
+
+* 在 typescript 中, 增加 carmodelParams property 用來 binding 
+
 ## Section 148. Sorting results in the API
 
 ## Section 149. Adding the Sorting functionality to the SPA

@@ -5,7 +5,64 @@
   <button class="btn btn-primary btn-lg mr-2" [routerLink]="['/cars/', 'add']"> Add new model</button>
 </div>
 
-<div class="container mt-5">
+<div class="text-center mt-3">
+  <h2>Carmodels - {{pagination.totalItems}} found</h2>
+</div>
+
+<div class="container mt-3">
+  <!-- the form to apply filter -->
+  <form class="form-inline" #form="ngForm" (ngSubmot)='loadCarModels()' novalidate>
+    <div class="form-group">
+      <label for="minLength">Length From</label>
+      <input type="number" class="form-control ml-1" style="width: 150px" id="minLength" 
+        [(ngModel)]="carmodelParams.minLength" name="minLength">
+    </div>
+  
+    <div class="form-group px-2">
+      <label for="maxLength">Length To</label>
+      <input type="number" class="form-control ml-1" style="width: 150px" id="maxLength" 
+        [(ngModel)]="carmodelParams.maxLength" name="maxLength">
+    </div>
+  
+    <div class="form-group">
+      <label for="minWidth">Width From</label>
+      <input type="number" class="form-control ml-1" style="width: 150px" id="minWidth" 
+        [(ngModel)]="carmodelParams.minWidth" name="minWidth">
+    </div>
+  
+    <div class="form-group px-2">
+      <label for="maxWidth">Width To</label>
+      <input type="number" class="form-control ml-1" style="width: 150px" id="maxWidth"
+      [(ngModel)]="carmodelParams.maxWidth" name="maxWidth">
+    </div>
+    
+    <div class="form-group">
+      <label for="minHeight">Height From</label>
+      <input type="number" class="form-control ml-1" style="width: 150px" id="minHeight"
+        [(ngModel)]="carmodelParams.minHeight" name="minHeight">
+    </div>
+  
+    <div class="form-group px-2">
+      <label for="maxHeight">Height To</label>
+      <input type="number" class="form-control ml-1" style="width: 150px" id="maxHeight"
+        [(ngModel)]="carmodelParams.maxHeight" name="maxHeight">
+    </div>
+    
+    <div class="form-group px-2">
+      <label for="gender">Show: </label>
+      <select class="form-control ml-1" style="width: 130px" id="gender" name="gender">
+        <option>
+  
+        </option>
+      </select>
+    </div>
+    
+    <button type="submit" class="btn btn-primary" style="margin-left:10px">Apply Filters</button>
+    <button type="button" class="btn btn-info" style="margin-left:10px">Reset Filter</button>
+  
+  </form>
+  <br>
+
   <div class="row">
     <div *ngFor="let carmodel of carmodels" class="col-lg-2 col-md-3 col-sm-6">
       <!-- <p *ngFor="let carmodel of carmodels">{{carmodel.modelName}}</p> -->

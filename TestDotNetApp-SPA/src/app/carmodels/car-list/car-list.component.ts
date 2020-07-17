@@ -12,6 +12,10 @@ import { Pagination, PaginatedResult } from '../../_models/pagination';
 })
 export class CarListComponent implements OnInit {
   carmodels: Carmodel[];
+  // the example in course have to know current user
+  // user: User = JSON.parse(localStorage.getItems('user'));
+  // genderList = [{value: 'male', display: 'Males'}, {value: 'female', display: 'Female'}]
+  carmodelParams: any = {}; // start with an empty object
   pagination: Pagination;
 
   constructor(private carmodelService: CarmodelService,
@@ -24,6 +28,15 @@ export class CarListComponent implements OnInit {
       this.carmodels = data['carmodels'].result;
       this.pagination = data['carmodels'].pagination;
     });
+
+    // initialize the filter creteria
+    // this.userParams.gender = this.user.gender === 'female' ? 'male' : 'female';
+    this.carmodelParams.minLength = 0;
+    this.carmodelParams.maxLength = 6000;
+    this.carmodelParams.minWidth = 0;
+    this.carmodelParams.maxWidth = 6000;
+    this.carmodelParams.minHeight = 0;
+    this.carmodelParams.maxHeight = 6000;
   }
 
   pageChanged(event: any): void {
@@ -32,6 +45,16 @@ export class CarListComponent implements OnInit {
     // and then update
     this.loadCarModels();
     // console.log(this.pagination.currentPage);
+  }
+
+  resetFilters() {
+    this.carmodelParams.minLength = 0;
+    this.carmodelParams.maxLength = 6000;
+    this.carmodelParams.minWidth = 0;
+    this.carmodelParams.maxWidth = 6000;
+    this.carmodelParams.minHeight = 0;
+    this.carmodelParams.maxHeight = 6000;
+    this.loadCarModels();
   }
 
   loadCarModels() {
