@@ -15,6 +15,12 @@ export class CarListComponent implements OnInit {
   // the example in course have to know current user
   // user: User = JSON.parse(localStorage.getItems('user'));
   // genderList = [{value: 'male', display: 'Males'}, {value: 'female', display: 'Female'}]
+  carmodelTypeList = [{value: 'Any', display: 'Any'},
+    {value: 'SUV', display: 'SUV'},
+    {value: 'Sedan', display: 'Sedan'},
+    {value: 'Wagon', display: 'Wagon'},
+    {value: 'CUV', display: 'CUV'}];
+
   carmodelParams: any = {}; // start with an empty object
   pagination: Pagination;
 
@@ -37,6 +43,7 @@ export class CarListComponent implements OnInit {
     this.carmodelParams.maxWidth = 6000;
     this.carmodelParams.minHeight = 0;
     this.carmodelParams.maxHeight = 6000;
+    this.carmodelParams.carModelType = 'Any';
   }
 
   pageChanged(event: any): void {
@@ -54,12 +61,13 @@ export class CarListComponent implements OnInit {
     this.carmodelParams.maxWidth = 6000;
     this.carmodelParams.minHeight = 0;
     this.carmodelParams.maxHeight = 6000;
+    this.carmodelParams.carModelType = 'Any';
     this.loadCarModels();
   }
 
   loadCarModels() {
     this.carmodelService
-      .getCarModels(this.pagination.currentPage, this.pagination.itemsPerPage)
+      .getCarModels(this.pagination.currentPage, this.pagination.itemsPerPage, this.carmodelParams)
       .subscribe((res: PaginatedResult<Carmodel[]>) => {
         this.carmodels = res.result;
         this.pagination = res.pagination;

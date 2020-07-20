@@ -11,7 +11,7 @@
 
 <div class="container mt-3">
   <!-- the form to apply filter -->
-  <form class="form-inline" #form="ngForm" (ngSubmot)='loadCarModels()' novalidate>
+  <form class="form-inline" #form="ngForm" (ngSubmit)='loadCarModels()' novalidate>
     <div class="form-group">
       <label for="minLength">Length From</label>
       <input type="number" class="form-control ml-1" style="width: 150px" id="minLength" 
@@ -50,15 +50,17 @@
     
     <div class="form-group px-2">
       <label for="gender">Show: </label>
-      <select class="form-control ml-1" style="width: 130px" id="gender" name="gender">
-        <option>
-  
+      <select class="form-control ml-1" style="width: 130px" id="gender" 
+        [(ngModel)]="carmodelParams.carModelType" name="gender">
+        <option *ngFor="let carType of carmodelTypeList"
+          [value]="carType.value">
+          {{carType.display}}
         </option>
       </select>
     </div>
     
     <button type="submit" class="btn btn-primary" style="margin-left:10px">Apply Filters</button>
-    <button type="button" class="btn btn-info" style="margin-left:10px">Reset Filter</button>
+    <button type="button" class="btn btn-info" (click)="resetFilters()" style="margin-left:10px">Reset Filter</button>
   
   </form>
   <br>

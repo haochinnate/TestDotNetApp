@@ -1142,6 +1142,8 @@ public async Task<IActionResult> GetCarModels([FromQuery]CarModelParams carModel
 
 * 在 typescript 中, 增加 carmodelParams property 用來 binding 
 
+* html 中, 用 ngForm, ngModel 來 binding
+
 ## Section 148. Sorting results in the API
 
 ## Section 149. Adding the Sorting functionality to the SPA
