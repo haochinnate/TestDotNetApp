@@ -26,5 +26,10 @@ namespace TestDotNetApp.API.Helpers
         public int MinCarModelHeight { get; set; } = DefaultMinLength;
         public int MaxCarModelHeight { get; set; } = DefaultMaxLength;
         public string CarModelType { get; set; }
+
+        public int MinBootCapacity { get; set; } = DefaultMinLength;
+        public int MaxBootCapacity { get; set; } = DefaultMaxLength;
+
+        public string OrderBy { get; set; }   
     }
 }

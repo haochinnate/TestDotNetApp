@@ -1146,6 +1146,14 @@ public async Task<IActionResult> GetCarModels([FromQuery]CarModelParams carModel
 
 ## Section 148. Sorting results in the API
 
+* sorting by length, 原本課程是用 date 來排序
+
+* CarModelParams class 增加一個 OrderBy 的 string property
+
+* 在 MatchingRepository 的 GetCarModels function 中, 預設為用Length 來排序
+
+* 然後再用一個 switch case 判斷用什麼排序
+
 ## Section 149. Adding the Sorting functionality to the SPA
 
 # Section 15: Adding the 'Likes' functionality from start to finish

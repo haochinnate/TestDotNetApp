@@ -51,7 +51,8 @@ namespace TestDotNetApp.API.Data
             // return carModels;
 
             // pagination 
-            var carmodels = _context.CarModels.Include(p => p.Photos).AsQueryable();
+            var carmodels = _context.CarModels.Include(p => p.Photos)
+                .OrderByDescending(c => c.Length).AsQueryable();
 
             // use the criteria in params to filter the models want to return 
             // users = users.Where(u => u.Id != userParmas.UserId);
@@ -89,6 +90,34 @@ namespace TestDotNetApp.API.Data
 
                 carmodels = carmodels.Where(c => c.Height >= carmodelParams.MinCarModelHeight
                     && c.Height <= carmodelParams.MaxCarModelHeight);
+            }
+            #endregion
+
+            #region Filter BootCapacity    
+            if (carmodelParams.MinBootCapacity != CarModelParams.DefaultMinLength
+                || carmodelParams.MaxBootCapacity != CarModelParams.DefaultMaxLength)
+            {
+
+                carmodels = carmodels.Where(c => c.BootCapacity >= carmodelParams.MinBootCapacity
+                    && c.BootCapacity <= carmodelParams.MaxBootCapacity);
+            }
+            #endregion
+
+            #region Sorting Params                
+            if (!string.IsNullOrEmpty(carmodelParams.OrderBy))
+            {
+                switch (carmodelParams.OrderBy)
+                {
+                    case "length":
+                        carmodels = carmodels.OrderByDescending(c => c.Length);
+                        break;
+                    case "bootcapacity":
+                        carmodels = carmodels.OrderByDescending(c => c.BootCapacity);
+                        break;
+                    default:
+                        carmodels = carmodels.OrderByDescending(c => c.Length);
+                        break;
+                }
             }
             #endregion
 
