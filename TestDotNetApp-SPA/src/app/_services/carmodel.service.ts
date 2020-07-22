@@ -30,6 +30,9 @@ export class CarmodelService {
       params = params.append('MaxCarModelWidth', carmodelParams.maxWidth);
       params = params.append('MinCarModelHeight', carmodelParams.minHeight);
       params = params.append('MaxCarModelHeight', carmodelParams.maxHeight);
+      params = params.append('MinBootCapacity', carmodelParams.minBootCapacity);
+      params = params.append('MaxBootCapacity', carmodelParams.maxBootCapacity);
+      params = params.append('orderBy', carmodelParams.orderBy);
     }
 
     return this.http.get<Carmodel []>(this.baseUrl + 'carmodels', { observe: 'response', params})

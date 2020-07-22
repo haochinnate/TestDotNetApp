@@ -43,7 +43,10 @@ export class CarListComponent implements OnInit {
     this.carmodelParams.maxWidth = 6000;
     this.carmodelParams.minHeight = 0;
     this.carmodelParams.maxHeight = 6000;
+    this.carmodelParams.minBootCapacity = 0;
+    this.carmodelParams.maxBootCapacity = 6000;
     this.carmodelParams.carModelType = 'Any';
+    this.carmodelParams.orderBy = 'length';
   }
 
   pageChanged(event: any): void {
@@ -61,7 +64,10 @@ export class CarListComponent implements OnInit {
     this.carmodelParams.maxWidth = 6000;
     this.carmodelParams.minHeight = 0;
     this.carmodelParams.maxHeight = 6000;
+    this.carmodelParams.minBootCapacity = 0;
+    this.carmodelParams.maxBootCapacity = 6000;
     this.carmodelParams.carModelType = 'Any';
+    this.carmodelParams.orderBy = 'length';
     this.loadCarModels();
   }
 

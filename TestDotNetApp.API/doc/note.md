@@ -1152,9 +1152,33 @@ public async Task<IActionResult> GetCarModels([FromQuery]CarModelParams carModel
 
 * 在 MatchingRepository 的 GetCarModels function 中, 預設為用Length 來排序
 
-* 然後再用一個 switch case 判斷用什麼排序
+* 然後再用一個 switch case 判斷是用什麼來排序
 
 ## Section 149. Adding the Sorting functionality to the SPA
+
+* [ngx bootstrap-buttons](https://valor-software.com/ngx-bootstrap/#/buttons)
+
+```typescript
+// in app.module.ts, 加進 imports
+import {ButtonsModule } from 'ngx-bootstrap';
+
+```
+
+```html
+    <!--設定 btnRadio, access 時 pass進 component  -->
+    <div class="col">
+      <div class="btn-group float-right">
+        <button type="button" name="orderBy" class="btn btn-primary"
+          btnRadio="length" (click)="loadCarModels()" [(ngModel)]="carmodelParams.orderBy">
+          Length
+        </button>
+        <button type="button" name="orderBy" class="btn btn-primary" 
+          btnRadio="bootcapacity" (click)="loadCarModels()" [(ngModel)]="carmodelParams.orderBy">
+          Boot Capacity
+        </button>
+      </div>
+    </div>
+```
 
 # Section 15: Adding the 'Likes' functionality from start to finish
 

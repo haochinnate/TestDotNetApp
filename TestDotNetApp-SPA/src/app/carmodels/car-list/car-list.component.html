@@ -48,6 +48,18 @@
         [(ngModel)]="carmodelParams.maxHeight" name="maxHeight">
     </div>
     
+    <div class="form-group">
+      <label for="minBootCapacity">BootCapacity From</label>
+      <input type="number" class="form-control ml-1" style="width: 150px" id="minBootCapacity"
+        [(ngModel)]="carmodelParams.minBootCapacity" name="minBootCapacity">
+    </div>
+  
+    <div class="form-group px-2">
+      <label for="maxBootCapacity">BootCapacity To</label>
+      <input type="number" class="form-control ml-1" style="width: 150px" id="maxBootCapacity"
+        [(ngModel)]="carmodelParams.maxBootCapacity" name="maxBootCapacity">
+    </div>
+
     <div class="form-group px-2">
       <label for="gender">Show: </label>
       <select class="form-control ml-1" style="width: 130px" id="gender" 
@@ -59,9 +71,26 @@
       </select>
     </div>
     
-    <button type="submit" class="btn btn-primary" style="margin-left:10px">Apply Filters</button>
-    <button type="button" class="btn btn-info" (click)="resetFilters()" style="margin-left:10px">Reset Filter</button>
-  
+    <button type="submit" class="btn btn-primary" style="margin-left:10px">
+      Apply Filters
+    </button>
+    <button type="button" class="btn btn-info" (click)="resetFilters()" style="margin-left:10px">
+      Reset Filter
+    </button>
+    
+    <div class="col">
+      <div class="btn-group float-right">
+        <button type="button" name="orderBy" class="btn btn-primary"
+          btnRadio="length" (click)="loadCarModels()" [(ngModel)]="carmodelParams.orderBy">
+          Length
+        </button>
+        <button type="button" name="orderBy" class="btn btn-primary" 
+          btnRadio="bootcapacity" (click)="loadCarModels()" [(ngModel)]="carmodelParams.orderBy">
+          Boot Capacity
+        </button>
+      </div>
+    </div>
+
   </form>
   <br>
 
