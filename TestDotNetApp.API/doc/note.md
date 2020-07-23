@@ -1182,4 +1182,26 @@ import {ButtonsModule } from 'ngx-bootstrap';
 
 # Section 15: Adding the 'Likes' functionality from start to finish
 
+## Section 152. Configuring the EF relationship so users can like each other
 
+* 原先 User-Photos 是 One-to-Many 的關係
+
+* 現在要做 Likes 是 Users-Users Many-To-Many
+
+* Relational Model:  User -> Send Like -> Like -> Receive Like -> User
+
+* 在 model creating 的時候 override, 用 Fluent API
+
+## Section 153. Creating the Like entity
+
+* 建立一個 Like class, 課程中 Liker 和 Likee 都是 user
+
+## Section 154. Adding the Send Like functionality in the API
+
+## Section 155. Retrieving the list of users liked and liked by user
+
+## Section 156. Adding the Send like functionality to the SPA
+
+## Section 157. Creating the Lists component
+
+# Section 16: Add a private messaging system to the application
