@@ -1196,6 +1196,47 @@ import {ButtonsModule } from 'ngx-bootstrap';
 
 * 建立一個 Like class, 課程中 Liker 和 Likee 都是 user
 
+* 在 User 中, 增加 Likers. 在 CarModel 中, 增加 Likees
+
+* entity framework, 到 DataContext class
+
+* 還要 override DbContext 的 一個 method, 設定在 create table 時 要額外做什麼事情
+
+* 告訴 entity framework 要用哪個作為 primary key, 這邊是把 LikerId + LikeeId 當作primary key
+        
+```csharp
+public DbSet<Like> Likes { get; set; }
+
+protected internal virtual void OnModelCreating(ModelBuilder modelBuilder);
+
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    modelBuilder.Entity<Like>()
+        .HasKey(k => new { k.LikerId, k.LikeeId});
+    
+    modelBuilder.Entity<Like>()
+        .HasOne(u => u.Likee)
+        .WithMany(u => u.Likers)
+        .HasForeignKey(u => u.LikeeId)
+        .OnDelete(DeleteBehavior.Restrict);
+
+    modelBuilder.Entity<Like>()
+        .HasOne(u => u.Liker)
+        .WithMany(u => u.Likees)
+        .HasForeignKey(u => u.LikerId)
+        .OnDelete(DeleteBehavior.Restrict);
+}
+```
+
+* 接下來建立新的 migrations, 要關掉API才可以
+
+```cmd
+cd testdotnetapp.api
+dotnet ef migrations add AddedLikeEntity
+
+dotnet ef database update
+```
+
 ## Section 154. Adding the Send Like functionality in the API
 
 ## Section 155. Retrieving the list of users liked and liked by user
