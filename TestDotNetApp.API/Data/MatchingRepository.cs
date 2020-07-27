@@ -141,5 +141,11 @@ namespace TestDotNetApp.API.Data
             return await _context.Photos.Where(c => c.CarModelId == carmodelrId)
                 .FirstOrDefaultAsync(p => p.IsMain);
         }
+    
+        public async Task<Like> GetLike(int userId, int carmodelId)
+        {
+            return await _context.Likes.FirstOrDefaultAsync(
+                u => u.LikerId == userId && u.LikeeId == carmodelId);
+        }
     }
 }

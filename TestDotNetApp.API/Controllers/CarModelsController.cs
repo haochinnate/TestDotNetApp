@@ -109,5 +109,41 @@ namespace TestDotNetApp.API.Controllers
 
             throw new Exception($"Updating carmodel {id} failed on save");
         }
+
+        [HttpPost("{id}/like/{carmodelId}")]
+        public async Task<IActionResult> LikeCarmodel(int id, int carmodelId)
+        {
+            // if (id != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
+            // {
+            //     return Unauthorized();
+            // }
+
+            var like = await _repo.GetLike(id, carmodelId);
+            if (like != null)
+            {
+                return BadRequest("You already like this car");
+            }
+
+            if (await _repo.GetCarModel(carmodelId) == null)
+            {
+                return NotFound();
+            }
+
+            like = new Like
+            {
+                LikerId = id,
+                LikeeId = carmodelId
+            };
+
+            _repo.Add<Like>(like);
+
+            if (await _repo.SaveAll())
+            {
+                return Ok();
+            }
+
+            return BadRequest("Failed to like car");
+        }
+
     }
 }

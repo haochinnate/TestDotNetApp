@@ -16,5 +16,11 @@ namespace TestDotNetApp.API.Data
         Task<CarModel> GetCarModel(int id);
         Task<Photo> GetPhoto(int id);
         Task<Photo> GetMainPhotoForCarmodel(int carmodelId);
+
+        #region Like Related function
+        Task<Like> GetLike(int userId, int carmodelId);
+        
+        #endregion
+
     }
 }

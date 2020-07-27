@@ -1239,6 +1239,12 @@ dotnet ef database update
 
 ## Section 154. Adding the Send Like functionality in the API
 
+* course: allow users to send each other likes
+
+* 在 MatchingRepository 類別中, 增加一個 GetLike function
+
+* 並在 CarModelsController 類別中, 加入 LikeCarmodel function 當作API
+
 ## Section 155. Retrieving the list of users liked and liked by user
 
 ## Section 156. Adding the Send like functionality to the SPA
