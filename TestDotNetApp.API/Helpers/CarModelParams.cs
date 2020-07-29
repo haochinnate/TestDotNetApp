@@ -31,5 +31,8 @@ namespace TestDotNetApp.API.Helpers
         public int MaxBootCapacity { get; set; } = DefaultMaxLength;
 
         public string OrderBy { get; set; }   
+
+        public bool Likees { get; set; } = false;
+        public bool Likers { get; set; } = false;
     }
 }

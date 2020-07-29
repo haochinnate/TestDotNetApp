@@ -1245,7 +1245,24 @@ dotnet ef database update
 
 * 並在 CarModelsController 類別中, 加入 LikeCarmodel function 當作API
 
+* 送request [POST] http://localhost:5000/api/carmodels/3/like/70
+
+* 一樣要在 Headers 設定 Authorization, 然後 Body 先用 empty object {}
+
+* 送出後再檢查 database 資料
+
 ## Section 155. Retrieving the list of users liked and liked by user
+
+* 利用 filter, 只顯示 user 喜歡的那些 user(carmodel)
+
+* 所以要再 CarModelParams 增加屬性
+
+```csharp
+  public bool Likees { get; set; } = false;
+  public bool Likers { get; set; } = false;
+```
+
+* 
 
 ## Section 156. Adding the Send like functionality to the SPA
 

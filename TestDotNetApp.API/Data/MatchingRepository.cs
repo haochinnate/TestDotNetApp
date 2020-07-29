@@ -58,6 +58,16 @@ namespace TestDotNetApp.API.Data
             // users = users.Where(u => u.Id != userParmas.UserId);
             // users = users.Where(u => u.Gender == userParams.Gender);
             
+            if (carmodelParams.Likers)
+            {
+                
+            }
+
+            if (carmodelParams.Likees)
+            {
+                
+            }
+
             // in course is checking the age of user
             // var minDob = DateTime.Today.AddYears(-userParams.MaxAge - 1);
             // var maxDob = DateTime.Today.AddYears(-userParams.MinAge);
