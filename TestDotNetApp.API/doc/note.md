@@ -1262,7 +1262,9 @@ dotnet ef database update
   public bool Likers { get; set; } = false;
 ```
 
-* 
+* [GET] http://localhost:5000/api/users?likees=true
+
+* [GET] http://localhost:5000/api/users?likers=true
 
 ## Section 156. Adding the Send like functionality to the SPA
 

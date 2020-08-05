@@ -60,12 +60,14 @@ namespace TestDotNetApp.API.Data
             
             if (carmodelParams.Likers)
             {
-                
+                // var userLikers = await GetUserLikes(userParams.UserId, userParams.Likers);
+                // users = users.Where(u => userLikers.Contains(u.Id));
             }
 
             if (carmodelParams.Likees)
             {
-                
+                // var userLikees = await GetUserLikes(userParams.UserId, userParams.Likers);
+                // users = users.Where(u => userLikees.Contains(u.Id));
             }
 
             // in course is checking the age of user
@@ -132,6 +134,34 @@ namespace TestDotNetApp.API.Data
             #endregion
 
             return await PagedList<CarModel>.CreateAsync(carmodels, carmodelParams.PageNumber, carmodelParams.PageSize);
+        }
+
+        private async Task<IEnumerable<int>> GetUserLikes(int id, bool likers)
+        {
+
+            // original example in course
+            // var user = await _context.Users
+            //     .Include(x => x.Likers)
+            //     .Include(x => x.Likees)
+            //     .FirstOrDefaultAsync(u => u.Id == id);
+
+            // if (likers)
+            // {
+            //     return user.Likers.Where(u => u.LikeeId == id).Select(i => LikerId);
+            // }
+            // else
+            // {
+            //     return user.Likers.Where(u => u.LikerId == id).Select(i => LikeeId);
+            // }
+
+            var user = await _context.Users.Include(x => x.Likees)
+                .FirstOrDefaultAsync(u => u.Id == id);
+
+            if (likers)
+            {
+                return user.Likees.Where(u => u.LikerId == id).Select(i => i.LikeeId);
+            }
+            return null;
         }
 
         public async Task<bool> SaveAll()
