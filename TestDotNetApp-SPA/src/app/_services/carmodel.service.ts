@@ -70,4 +70,10 @@ export class CarmodelService {
     // [DELETE] http://localhost:5000/api/carmodels/44/photos/42
     return this.http.delete(this.baseUrl + 'carmodels/' + carmodelId + '/photos/' + id);
   }
+
+  sendLike(id: number, receipientId: number) {
+    // [POST] http://localhost:5000/api/carmodels/3/like/70
+    return this.http.post(this.baseUrl + 'carmodels/' + id + '/like/' + receipientId, {});
+  }
+
 }

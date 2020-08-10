@@ -1268,6 +1268,10 @@ dotnet ef database update
 
 ## Section 156. Adding the Send like functionality to the SPA
 
+* 在 carmodel.service.ts 中, 增加 sendLike function
+
+* 在 card component 中, 點愛心button 會有反應, 新增 send like function
+
 ## Section 157. Creating the Lists component
 
 # Section 16: Add a private messaging system to the application
