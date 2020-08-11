@@ -14,7 +14,7 @@ export class CarmodelService {
 
   constructor(private http: HttpClient) { }
 
-  getCarModels(page?, itemsPerPage?, carmodelParams?): Observable<PaginatedResult<Carmodel []>> {
+  getCarModels(page?, itemsPerPage?, carmodelParams?, likesParam?): Observable<PaginatedResult<Carmodel []>> {
     const paginatedResult: PaginatedResult<Carmodel []> = new PaginatedResult<Carmodel []>();
 
     let params = new HttpParams();
@@ -33,6 +33,14 @@ export class CarmodelService {
       params = params.append('MinBootCapacity', carmodelParams.minBootCapacity);
       params = params.append('MaxBootCapacity', carmodelParams.maxBootCapacity);
       params = params.append('orderBy', carmodelParams.orderBy);
+    }
+
+    if (likesParam === 'Likers') {
+      params = params.append('likers', 'true');
+    }
+
+    if (likesParam === 'Likees') {
+      params = params.append('likees', 'true');
     }
 
     return this.http.get<Carmodel []>(this.baseUrl + 'carmodels', { observe: 'response', params})

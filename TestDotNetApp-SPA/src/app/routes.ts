@@ -11,6 +11,7 @@ import { CarEditComponent } from './carmodels/car-edit/car-edit.component';
 import { CarEditResolver } from './_resolvers/car-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { CarAddComponent } from './carmodels/car-add/car-add.component';
+import { ListsResolver } from './_resolvers/lists.resolver';
 
 export const appRoutes: Routes = [
     { path: '', component: HomeComponent},
@@ -28,7 +29,7 @@ export const appRoutes: Routes = [
                 resolve: {carmodel: CarEditResolver},
                 canDeactivate: [PreventUnsavedChanges]},
             { path: 'messages', component: MessagesComponent},
-            { path: 'lists', component: ListsComponent},
+            { path: 'lists', component: ListsComponent, resolve: {carmodels: ListsResolver}},
         ]
     },
     { path: '**', redirectTo: '', pathMatch: 'full'} // order is important!
