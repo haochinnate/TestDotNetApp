@@ -1274,6 +1274,8 @@ dotnet ef database update
 
 ## Section 157. Creating the Lists component
 
+* 先增加並使用 ListsResolver
 
+* 修改 ListComponet
 
 # Section 16: Add a private messaging system to the application
