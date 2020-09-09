@@ -40,7 +40,7 @@ export class ListsComponent implements OnInit {
 
   loadCarModels() {
     this.carmodelService
-      .getCarModels(this.pagination.currentPage, this.pagination.itemsPerPage, 
+      .getCarModels(this.pagination.currentPage, this.pagination.itemsPerPage,
         null, this.likesParam)
       .subscribe((res: PaginatedResult<Carmodel[]>) => {
         this.carmodels = res.result;

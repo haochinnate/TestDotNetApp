@@ -1278,4 +1278,55 @@ dotnet ef database update
 
 * 修改 ListComponet
 
+```typescript
+  // * 在 route.ts 中, 會去指定各個 component 要使用的 resolver ex: lists.resovler.ts
+  // * 在 resolver 中, 會去 call WebAPI, 回傳物件 ex: 回傳型別是 Observable<PaginatedResult<Carmodel []>>
+  // * PaginatedResult 有定義兩個 properties, result 和 pagination
+  // * 所以底下才是 res.result 和 res.pagination
+  // data['carmodels'] 的關鍵字 應是因為 route.ts中 定義 resolve: {carmodels: ListsResolver}
+  // list.resolver.ts 的function中, observable.pipe function 會將型別轉成 Carmodel[]
+  
+  ngOnInit() {
+    this.route.data.subscribe(data => {
+      this.carmodels = data['carmodels'].result;
+      this.pagination = data['carmodels'].pagination;
+    });
+
+    this.likesParam = 'Likers';
+  }
+
+  loadCarModels() {
+    this.carmodelService
+      .getCarModels(this.pagination.currentPage, this.pagination.itemsPerPage, 
+        null, this.likesParam)
+      .subscribe((res: PaginatedResult<Carmodel[]>) => {
+        this.carmodels = res.result;
+        this.pagination = res.pagination;
+      },
+      error => {
+        this.alertify.error(error);
+      });
+  }
+
+```
+
+* 因為設計比較不一樣, 所以沒有顯示 likes 的部分, 之後要修改 MatchingRepository 的 GetCarModels 裡面, 根據params 來篩選才可以
+
 # Section 16: Add a private messaging system to the application
+
+## Section 160. Creating the Message Entity and relationships
+
+## Section 161. Adding the repository methods for the messages
+
+## Section 162. Adding the Create Message method in the API
+
+## Section 163. Adding the Repository methods for an Inbox, Outbox
+
+## Section 164. Creating the Message Controller
+
+## Section 165. Adding the Message thread methods to the API
+
+## Section 166. Working with the message component in the SPA
+
+## Section 167. Designing the Inbox and Outbox template
+

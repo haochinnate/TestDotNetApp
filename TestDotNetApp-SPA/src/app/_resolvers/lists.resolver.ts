@@ -20,13 +20,15 @@ export class ListsResolver implements Resolve<Carmodel[]> {
 
     resolve(route: ActivatedRouteSnapshot): Observable<Carmodel[]> {
         // to handle if carmodel doesn't exist
-        return this.carmodelService.getCarModels(this.pageNumber, this.pageSize, null, this.likesParam).pipe(
-            catchError(error => {
-                this.alertify.error('Problem retrieving data');
-                this.router.navigate(['/home']);
-                return of(null);
-            })
-        );
+        return this.carmodelService
+            .getCarModels(this.pageNumber, this.pageSize, null, this.likesParam)
+            .pipe(
+                catchError(error => {
+                    this.alertify.error('Problem retrieving data');
+                    this.router.navigate(['/home']);
+                    return of(null);
+                })
+            );
     }
 
 }

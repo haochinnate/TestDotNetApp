@@ -66,8 +66,8 @@ namespace TestDotNetApp.API.Data
 
             if (carmodelParams.Likees)
             {
-                // var userLikees = await GetUserLikes(userParams.UserId, userParams.Likers);
-                // users = users.Where(u => userLikees.Contains(u.Id));
+                // var userLikees = await GetUserLikes(userParams.UserId, carmodelParams.Likees);
+                // carmodels = carmodels.Where(c => userLikees.Contains(c.Id));
             }
 
             // in course is checking the age of user
