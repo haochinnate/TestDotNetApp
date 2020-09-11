@@ -1314,6 +1314,10 @@ dotnet ef database update
 
 # Section 16: Add a private messaging system to the application
 
+* 在 API\Models 資料夾下建立 Message 類別
+
+* 原本 Message 中, Sender & Recipient 都是 User, 但是改成 User 和 CarModel
+
 ## Section 160. Creating the Message Entity and relationships
 
 ## Section 161. Adding the repository methods for the messages
@@ -1329,4 +1333,20 @@ dotnet ef database update
 ## Section 166. Working with the message component in the SPA
 
 ## Section 167. Designing the Inbox and Outbox template
+
+## Section 168. Getting the message thread in the component
+
+## Section 169. Designing the message tab chat system
+
+## Section 170. Adding Query params to an Angular route
+
+## Section 171. Adding the send message functionality and a challenge
+
+## Section 172. Challenge solution - resolving the issue with the photos
+
+## Section 173. Adding the Delete message functionality to the API
+
+## Section 174. Deleting messages in the SPA
+
+## Section 175. Adding the Mark as Read functionality
 
