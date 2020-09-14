@@ -1318,7 +1318,45 @@ dotnet ef database update
 
 * 原本 Message 中, Sender & Recipient 都是 User, 但是改成 User 和 CarModel
 
+* User 和 CarModel 加入對應的 collection 
+
+* DataContext 加入 DbSet 並設定 relationship
+
+```csharp
+// in DataContext class
+
+public DbSet<Message> Messages { get; set; }
+ 
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    #region Message Relationship
+    modelBuilder.Entity<Message>()
+        .HasOne(u => u.Sender)
+        .WithMany(m => m.MessagesSent)
+        .OnDelete(DeleteBehavior.Restrict);
+                
+    modelBuilder.Entity<Message>()
+        .HasOne(u => u.Recipient)
+        .WithMany(m => m.MessagesReceived)
+        .OnDelete(DeleteBehavior.Restrict);
+    #endregion
+}
+
+```
+
+* 增加新的 migrations 並 update DB
+
+```cmd
+dotnet ef migrations add MessageEntityAdded
+
+dotnet ef database update
+
+```
+
 ## Section 160. Creating the Message Entity and relationships
+
+* MatchingRepository 增加 Get Message 相關 function 
+
 
 ## Section 161. Adding the repository methods for the messages
 

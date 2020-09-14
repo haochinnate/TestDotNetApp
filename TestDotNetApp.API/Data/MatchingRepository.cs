@@ -187,5 +187,34 @@ namespace TestDotNetApp.API.Data
             return await _context.Likes.FirstOrDefaultAsync(
                 u => u.LikerId == userId && u.LikeeId == carmodelId);
         }
+
+        #region Message Related function
+            
+        public async Task<Message> GetMessage(int messageId)
+        {
+            return await _context.Messages.FirstOrDefaultAsync(m => m.Id == messageId);
+        }
+
+        public async Task<PagedList<Message>> GetMessagesForUser()
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<PagedList<Message>> GetMessagesForCarModel()
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<IEnumerable<Message>> GetMessageThread(int userID, int recipientId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<IEnumerable<Message>> GetMessageThread(int carmodelId)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
     }
 }

@@ -22,5 +22,14 @@ namespace TestDotNetApp.API.Data
         
         #endregion
 
+        #region Message Related function
+        
+        Task<Message> GetMessage(int messageId);
+        Task<PagedList<Message>> GetMessagesForUser();
+        Task<PagedList<Message>> GetMessagesForCarModel();
+        Task<IEnumerable<Message>> GetMessageThread(int userID, int recipientId);
+        Task<IEnumerable<Message>> GetMessageThread(int carmodelId);
+
+        #endregion
     }
 }

@@ -22,6 +22,9 @@ namespace TestDotNetApp.API.Models
         public double FuelConsumption { get; set; }
         public ICollection<Photo> Photos { get; set; }
         public ICollection<Like> Likers { get; set; }
+
+        public ICollection<Message> MessagesReceived { get; set; }
+
         // ESP: 
         // HSA: (Hill Start Assis)斜坡上坡起步輔助, 鬆開剎車時, 會維持剎車一段時間, 避免因斜坡往後滑
         // BSW: (Blind-spot warning)盲點偵測警示, 當車側車輛，進入後照鏡死角時提醒
