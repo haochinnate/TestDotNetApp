@@ -37,6 +37,16 @@ namespace TestDotNetApp.API.Helpers
 
             // after add the property to UserForRegisterDto, add this mapping
             // CreateMap<UserForRegisterDto, User>();
+
+            // MessageForCreationDto -> Message, and vice versa
+            CreateMap<MessageForCreationDto, Message>().ReverseMap();
+
+            // Message -> MessageForReturnDto
+            // CreateMap<Message, MessageToReturnDto>()
+            //     .ForMember(m => m.SenderPhotoUrl, opt => opt
+            //         .MapFrom(u => u.Sender.Photos.FirstOrDefault(p => p.IsMain).Url))
+            //     .ForMember(m => m.RecipientPhotoUrl, opt => opt
+            //         .MapFrom(u => u.Recipient.Photos.FirstOrDefault(p => p.IsMain).Url));
         }
     }
 }

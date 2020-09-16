@@ -1314,6 +1314,8 @@ dotnet ef database update
 
 # Section 16: Add a private messaging system to the application
 
+## Section 160. Creating the Message Entity and relationships
+
 * 在 API\Models 資料夾下建立 Message 類別
 
 * 原本 Message 中, Sender & Recipient 都是 User, 但是改成 User 和 CarModel
@@ -1353,14 +1355,56 @@ dotnet ef database update
 
 ```
 
-## Section 160. Creating the Message Entity and relationships
+## Section 161. Adding the repository methods for the messages
 
 * MatchingRepository 增加 Get Message 相關 function 
 
+```csharp
 
-## Section 161. Adding the repository methods for the messages
+// original
+Task<Message> GetMessage(int id);
+Task<PagedList<Message>> GetMessagesForUser(MessageParams messageParams);
+Task<IEnumerable<Message>> GetMessageThread(int userId, int recipientId);
+
+// my case
+#region Message Related function
+        
+Task<Message> GetMessage(int messageId);
+Task<PagedList<Message>> GetMessagesForUser();
+Task<PagedList<Message>> GetMessagesForCarModel();
+Task<IEnumerable<Message>> GetMessageThread(int userID, int recipientId);
+Task<IEnumerable<Message>> GetMessageThread(int carmodelId);
+
+#endregion
+```
 
 ## Section 162. Adding the Create Message method in the API
+
+* 新增一個 controller, MessagesController
+
+```csharp
+
+[Route("api/users/{userId}/[controller]")]
+
+public async Task<IActionResult> GetMessage(int userId, int id);
+
+
+```
+
+* 新增一個 DTO class, MessageForCreationDto
+
+- 實作 CreateMessage function in MessagesController
+
+- [POST] http://localhsot:5000/api/users/3/messages
+
+- Body 
+
+```json
+{
+  "recipientId": "43",
+  "content": "felix send message to 43"
+}
+```
 
 ## Section 163. Adding the Repository methods for an Inbox, Outbox
 
