@@ -195,12 +195,33 @@ namespace TestDotNetApp.API.Data
             return await _context.Messages.FirstOrDefaultAsync(m => m.Id == messageId);
         }
 
-        public async Task<PagedList<Message>> GetMessagesForUser()
+        public async Task<PagedList<Message>> GetMessagesForUser(MessageParams messageParams)
         {
             throw new NotImplementedException();
+
+            // original 
+            // .Include(u => u.Sender).ThenInclude(p => p.Photos)
+
+            var message = _context.Messages
+                .Include(u => u.Sender)
+                .Include(u => u.Recipient).ThenInclude(p => p.Photos)
+                .AsQueryable();
+
+            switch (messageParams.MessageContainer)
+            {
+                case "Inbox":
+                    message = message.Where(u => u.RecipientId == messageParams.UserId);
+                    break;
+                case "Outbox":
+                    message = message.Where(u => u.SenderId == messageParams.UserId);
+                    break;
+                default:
+
+                    break;
+            }
         }
 
-        public async Task<PagedList<Message>> GetMessagesForCarModel()
+        public async Task<PagedList<Message>> GetMessagesForCarModel(MessageParams messageParams)
         {
             throw new NotImplementedException();
         }

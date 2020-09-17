@@ -1397,7 +1397,7 @@ public async Task<IActionResult> GetMessage(int userId, int id);
 
 - [POST] http://localhsot:5000/api/users/3/messages
 
-- Body 
+- Postman 那邊 Body 的部分要改成 raw-json 格式 
 
 ```json
 {
@@ -1407,6 +1407,10 @@ public async Task<IActionResult> GetMessage(int userId, int id);
 ```
 
 ## Section 163. Adding the Repository methods for an Inbox, Outbox
+
+- 建立一個新的 MessageParams 類別
+
+- 實作 MatchingRepository 的 GetMessagesForUser method
 
 ## Section 164. Creating the Message Controller
 

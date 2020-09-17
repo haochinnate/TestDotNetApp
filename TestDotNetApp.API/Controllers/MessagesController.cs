@@ -68,7 +68,6 @@ namespace TestDotNetApp.API.Controllers
             
             var messageToReturn = _mapper.Map<MessageForCreationDto>(message);
 
-
             if (await _repo.SaveAll())
             {
                 // return CreatedAtRoute("GetMessage", new {userId, id = message.Id }, messageToReturn);

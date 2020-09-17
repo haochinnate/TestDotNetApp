@@ -25,8 +25,8 @@ namespace TestDotNetApp.API.Data
         #region Message Related function
         
         Task<Message> GetMessage(int messageId);
-        Task<PagedList<Message>> GetMessagesForUser();
-        Task<PagedList<Message>> GetMessagesForCarModel();
+        Task<PagedList<Message>> GetMessagesForUser(MessageParams messageParams);
+        Task<PagedList<Message>> GetMessagesForCarModel(MessageParams messageParams);
         Task<IEnumerable<Message>> GetMessageThread(int userID, int recipientId);
         Task<IEnumerable<Message>> GetMessageThread(int carmodelId);
 
