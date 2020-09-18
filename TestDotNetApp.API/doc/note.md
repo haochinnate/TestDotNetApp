@@ -1410,9 +1410,17 @@ public async Task<IActionResult> GetMessage(int userId, int id);
 
 - 建立一個新的 MessageParams 類別
 
-- 實作 MatchingRepository 的 GetMessagesForUser method
+- 實作 MatchingRepository 的 GetMessagesForUser/ForCarModel method
+
+- mycase: User only has outbox, Carmodel only has inbox
 
 ## Section 164. Creating the Message Controller
+
+- 在 MessagesController 中 GetMessageForUser method, 根據 user ID 取得 message
+
+- [GET] http://localhost:5000/api/users/3/messages
+
+- [GET] http://localhost:5000/api/users/3/messages?MessageContainer=Outbox
 
 ## Section 165. Adding the Message thread methods to the API
 

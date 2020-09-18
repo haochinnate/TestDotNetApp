@@ -197,33 +197,59 @@ namespace TestDotNetApp.API.Data
 
         public async Task<PagedList<Message>> GetMessagesForUser(MessageParams messageParams)
         {
-            throw new NotImplementedException();
-
             // original 
             // .Include(u => u.Sender).ThenInclude(p => p.Photos)
 
-            var message = _context.Messages
+            var messages = _context.Messages
                 .Include(u => u.Sender)
                 .Include(u => u.Recipient).ThenInclude(p => p.Photos)
                 .AsQueryable();
 
+            // filter the messages
             switch (messageParams.MessageContainer)
             {
                 case "Inbox":
-                    message = message.Where(u => u.RecipientId == messageParams.UserId);
+                    messages = messages.Where(u => u.RecipientId == messageParams.UserId);
                     break;
                 case "Outbox":
-                    message = message.Where(u => u.SenderId == messageParams.UserId);
+                    messages = messages.Where(u => u.SenderId == messageParams.UserId);
                     break;
                 default:
-
+                    messages = messages.Where(u => u.RecipientId == messageParams.UserId && (!u.IsRead));
                     break;
             }
+
+            // ordering the messages
+            messages = messages.OrderByDescending(d => d.MessageSent);
+
+            return await PagedList<Message>.CreateAsync(messages, messageParams.PageNumber, messageParams.PageSize);
         }
 
         public async Task<PagedList<Message>> GetMessagesForCarModel(MessageParams messageParams)
         {
-            throw new NotImplementedException();
+              var messages = _context.Messages
+                .Include(u => u.Sender)
+                .Include(u => u.Recipient).ThenInclude(p => p.Photos)
+                .AsQueryable();
+
+            // filter the messages
+            switch (messageParams.MessageContainer)
+            {
+                case "Inbox":
+                    messages = messages.Where(u => u.RecipientId == messageParams.CarModelId);
+                    break;
+                case "Outbox":
+                    messages = messages.Where(u => u.SenderId == messageParams.CarModelId);
+                    break;
+                default:
+                    messages = messages.Where(u => u.RecipientId == messageParams.CarModelId && (!u.IsRead));
+                    break;
+            }
+
+            // ordering the messages
+            messages = messages.OrderByDescending(d => d.MessageSent);
+
+            return await PagedList<Message>.CreateAsync(messages, messageParams.PageNumber, messageParams.PageSize);
         }
 
         public async Task<IEnumerable<Message>> GetMessageThread(int userID, int recipientId)
