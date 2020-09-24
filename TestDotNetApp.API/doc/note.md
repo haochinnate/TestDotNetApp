@@ -1420,7 +1420,13 @@ public async Task<IActionResult> GetMessage(int userId, int id);
 
 - [GET] http://localhost:5000/api/users/3/messages
 
+- 因為我的例子裡面, user 只有寄訊息, 所以Outbox 才有東西
+
 - [GET] http://localhost:5000/api/users/3/messages?MessageContainer=Outbox
+
+- 另外建一個 controller, 從 carmodel 的角度讀取 message
+
+- [GET] http://localhost:5000/api/carmodels/43/carmodelmessages/?messagecontainer=Inbox
 
 ## Section 165. Adding the Message thread methods to the API
 

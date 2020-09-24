@@ -26,7 +26,7 @@ namespace TestDotNetApp.API.Controllers
             _mapper = mapper;
         }
 
-        // http://localhost:5000/api/carmodels/
+        // http://localhost:5000/api/users/3/messages
         [HttpGet("{id}", Name = "GetMessage")]
         public async Task<IActionResult> GetMessage(int userId, int id)
         {
