@@ -1420,6 +1420,8 @@ public async Task<IActionResult> GetMessage(int userId, int id);
 
 - [GET] http://localhost:5000/api/users/3/messages
 
+- [GET] http://localhost:5000/api/users/3/messages/2
+
 - 因為我的例子裡面, user 只有寄訊息, 所以Outbox 才有東西
 
 - [GET] http://localhost:5000/api/users/3/messages?MessageContainer=Outbox
@@ -1429,6 +1431,12 @@ public async Task<IActionResult> GetMessage(int userId, int id);
 - [GET] http://localhost:5000/api/carmodels/43/carmodelmessages/?messagecontainer=Inbox
 
 ## Section 165. Adding the Message thread methods to the API
+
+- 新 method GetMessageThread(int userId, int recipientId)
+
+- 取得 3 對 43 的 conversation
+
+- [GET] http://localhost:5000/api/users/3/messages/thread/43
 
 ## Section 166. Working with the message component in the SPA
 

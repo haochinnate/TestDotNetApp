@@ -252,9 +252,18 @@ namespace TestDotNetApp.API.Data
             return await PagedList<Message>.CreateAsync(messages, messageParams.PageNumber, messageParams.PageSize);
         }
 
-        public async Task<IEnumerable<Message>> GetMessageThread(int userID, int recipientId)
+        public async Task<IEnumerable<Message>> GetMessageThread(int userId, int recipientId)
         {
-            throw new NotImplementedException();
+            // return the conversation between two users
+             var messages = await _context.Messages
+                .Include(u => u.Sender)
+                .Include(u => u.Recipient).ThenInclude(p => p.Photos)
+                .Where(m => (m.RecipientId == userId && m.SenderId == recipientId) 
+                    || (m.RecipientId == recipientId && m.SenderId == userId))
+                .OrderByDescending(m => m.MessageSent)
+                .ToListAsync();
+
+            return messages;
         }
 
         public async Task<IEnumerable<Message>> GetMessageThread(int carmodelId)

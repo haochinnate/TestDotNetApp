@@ -47,7 +47,6 @@ namespace TestDotNetApp.API.Controllers
         }
 
 
-
         [HttpGet]
         public async Task<IActionResult> GetMessageForUser(int userId, 
             [FromQuery]MessageParams messageParams)
@@ -67,6 +66,22 @@ namespace TestDotNetApp.API.Controllers
                 messagesFromRepo.TotalCount, messagesFromRepo.TotalPages);
 
             return Ok(messages);
+        }
+
+
+        [HttpGet("thread/{recipientId}")]
+        public async Task<IActionResult> GetMessageThread(int userId, int recipientId)
+        {
+            if (userId != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
+            {
+                return Unauthorized();
+            }
+
+            var messageFromRepo = await _repo.GetMessageThread(userId, recipientId);
+
+            var messageThread = _mapper.Map<IEnumerable<MessageToReturnDto>>(messageFromRepo);
+
+            return Ok(messageThread);
         }
 
 
