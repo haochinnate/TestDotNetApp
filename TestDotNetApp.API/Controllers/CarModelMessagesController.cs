@@ -56,5 +56,15 @@ namespace TestDotNetApp.API.Controllers
             return Ok(messages);
         }
 
+        // http://localhost:5000/api/carmodels/43/carmodelmessages/thread
+        [HttpGet("thread")]
+        public async Task<IActionResult> GetMessageThread(int carmodelId)
+        {
+            var messageFromRepo = await _repo.GetMessageThread(carmodelId);
+
+            var messageThread = _mapper.Map<IEnumerable<MessageToReturnDto>>(messageFromRepo);
+
+            return Ok(messageThread);
+        }
     }
 }

@@ -1438,7 +1438,13 @@ public async Task<IActionResult> GetMessage(int userId, int id);
 
 - [GET] http://localhost:5000/api/users/3/messages/thread/43
 
+- [GET] http://localhost:5000/api/carmodels/43/carmodelmessages/thread
+
 ## Section 166. Working with the message component in the SPA
+
+- 在 SPA 建立 message interface, 用來放 API return 的 DTO
+
+- Carmodel service 建立 call API 的 method
 
 ## Section 167. Designing the Inbox and Outbox template
 

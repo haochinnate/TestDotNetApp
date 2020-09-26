@@ -255,7 +255,7 @@ namespace TestDotNetApp.API.Data
         public async Task<IEnumerable<Message>> GetMessageThread(int userId, int recipientId)
         {
             // return the conversation between two users
-             var messages = await _context.Messages
+            var messages = await _context.Messages
                 .Include(u => u.Sender)
                 .Include(u => u.Recipient).ThenInclude(p => p.Photos)
                 .Where(m => (m.RecipientId == userId && m.SenderId == recipientId) 
@@ -268,7 +268,15 @@ namespace TestDotNetApp.API.Data
 
         public async Task<IEnumerable<Message>> GetMessageThread(int carmodelId)
         {
-            throw new NotImplementedException();
+            // return the message to that carmodel
+            var messages = await _context.Messages
+                .Include(u => u.Sender)
+                .Include(u => u.Recipient).ThenInclude(p => p.Photos)
+                .Where(m => m.RecipientId == carmodelId)
+                .OrderByDescending(m => m.MessageSent)
+                .ToListAsync();
+
+            return messages;
         }
         #endregion
 

@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Carmodel } from '../_models/carmodel';
 import { PaginatedResult } from '../_models/pagination';
 import { map } from 'rxjs/operators';
+import { Message } from '../_models/message';
 
 @Injectable({
   providedIn: 'root'
@@ -82,6 +83,31 @@ export class CarmodelService {
   sendLike(id: number, receipientId: number) {
     // [POST] http://localhost:5000/api/carmodels/3/like/70
     return this.http.post(this.baseUrl + 'carmodels/' + id + '/like/' + receipientId, {});
+  }
+
+  getMessage(id: number, page?, itemsPerPage?, messageContainer?) {
+    const paginatedResult: PaginatedResult<Message[]> = new PaginatedResult<Message[]>();
+
+    let params = new HttpParams();
+
+    params = params.append('MessageContrainer', messageContainer);
+
+    if (page != null && itemsPerPage != null) {
+      params = params.append('pageNumber', page);
+      params = params.append('pageSize', itemsPerPage);
+    }
+
+    return this.http.get<Message[]>(this.baseUrl + 'users/' + id + '/messages', {observe: 'response', params})
+      .pipe(
+        map(response => {
+          paginatedResult.result = response.body;
+          if (response.headers.get('Pagination') != null) {
+            paginatedResult.pagination = JSON.parse(response.headers.get('Pagination'));
+          }
+          return paginatedResult;
+        })
+      );
+
   }
 
 }
