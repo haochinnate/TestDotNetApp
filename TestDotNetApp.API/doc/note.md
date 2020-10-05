@@ -1446,6 +1446,10 @@ public async Task<IActionResult> GetMessage(int userId, int id);
 
 - Carmodel service 建立 call API 的 method
 
+- 另外建立一個 MessageResolver, 也要加入到 app.module.ts & route.ts 中
+
+- 實作 message.component.ts
+
 ## Section 167. Designing the Inbox and Outbox template
 
 ## Section 168. Getting the message thread in the component

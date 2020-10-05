@@ -86,6 +86,10 @@ export class CarmodelService {
   }
 
   getMessage(id: number, page?, itemsPerPage?, messageContainer?) {
+    // [GET] http://localhost:5000/api/users/3/messages
+    // [GET] http://localhost:5000/api/users/3/messages/2
+    // [GET] http://localhost:5000/api/users/3/messages?MessageContainer=Outbox
+
     const paginatedResult: PaginatedResult<Message[]> = new PaginatedResult<Message[]>();
 
     let params = new HttpParams();
@@ -108,6 +112,33 @@ export class CarmodelService {
         })
       );
 
+  }
+
+  getMessageForCarmodel(id: number, page?, itemsPerPage?, messageContainer?) {
+    // [GET] http://localhost:5000/api/carmodels/43/carmodelmessages/?messagecontainer=Inbox
+    // [GET] http://localhost:5000/api/carmodels/43/carmodelmessages/thread
+
+    const paginatedResult: PaginatedResult<Message[]> = new PaginatedResult<Message[]>();
+
+    let params = new HttpParams();
+
+    params = params.append('MessageContrainer', messageContainer);
+
+    if (page != null && itemsPerPage != null) {
+      params = params.append('pageNumber', page);
+      params = params.append('pageSize', itemsPerPage);
+    }
+
+    return this.http.get<Message[]>(this.baseUrl + 'carmodels/' + id + '/carmodelmessages', {observe: 'response', params})
+      .pipe(
+        map(response => {
+          paginatedResult.result = response.body;
+          if (response.headers.get('Pagination') != null) {
+            paginatedResult.pagination = JSON.parse(response.headers.get('Pagination'));
+          }
+          return paginatedResult;
+        })
+      );
   }
 
 }
