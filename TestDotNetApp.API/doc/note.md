@@ -1452,7 +1452,11 @@ public async Task<IActionResult> GetMessage(int userId, int id);
 
 ## Section 167. Designing the Inbox and Outbox template
 
+- 實作 messages.component.html
+
 ## Section 168. Getting the message thread in the component
+
+
 
 ## Section 169. Designing the message tab chat system
 

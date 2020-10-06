@@ -14,7 +14,7 @@ import { CarmodelService } from '../_services/carmodel.service';
 export class MessagesComponent implements OnInit {
   messages: Message[];
   pagination: Pagination;
-  messageContainer = 'Unread';
+  messageContainer = 'Outbox';
 
   constructor(private carmodelService: CarmodelService,
               private authService: AuthService,
@@ -29,7 +29,7 @@ export class MessagesComponent implements OnInit {
   }
 
   loadMessages() {
-    this.carmodelService.getMessage(this.authService.decodedToken.nameid, 
+    this.carmodelService.getMessage(this.authService.decodedToken.nameid,
       this.pagination.currentPage, this.pagination.itemsPerPage,
       this.messageContainer)
       .subscribe((res: PaginatedResult<Message[]>) => {

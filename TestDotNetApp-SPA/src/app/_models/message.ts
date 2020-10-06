@@ -6,7 +6,7 @@ export interface Message {
     senderKnownAs: string;
     senderPhotoUrl: string;
     recipientId: number;
-    recipientrKnownAs: string;
+    recipientKnownAs: string;
     recipientPhotoUrl: string;
     content: string;
     isRead: boolean;
