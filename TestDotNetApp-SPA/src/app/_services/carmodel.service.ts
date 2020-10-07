@@ -116,7 +116,6 @@ export class CarmodelService {
 
   getMessageForCarmodel(id: number, page?, itemsPerPage?, messageContainer?) {
     // [GET] http://localhost:5000/api/carmodels/43/carmodelmessages/?messagecontainer=Inbox
-    // [GET] http://localhost:5000/api/carmodels/43/carmodelmessages/thread
 
     const paginatedResult: PaginatedResult<Message[]> = new PaginatedResult<Message[]>();
 
@@ -141,4 +140,9 @@ export class CarmodelService {
       );
   }
 
+  getMessageThreadForCarmodel(carmodelId: number) {
+    // [GET] http://localhost:5000/api/carmodels/43/carmodelmessages/thread
+    return this.http.get<Message []>(this.baseUrl + 'carmodels/' + carmodelId + '/carmodelmessages/thread');
+  }
+  
 }

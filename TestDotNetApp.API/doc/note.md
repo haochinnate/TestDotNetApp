@@ -1456,6 +1456,11 @@ public async Task<IActionResult> GetMessage(int userId, int id);
 
 ## Section 168. Getting the message thread in the component
 
+- 在 carmodel.service.ts 中 新增getMessageThread function, 不過我的是 call
+CarModelMessages Controller 裡的 function
+
+- 建立一個新的 CarMessagesComponent, 並在 app.module.ts 中加入
+
 
 
 ## Section 169. Designing the message tab chat system

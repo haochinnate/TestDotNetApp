@@ -32,6 +32,7 @@ import { PhotoEditorComponent } from './carmodels/photo-editor/photo-editor.comp
 import { CarAddComponent } from './carmodels/car-add/car-add.component';
 import { ListsResolver } from './_resolvers/lists.resolver';
 import { MessagesResolver } from './_resolvers/messages.resolver';
+import { CarMessagesComponent } from './carmodels/car-messages/car-messages.component';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -57,6 +58,7 @@ export class CustomHammerConfig extends HammerGestureConfig {
       CarDetailComponent,
       CarEditComponent,
       CarAddComponent,
+      CarMessagesComponent,
       PhotoEditorComponent,
       TimeAgoPipe
    ],
