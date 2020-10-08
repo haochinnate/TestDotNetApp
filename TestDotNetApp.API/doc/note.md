@@ -1461,9 +1461,11 @@ CarModelMessages Controller 裡的 function
 
 - 建立一個新的 CarMessagesComponent, 並在 app.module.ts 中加入
 
-
+- 實作 car-messages.component.ts 內容, call carmodelService.getMessageThreadForCarmodel 取得 messages
 
 ## Section 169. Designing the message tab chat system
+
+- 設計 car-messages.component.html
 
 ## Section 170. Adding Query params to an Angular route
 

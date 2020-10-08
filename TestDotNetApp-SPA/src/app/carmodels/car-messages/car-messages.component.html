@@ -1,3 +1,65 @@
-<p *ngFor="let message of messages">
+<!-- <p *ngFor="let message of messages">
   {{message.content}}
-</p>
+</p> -->
+
+<div class="card">
+  <div class="card-body">
+    <div *ngIf="messages?.length === 0">
+      <p>No messages yet... leave comment by using the messages box below</p>
+    </div>
+
+    <ul class="chat">
+      <li *ngFor="let message of messages">
+        <!-- to them (this is for original example) -->
+        <div *ngIf="message.senderId == carmodelId">
+          <span class="chat-img float-left">
+            <img class="rounded-circle" 
+              src="{{message.senderPhotoUrl}}"
+              alt="{{message.senderKnownAs}}">
+          </span>
+          <div class="chat-body">
+            <div class="header">
+              <strong class="primary-font">{{message.senderKnownAs}}</strong>
+              <small class="text-muted float-right">
+                <span class="fa fa-clock-o">{{message.messageSent | timeAgo}}</span>
+              </small>
+            </div>
+            <p>{{message.content}}</p>
+          </div>
+        </div>
+
+        <!-- to me -->
+        <div *ngIf="message.senderId != carmodelId">
+          <span class="chat-img float-right">
+            <img class="rounded-circle" 
+              src="{{message.senderPhotoUrl}}"
+              alt="{{message.senderKnownAs}}">
+          </span>
+          <div class="chat-body">
+            <div class="header">
+              <small class="text-muted">
+                <span class="fa fa-clock-o">{{message.messageSent | timeAgo}}</span>
+                <span *ngIf="!message.isRead" class="text-danger">(unread)</span>
+                <span *ngIf="message.isRead" class="text-success">(Read {{message.dateRead | timeAgo}})</span>
+              </small>
+              <strong class="primary-font float-right">{{message.senderKnownAs}}</strong>
+            </div>
+            <p>{{message.content}}</p>
+          </div>
+        </div>
+
+      </li>
+    </ul>
+
+  </div>
+  <div class="card-footer">
+    <form action="">
+      <div class="input-group">
+        <input type="text" class="form-control input-sm" placeholder="Leave a comment">
+        <div class="input-group-append">
+          <button class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
