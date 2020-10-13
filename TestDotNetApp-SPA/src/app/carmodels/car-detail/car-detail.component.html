@@ -38,7 +38,7 @@
         <div class="card-footer">
           <div class="btn-group d-flex">
             <button class="btn btn-primary w-100">Like</button>
-            <button class="btn btn-success w-100">Message</button>
+            <button class="btn btn-success w-100" (click)="selectTab(3)">Message</button>
             <button class="btn btn-success w-100" [routerLink]="['/cars/edit', carmodel.id]">Edit</button>
           </div>
         </div>
@@ -48,7 +48,7 @@
     <!-- right hand side -->
     <div class="col-sm-8">
       <div class="tab-panel">
-        <tabset class="car-tabset">
+        <tabset class="car-tabset" #carmodelTabs>
           <tab heading="About {{carmodel.modelName}}">
             <h4>Description</h4>
             <p>{{carmodel.introduction}}</p>

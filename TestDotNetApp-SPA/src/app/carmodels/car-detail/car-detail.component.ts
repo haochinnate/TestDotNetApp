@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Carmodel } from 'src/app/_models/carmodel';
 import { CarmodelService } from 'src/app/_services/carmodel.service';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { ActivatedRoute } from '@angular/router';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
+import { TabsetComponent } from 'ngx-bootstrap';
 
 @Component({
   selector: 'app-car-detail',
@@ -11,6 +12,7 @@ import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gal
   styleUrls: ['./car-detail.component.css']
 })
 export class CarDetailComponent implements OnInit {
+  @ViewChild('carmodelTabs', {static: true}) carmodelTabs: TabsetComponent;
   carmodel: Carmodel;
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
@@ -24,6 +26,11 @@ export class CarDetailComponent implements OnInit {
     this.route.data.subscribe(data => {
       const carmodel = 'carmodel';
       this.carmodel = data[carmodel];
+    });
+
+    this.route.queryParams.subscribe(params => {
+      const selectedTab = params['tab'];
+      this.carmodelTabs.tabs[selectedTab > 0 ? selectedTab : 0].active = true;
     });
 
     this.galleryOptions = [
@@ -52,6 +59,10 @@ export class CarDetailComponent implements OnInit {
     }
 
     return imageUrls;
+  }
+
+  selectTab(tabId: number) {
+    this.carmodelTabs.tabs[tabId].active = true;
   }
 
   // cars/4

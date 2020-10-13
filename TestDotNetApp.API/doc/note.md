@@ -1469,6 +1469,44 @@ CarModelMessages Controller 裡的 function
 
 ## Section 170. Adding Query params to an Angular route
 
+- 希望按下 message 後, 直接到該對象的 messages tab
+
+- https://valor-software.com/ngx-bootstrap/#/tabs
+
+- 在 html 中, 用 # 給component 名字, 這樣可以在 ts 裡面使用
+
+```html
+<tabset class="car-tabset" #carmodelTabs>
+</tabset>
+```
+
+- 在 typescript 切換選的 tab
+
+```typescript
+@ViewChild('carmodelTabs', {static: true}) carmodelTabs: TabsetComponent;
+
+selectTab(tabId: number) {
+  this.carmodelTabs.tabs[tabId].active = true;
+}
+```
+
+- 加入 queryParams 之後, 點選 message 後, 網址會變成 http://localhost:4200/cars/42?tab=3
+
+
+```html
+<!-- add ?tab=3 behind URL -->
+[queryParams]="{tab: 3}"
+```
+
+- 在 car-detail component 中, 可以依據 params 來做事情
+
+```typescript
+    this.route.queryParams.subscribe(params => {
+      const selectedTab = params['tab'];
+      this.carmodelTabs.tabs[selectedTab > 0 ? selectedTab : 0].active = true;
+    });
+```
+
 ## Section 171. Adding the send message functionality and a challenge
 
 ## Section 172. Challenge solution - resolving the issue with the photos
