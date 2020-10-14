@@ -14,6 +14,7 @@ export class CarMessagesComponent implements OnInit {
   // @Input() recipientId: number;
   @Input() carmodelId: number;
   messages: Message[];
+  newMessage: any = {};
 
   constructor(private carmodelService: CarmodelService,
               private authService: AuthService,
@@ -30,5 +31,17 @@ export class CarMessagesComponent implements OnInit {
     }, error => {
       this.alertify.error(error);
     });
+  }
+
+  sendMessage() {
+    this.newMessage.recipientId = this.carmodelId;
+    this.carmodelService.sendMessage(this.authService.decodedToken.nameid, this.newMessage)
+      .subscribe((message: Message) => {
+        this.messages.unshift(message);
+        this.newMessage.content = '';
+      }, error => {
+        this.alertify.error(error);
+      }
+    );
   }
 }

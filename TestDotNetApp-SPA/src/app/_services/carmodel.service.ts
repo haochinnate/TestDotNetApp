@@ -144,5 +144,9 @@ export class CarmodelService {
     // [GET] http://localhost:5000/api/carmodels/43/carmodelmessages/thread
     return this.http.get<Message []>(this.baseUrl + 'carmodels/' + carmodelId + '/carmodelmessages/thread');
   }
-  
+
+  sendMessage(id: number, message: Message) {
+    // [POST] http://localhsot:5000/api/users/3/messages
+    return this.http.post(this.baseUrl + 'users/' + id + '/messages', message);
+  }
 }

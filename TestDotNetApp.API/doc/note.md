@@ -1509,6 +1509,10 @@ selectTab(tabId: number) {
 
 ## Section 171. Adding the send message functionality and a challenge
 
+- 在 carmodel.service 中 增加 sendMessage function, 呼叫API
+
+- 在 car-messages component 中, 實作 sendMessage function 和 相關 ng-form
+
 ## Section 172. Challenge solution - resolving the issue with the photos
 
 ## Section 173. Adding the Delete message functionality to the API
