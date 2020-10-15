@@ -26,6 +26,16 @@ namespace TestDotNetApp.API.Data
             _context.Remove(entity);
         }
 
+
+        #region User
+        public async Task<User> GetUser(int id)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
+            return user;
+        }
+            
+        #endregion
+        
         public async Task<CarModel> AddCarModel(CarModel carmodel)
         {
             await _context.CarModels.AddAsync(carmodel);
@@ -278,6 +288,7 @@ namespace TestDotNetApp.API.Data
 
             return messages;
         }
+
         #endregion
 
     }

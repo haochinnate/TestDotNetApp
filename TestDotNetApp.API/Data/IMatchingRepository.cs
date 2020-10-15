@@ -11,6 +11,12 @@ namespace TestDotNetApp.API.Data
         void Delete<T>(T entity) where T: class;
         Task<bool> SaveAll();
 
+        #region User
+
+        Task<User> GetUser(int id);
+            
+        #endregion
+
         Task<CarModel> AddCarModel(CarModel carmodel);
         Task<PagedList<CarModel>> GetCarModels(CarModelParams carmodelParamas);
         Task<CarModel> GetCarModel(int id);

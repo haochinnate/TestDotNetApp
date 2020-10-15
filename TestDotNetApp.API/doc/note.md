@@ -1515,6 +1515,10 @@ selectTab(tabId: number) {
 
 ## Section 172. Challenge solution - resolving the issue with the photos
 
+- debugger;
+
+- add function GetUser in repository class
+
 ## Section 173. Adding the Delete message functionality to the API
 
 ## Section 174. Deleting messages in the SPA

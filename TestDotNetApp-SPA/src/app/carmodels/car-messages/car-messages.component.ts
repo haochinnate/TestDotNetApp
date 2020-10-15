@@ -37,6 +37,7 @@ export class CarMessagesComponent implements OnInit {
     this.newMessage.recipientId = this.carmodelId;
     this.carmodelService.sendMessage(this.authService.decodedToken.nameid, this.newMessage)
       .subscribe((message: Message) => {
+        // debugger;
         this.messages.unshift(message);
         this.newMessage.content = '';
       }, error => {
