@@ -1521,6 +1521,8 @@ selectTab(tabId: number) {
 
 ## Section 173. Adding the Delete message functionality to the API
 
+- 用 HttpPost, 而非 HttpDelete, 因為不想兩邊都 delete 掉
+
 ## Section 174. Deleting messages in the SPA
 
 ## Section 175. Adding the Mark as Read functionality
