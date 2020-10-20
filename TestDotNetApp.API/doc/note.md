@@ -1525,5 +1525,14 @@ selectTab(tabId: number) {
 
 ## Section 174. Deleting messages in the SPA
 
+- add delete message method in carmodel service 
+
+- call delete message method in message component
+
 ## Section 175. Adding the Mark as Read functionality
 
+# Section 17: Publishing
+
+## Section 435. Introduction
+
+## Section 436. 

@@ -149,4 +149,11 @@ export class CarmodelService {
     // [POST] http://localhsot:5000/api/users/3/messages
     return this.http.post(this.baseUrl + 'users/' + id + '/messages', message);
   }
+
+  deleteMessage(id: number, userId: number) {
+    // [POST] http://localhsot:5000/api/users/3/messages/messageId
+    return this.http.post(this.baseUrl + 'users/' + userId + '/messages/' + id, {});
+  }
+
+
 }
