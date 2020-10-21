@@ -1529,7 +1529,17 @@ selectTab(tabId: number) {
 
 - call delete message method in message component
 
+- 按下 delete button 後, 會導到收件人的 page, 因為有設定 [routerLink] 在 table row(tr), 增加 stopPropagation()
+
+```typescript
+
+<button class="btn btn-danger" (click)="$event.stopPropagation()" (click)="deleteMessage(message.id)">Delete</button>
+
+```
+
 ## Section 175. Adding the Mark as Read functionality
+
+
 
 # Section 17: Publishing
 
