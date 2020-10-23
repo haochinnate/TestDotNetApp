@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { BsDatepickerConfig } from 'ngx-bootstrap';
+import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { CarmodelService } from 'src/app/_services/carmodel.service';
 import { Carmodel } from 'src/app/_models/carmodel';
