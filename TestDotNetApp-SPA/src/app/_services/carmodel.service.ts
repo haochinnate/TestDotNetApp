@@ -155,5 +155,10 @@ export class CarmodelService {
     return this.http.post(this.baseUrl + 'users/' + userId + '/messages/' + id, {});
   }
 
+  markAsRead(userId: number, messageId: number) {
+    // [POST] http://localhost:5000/api/users/3/messages/messageId/read
+    return this.http.post(this.baseUrl + 'users/' + userId + '/messages/' + messageId + '/read', {})
+      .subscribe();
+  }
 
 }

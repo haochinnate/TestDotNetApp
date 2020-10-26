@@ -1539,7 +1539,11 @@ selectTab(tabId: number) {
 
 ## Section 175. Adding the Mark as Read functionality
 
+- MessagesController 增加 function: MarkMessageAsRead
 
+- http://localhsot:5000/api/users/3/messages/2/read
+
+- 在 carmodel service call API, 然後在 component 中呼叫service function
 
 # Section 17: Publishing
 
