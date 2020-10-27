@@ -1549,4 +1549,42 @@ selectTab(tabId: number) {
 
 ## Section 435. Introduction
 
-## Section 436. 
+- using "ng build"
+
+- Running Angular on the Kestrel server
+
+- AOT Production Build
+
+- Adding additional DB providers
+
+- publishing to IIS, Linux and Azure
+
+- 
+
+## Section 436. Using NG Build and running the application from the Kestrel server
+
+## Section 437. .Net Core 3.0 - Serving Static Files from the API
+
+## Section 438. Angular CLI AOT Production build
+
+## Section 439. Installing and setting up MySQL
+
+## Section 440. Adding additional Database providers
+
+## Section 441. Dealing with migrations and multiple Database providers
+
+## Section 442. .Net Core 3.0 MySQL provider bug workaround
+
+## Section 443. Adding Lazy loading for out related entites
+
+## Section 444. Publishing to IIS
+
+## Section 445. Setting up a Linux server for publishing 
+
+## Section 446. Publishing the app to Linux
+
+## Section 447. HTTPS configuration for Apache 
+
+## Section 448. Setting up Azure to publish our app 
+
+## Section 449. Publishing our App to Azure

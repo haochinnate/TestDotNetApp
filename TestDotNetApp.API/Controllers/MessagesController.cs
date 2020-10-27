@@ -165,7 +165,7 @@ namespace TestDotNetApp.API.Controllers
 
             var messageFromRepo = await _repo.GetMessage(id);
 
-            if (messageFromRepo.RecipientId != userId)
+            if (messageFromRepo.SenderId != userId)
             {
                 return Unauthorized();
             }

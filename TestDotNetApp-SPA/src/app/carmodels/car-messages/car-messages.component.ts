@@ -33,7 +33,7 @@ export class CarMessagesComponent implements OnInit {
       tap(messages => {
         for (let i = 0; i < messages.length; i++) {
           if (messages[i].isRead === false
-            && messages[i].recipientId === currentUserId) {
+            && messages[i].senderId === currentUserId) {
             this.carmodelService.markAsRead(currentUserId, messages[i].id);
           }
         }
