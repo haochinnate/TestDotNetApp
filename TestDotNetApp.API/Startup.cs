@@ -107,7 +107,8 @@ namespace TestDotNetApp.API
             // add Authentication before Authorization 
             app.UseAuthentication();
             app.UseAuthorization();
-
+            // app.UseDefaultFiles();
+            // app.UseStaticFiles();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

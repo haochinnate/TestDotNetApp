@@ -1559,9 +1559,34 @@ selectTab(tabId: number) {
 
 - publishing to IIS, Linux and Azure
 
-- 
-
 ## Section 436. Using NG Build and running the application from the Kestrel server
+
+- create a production version of Angular application
+
+- 在 SPA/angular.json file, 修改 build-options-outputPath, 然後在 terminal 輸入 "ng build"
+
+```json
+{
+  "outputPath": "../TestDotNetApp.API/wwwroot"
+}
+```
+- /API/wwwroot 資料夾不要加入 git 控制, 所以加進 .gitignore
+
+- (.net core 2.2 才要做) 在 API/Statup.cs file,
+
+```csharp
+
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+{
+  // ...
+  app.UseDefaultFiles();
+  app.UseStaticFiles();
+  // ...
+}
+
+```
+
+- 在呼叫 dotnet run 重新啟動API
 
 ## Section 437. .Net Core 3.0 - Serving Static Files from the API
 
