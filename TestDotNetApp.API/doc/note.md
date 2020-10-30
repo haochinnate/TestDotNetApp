@@ -1572,7 +1572,7 @@ selectTab(tabId: number) {
 ```
 - /API/wwwroot 資料夾不要加入 git 控制, 所以加進 .gitignore
 
-- (.net core 2.2 才要做) 在 API/Statup.cs file,
+- (以下 是 .net core 2.2 作法) 在 API/Statup.cs file,
 
 ```csharp
 
@@ -1582,13 +1582,54 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
   app.UseDefaultFiles();
   app.UseStaticFiles();
   // ...
+
+  app.UseMvc(routes =>{
+      routes.MapSpaFallbackRoute(
+          name: "spa-fallback",
+          defaults: new {controller = "Fallback", action = "Index"}  
+      );
+  });
 }
 
 ```
 
 - 在呼叫 dotnet run 重新啟動API
 
+- 建立 FallbackController : Controller
+
+```csharp
+
+public class FallbackController : Controller
+{
+    public IActionResult Index()
+    {
+        return PhysicalFile(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "index.html"), "text/HTML");
+    }
+}
+
+```
+
 ## Section 437. .Net Core 3.0 - Serving Static Files from the API
+
+- 以下是 .net core 3.0 作法
+
+```csharp
+
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+{
+  // ...
+  app.UseDefaultFiles();
+  app.UseStaticFiles();
+  // ...
+
+  app.UseEndpoints(endpoints =>
+  {
+    endpoints.MapControllers();
+    endpoints.MapFallbackToController("Index", "Fallback");
+  });
+}
+
+```
 
 ## Section 438. Angular CLI AOT Production build
 

@@ -100,19 +100,30 @@ namespace TestDotNetApp.API
 
             app.UseRouting();
 
+           
+            // add Authentication before Authorization 
+            app.UseAuthentication();
+            app.UseAuthorization();
+
             // the order is important
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             // app.UseCors(x => x.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader());
 
-            // add Authentication before Authorization 
-            app.UseAuthentication();
-            app.UseAuthorization();
-            // app.UseDefaultFiles();
-            // app.UseStaticFiles();
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapFallbackToController("Index", "Fallback");
             });
+
+            // app.UseMvc(routes =>{
+            //     routes.MapSpaFallbackRoute(
+            //         name: "spa-fallback",
+            //         defaults: new {controller = "Fallback", action = "Index"}
+            //     );
+            // });
         }
     }
 }
