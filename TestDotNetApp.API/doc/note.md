@@ -1633,6 +1633,24 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 
 ## Section 438. Angular CLI AOT Production build
 
+- [Angular ng build](https://angular.io/cli/build)
+
+- [Angular Deployment](https://angular.io/guide/deployment)
+
+- AOT for Ahead-of-Time
+
+- 修改 -SPA/src/environments.prod.ts 中的 apiUrl
+
+- 增加參數 --prod
+
+```cli
+-SPA> ng build --prod
+```
+
+- 用 production build 會有 error, 是關於 Date 轉 string的錯誤, 直接修改 lastEditedDate 的型別
+
+- 在 .API project 直接下 dotnet run 就可以執行 http://localhost:5000
+
 ## Section 439. Installing and setting up MySQL
 
 ## Section 440. Adding additional Database providers
