@@ -1653,7 +1653,75 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 
 ## Section 439. Installing and setting up MySQL
 
+- [MySQL](https://www.mysql.com/) 的 Downloads 的 MySQL Community
+
+- 選 MySQL Community Server
+
+- 安裝好後, 開啟 terminal
+
+```cmd
+> mysql -u root -p
+
+mysql > show databases;
+
+mysql > CREATE USER 'appuser'@'localhost' IDENTIFIED BY 'password';
+
+mysql > GRANT ALL PRIVILEGES ON *.* TO 'appuser'@'localhost' WITH GRANT OPTIONS;
+
+mysql > FLUSH PRIVILEGES
+
+mysql > quit
+
+> mysql -u appuser -p
+
+mysql > show databases;
+
+```
+
 ## Section 440. Adding additional Database providers
+
+- using Database Provider(from Entity Framework Core) to support MySQL and SQL server
+
+- Install packages (nuget package manager)
+  - Microsoft.EntityFrameworkCore.SqlServer 3.0.0
+  - Pomelo.EntityFrameworkCore.MySql 3.0.0
+
+- 修改 appsettings.Development.json, 使用 SQLite
+
+- 修改 appsettings.json, 使用 SQL server or MySQL
+
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=xxxxx; Database=xxxx; Uid=xxxx; Pwd=xxxx",
+    "DefaultConnection": "Server=xxxxx; Database=xxxx; User Id=xxxx; 
+    Password=xxxx"
+  },
+}
+```
+
+- 並修改 Startup.cs 中的流程, 讓 development 和 production 使用不同 data base
+
+```csharp
+
+public void ConfigureDevelopmentServices(IServiceCollection services)
+{
+    services.AddDbContext<DataContext>(x => x.UseSqlite
+        (Configuration.GetConnectionString("DefaultConnection")));
+
+    ConfigureServices(services);
+}
+
+// UseMySql 會有錯誤, 要再另外安裝 MySql.Data.EntityFrameworkCore package
+public void ConfigureProductionServices(IServiceCollection services)
+{
+    services.AddDbContext<DataContext>(x => x.UseMySql
+        (Configuration.GetConnectionString("DefaultConnection")));
+
+    ConfigureServices(services);
+}
+
+```
 
 ## Section 441. Dealing with migrations and multiple Database providers
 
