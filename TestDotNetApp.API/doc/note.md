@@ -1725,6 +1725,19 @@ public void ConfigureProductionServices(IServiceCollection services)
 
 ## Section 441. Dealing with migrations and multiple Database providers
 
+- 在 migrations 的 cs 檔案中, 增加 給不同 database providers 的 additional annotations
+
+```csharp
+Id = table.Column<int>(nullable: false)
+  .Annotation("SqlServer:ValueGenerationStrategy", 
+    SqlServerValueGenerationStrategy.IdentityColumn)
+  .Annotation("MySql:ValueGenerationStrategy", 
+    MySqlValueGenerationStrategy.IdentityColumn)    
+  .Annotation("Sqlite:Autoincrement", true),
+```
+
+- ConfigureDevelopmentServices, ConfigureProductionServices
+
 ## Section 442. .Net Core 3.0 MySQL provider bug workaround
 
 ## Section 443. Adding Lazy loading for out related entites

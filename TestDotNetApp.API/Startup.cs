@@ -42,8 +42,8 @@ namespace TestDotNetApp.API
 
         public void ConfigureProductionServices(IServiceCollection services)
         {
-            // services.AddDbContext<DataContext>(x => x.UseMySQL
-            // (Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<DataContext>(x => x.UseMySql
+            (Configuration.GetConnectionString("DefaultConnection")));
 
             ConfigureServices(services);
         }
