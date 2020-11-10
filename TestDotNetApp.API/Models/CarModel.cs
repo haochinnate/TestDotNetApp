@@ -20,10 +20,10 @@ namespace TestDotNetApp.API.Models
         public double BootCapacity { get; set; }
         public string SizeAndType { get; set; }
         public double FuelConsumption { get; set; }
-        public ICollection<Photo> Photos { get; set; }
-        public ICollection<Like> Likers { get; set; }
+        public virtual ICollection<Photo> Photos { get; set; }
+        public virtual ICollection<Like> Likers { get; set; }
 
-        public ICollection<Message> MessagesReceived { get; set; }
+        public virtual ICollection<Message> MessagesReceived { get; set; }
 
         // ESP: 
         // HSA: (Hill Start Assis)斜坡上坡起步輔助, 鬆開剎車時, 會維持剎車一段時間, 避免因斜坡往後滑

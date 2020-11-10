@@ -8,8 +8,8 @@ namespace TestDotNetApp.API.Models
         // this should by CarModel ID
         public int LikeeId { get; set; }
 
-        public User Liker { get; set; }
+        public virtual User Liker { get; set; }
 
-        public CarModel Likee { get; set; }
+        public virtual CarModel Likee { get; set; }
     }
 }

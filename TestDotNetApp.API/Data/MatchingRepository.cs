@@ -48,7 +48,7 @@ namespace TestDotNetApp.API.Data
         {
             // in course, this function is return a user (lecture 75)
             // also want to show photos, so have to use "Include"
-            var carModel = await _context.CarModels.Include(p => p.Photos).FirstOrDefaultAsync(c => c.Id == id);
+            var carModel = await _context.CarModels.FirstOrDefaultAsync(c => c.Id == id);
             return carModel;
         }
 
@@ -61,8 +61,7 @@ namespace TestDotNetApp.API.Data
             // return carModels;
 
             // pagination 
-            var carmodels = _context.CarModels.Include(p => p.Photos)
-                .OrderByDescending(c => c.Length).AsQueryable();
+            var carmodels = _context.CarModels.OrderByDescending(c => c.Length).AsQueryable();
 
             // use the criteria in params to filter the models want to return 
             // users = users.Where(u => u.Id != userParmas.UserId);
@@ -164,8 +163,7 @@ namespace TestDotNetApp.API.Data
             //     return user.Likers.Where(u => u.LikerId == id).Select(i => LikeeId);
             // }
 
-            var user = await _context.Users.Include(x => x.Likees)
-                .FirstOrDefaultAsync(u => u.Id == id);
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
 
             if (likers)
             {
@@ -210,10 +208,7 @@ namespace TestDotNetApp.API.Data
             // original 
             // .Include(u => u.Sender).ThenInclude(p => p.Photos)
 
-            var messages = _context.Messages
-                .Include(u => u.Sender)
-                .Include(u => u.Recipient).ThenInclude(p => p.Photos)
-                .AsQueryable();
+            var messages = _context.Messages.AsQueryable();
 
             // filter the messages
             switch (messageParams.MessageContainer)
@@ -240,10 +235,7 @@ namespace TestDotNetApp.API.Data
 
         public async Task<PagedList<Message>> GetMessagesForCarModel(MessageParams messageParams)
         {
-              var messages = _context.Messages
-                .Include(u => u.Sender)
-                .Include(u => u.Recipient).ThenInclude(p => p.Photos)
-                .AsQueryable();
+              var messages = _context.Messages.AsQueryable();
 
             // filter the messages
             switch (messageParams.MessageContainer)
@@ -272,8 +264,6 @@ namespace TestDotNetApp.API.Data
         {
             // return the conversation between two users
             var messages = await _context.Messages
-                .Include(u => u.Sender)
-                .Include(u => u.Recipient).ThenInclude(p => p.Photos)
                 .Where(m => (m.RecipientId == userId && m.RecipientDeleted == false && m.SenderId == recipientId) 
                     || (m.RecipientId == recipientId && m.SenderId == userId
                     && m.SenderDeleted == false))
@@ -287,8 +277,6 @@ namespace TestDotNetApp.API.Data
         {
             // return the message to that carmodel
             var messages = await _context.Messages
-                .Include(u => u.Sender)
-                .Include(u => u.Recipient).ThenInclude(p => p.Photos)
                 .Where(m => m.RecipientId == carmodelId && m.RecipientDeleted == false)
                 .OrderByDescending(m => m.MessageSent)
                 .ToListAsync();

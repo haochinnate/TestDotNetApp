@@ -1738,9 +1738,47 @@ Id = table.Column<int>(nullable: false)
 
 - ConfigureDevelopmentServices, ConfigureProductionServices
 
+- 如果要改 Development 或 Production mode 則是在 launchSettings.json 裡面
+  就可以直接控制要呼叫 ConfigureDevelopmentServices 或 ConfigureProductionServices?
+
+```json
+{
+  "environmentVariables": {
+    "ASPNETCORE_ENVIRONMENT": "Production"
+  }
+}
+```
+
 ## Section 442. .Net Core 3.0 MySQL provider bug workaround
 
+- 使用 Pomelo.EntityFrameworkCore.MySql 3.0.0 可能會碰到的問題
+
+- migration 時有的錯誤, column: 'Created' can't have a default value (DateTime)
+
+- 把 Migrations 資料夾放到 跟 root 同一層, 然後重建一個給 MySQL 的 migration
+
+```cmd
+> export ASPNETCORE_ENVIRONMENT=Production
+> dotnet ef migrations add MySqlInitial
+> dotnet run
+```
+
 ## Section 443. Adding Lazy loading for out related entites
+
+- 安裝 Microsoft.EntityFrameworkCore.Proxies 3.0.0 package
+
+- 在 ConfigureSevices 中, DB context 使用 UseLazyLoadingProxies
+
+```csharp
+services.AddDbContext<DataContext>(x => {
+  x.UseLazyLoadingProxies();
+  x.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
+});
+```
+
+- 在 repository class 中, 有用到 .Include 的地方 都移除
+
+- 然後 Model 中 ICollection 的 properties 都加入 virtual keyword
 
 ## Section 444. Publishing to IIS
 

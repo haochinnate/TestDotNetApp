@@ -7,10 +7,10 @@ namespace TestDotNetApp.API.Models
         public int Id { get; set; }
         
         public int SenderId { get; set; }
-        public User Sender { get; set; }
+        public virtual User Sender { get; set; }
         
         public int RecipientId { get; set; }
-        public CarModel Recipient { get; set; }
+        public virtual CarModel Recipient { get; set; }
 
         public string Content { get; set; }
 
