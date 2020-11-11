@@ -1782,7 +1782,22 @@ services.AddDbContext<DataContext>(x => {
 
 ## Section 444. Publishing to IIS
 
+- 會產生在 .API/bin/Release/netcoreapp3.0/ 底下
+- .API/bin/Release/netcoreapp3.0/publish 底下也有一份?
+
+```cmd
+.API > dotnet publish --configuration Release
+```
+
+- 在 控制台/程式與功能/開啟或關閉Windows功能 可以開啟 Internet Information Services
+
+- 再打開 IIS Manager 做設定
+
+- MSDN參考: Publish an ASP.NET Core app to IIS 
+
 ## Section 445. Setting up a Linux server for publishing 
+
+- 用 Digital Ocean, Ubuntu, LAMP(Linux, Apache, MySQL)
 
 ## Section 446. Publishing the app to Linux
 
