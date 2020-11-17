@@ -1799,7 +1799,19 @@ services.AddDbContext<DataContext>(x => {
 
 - 用 Digital Ocean, Ubuntu, LAMP(Linux, Apache, MySQL)
 
+- $5/m, One-time password
+
+- 設定 hostname
+
+- 複製 IP address, 用 powershell 來進入, 剩下的看 cheet sheet
+
+```powershell
+ssh root@ip Address
+```
+
 ## Section 446. Publishing the app to Linux
+
+- 看 cheet sheet
 
 ## Section 447. HTTPS configuration for Apache 
 
