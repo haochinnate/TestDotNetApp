@@ -1815,6 +1815,63 @@ ssh root@ip Address
 
 ## Section 447. HTTPS configuration for Apache 
 
+- 在 Startup.cs 的 Configure function
+
+- have a domain name that you own, that you can use to assign certificate
+
+```cmd
+apache2ctl -S  ;列出資訊
+sudo a2enmod ssl ;開啟SSL?
+cat /etc/apache2/sites-available/datingapp.conf
+
+cat /etc/apache2/sites-available/datingapp-ssl.conf
+
+sudo nano /etc/systemd/system/da-kestrel.service
+
+```
+
+```conf
+// datingapp.conf 檔案內容
+<VirtualHost *:80>
+ServerName datingapp.trycatchlearn.com
+
+RedirectMatch permanent ^(.*)$ https://datingapp.trycatchlearn.com$1
+</VirtualHost>
+
+// datingapp-ssl.conf 檔案內容
+<VirtualHost *:443>
+ServerName datingapp.trycatchlearn.com
+
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+SSLEngine on
+SSLCertificateFile /etc/ssl/trycatchlearn_com.crt
+SSLCertificateKeyFile /etc/ssl/private/trycatchlearn.key
+SSLCertificateChainFile /etc/ssl/trycatchlearn_com.ca-bundle
+
+ProxyPreserveHost On
+ProxyPass / http://127.0.0.1:5002/
+ProxyPassReverse / http://127.0.0.1:5002/
+
+ErrorLog /var/log/apache2/datingapp-error.log
+CustomLog /var/log/apache2/datingapp-access.log common
+
+</VirtualHost>
+```
+
+- generating the certificate signing request
+
+- https://www.namecheap.com/support/knowledgebase/article.aspx/9446/14/generating-csr-on-apache--opensslmodsslnginx--heroku/
+
+```cmd
+openssl req -new -newkey rsa:2048 -nodes -keyout sitename.key -out sitename.csr
+
+; 輸入後, 要填一些資料, 然後會產生 sitename.key 和 sitename.csr
+
+```
+
 ## Section 448. Setting up Azure to publish our app 
 
 ## Section 449. Publishing our App to Azure
+
+- Extensions 中, 可以安裝 "Azure App Service", 會另外安裝 "Azure Account"

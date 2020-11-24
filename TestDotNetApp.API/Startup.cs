@@ -112,7 +112,12 @@ namespace TestDotNetApp.API
                         }
                     });
                 });
+
+                // app.UseHsts();
             }
+
+            // app.UseDeveloperExceptionPage();
+            // app.UseHttpsRedirection();
 
             // temp do not use https 
             // app.UseHttpsRedirection();
