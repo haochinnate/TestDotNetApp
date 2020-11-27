@@ -1,6 +1,11 @@
+# Dotnet code hotkey 
+
+* 打開 terminal: Ctrl+Shift+`
+
+
 # Section 1: Introduction
 
-1. 去 [.net 官網](dotnet.microsoft.com) 下載 SDK
+1. 去 [.net 官網](dotnet.microsoft.com) 下載 SDK, 目前用 3.1.10
 2. 去 [node js 官網](https://nodejs.org/en/) 下載 javascript engine
     - nvm: node version manager, [相關參考](https://joachim8675309.medium.com/installing-node-js-with-nvm-4dc469c977d9)
     - "node -v" 指令可以檢查目前安裝的版本 
@@ -8,11 +13,37 @@
 4. 下載 [Postman](https://www.postman.com/) 來測試API
 
 
-# Section 2: Building a Walking Skeleton
+# Section 2: Building a Walking Skeleton Part One - API
+
+## Section 6. Creating the .NET API project using the dotnet CLI
 
 ```cmd
+dotnet --info // 得到目前安裝的版本資訊
+dotnet -h
+dotnet new -h // Solution file, ASP.NET Core Web API 
+dotnet new sln // 拿資料夾名稱來建立 solution file
+dotnet new webapi -o API // 新增 api project 到 API 資料夾中
+
+dotnet sln add API // 把 project 加到 solution 中
 
 ```
+
+## Section 7. Setting up VS code to work with C#
+
+### 安裝 Extensions
+
+1. C# for Visual Studio Code (powered by OmniSharp)
+2. C# Extensions
+3. Material Icon Theme (Philipp Kief)
+
+### 其他設定
+* 打開自動儲存: File/Auto Save
+* 在 Preference\Settings 搜尋 exclude, Add pattern
+  * **/bin
+  * **/obj 
+* 在 Preference\Settings 搜尋 folder, 關閉 Compact Folder
+
+## Section 8. Getting to know the API project files
 
 * code . 
 * dotnet watch run 
