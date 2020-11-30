@@ -1,7 +1,8 @@
 # Dotnet code hotkey 
 
-* 打開 terminal: Ctrl+Shift+`
-
+* 打開 terminal: Ctrl + Shift + `
+* Show all commands: Ctrl + Shift + P
+* Go to file: Ctrl + P
 
 # Section 1: Introduction
 
@@ -45,9 +46,30 @@ dotnet sln add API // 把 project 加到 solution 中
 
 ## Section 8. Getting to know the API project files
 
+```cmd
+cd API // 切到 API 的資料夾
+dotnet run // 執行
+Ctrl + C // 結束執行
+dotnet dev-certs https --trust // 安裝憑證
+
+dotnet watch run // file watcher, 看檔案有沒有更改過
+
+```
+
+* https://localhost:5001/weatherforecast 可以看到目前的結果
+
+## Section 9. Creating out first Entity
+
+## Section 10. Introduction to Entity Framework
+
+## Section 11. Adding Entity Framwork to out project 
+
+## Section 12. Adding a DbContext class
+
+## Section 13. Creating the Connection string
+
 * code . 
-* dotnet watch run 
-* Show all commands: Ctrl+Shift+P
+
 * nuget add package 
 * Microsoft.EntityFrameworkCore 3.0.0
 * Microsoft.EntityFrameworkCore.Sqlite 3.0.0
@@ -56,9 +78,11 @@ dotnet sln add API // 把 project 加到 solution 中
 * dotnet ef migrations add InitialCreate
 * 要再安裝 Microsoft.EntityFrameworkCore.Design 3.0.0
 * dotnet ef database update // update the migrations
-* Go to file: Ctrl + P
+
 * test URL: http://localhost:5000/api/values 
 * asynchronous 
+
+
 
 ## Angular 
 
