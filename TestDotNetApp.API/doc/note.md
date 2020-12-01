@@ -1,8 +1,8 @@
 # Dotnet code hotkey 
 
-* 打開 terminal: Ctrl + Shift + `
-* Show all commands: Ctrl + Shift + P
-* Go to file: Ctrl + P
+- 打開 terminal: Ctrl + Shift + `
+- Show all commands: Ctrl + Shift + P
+- Go to file: Ctrl + P
 
 # Section 1: Introduction
 
@@ -56,23 +56,43 @@ dotnet watch run // file watcher, 看檔案有沒有更改過
 
 ```
 
-* https://localhost:5001/weatherforecast 可以看到目前的結果
+- https://localhost:5001/weatherforecast 可以看到目前的結果
 
 ## Section 9. Creating out first Entity
 
+- 新增 Entities 資料夾 (以前的 Models 資料夾), 新增 class + properties
+
 ## Section 10. Introduction to Entity Framework
+
+- Is an **Object Relational Mapper (ORM)**
+
+- translates code into SQL commands that update tables in the DB
+
+- Features
+  - Querying
+  - Change Tracking
+  - Saving
+  - Concurrency
+  - Transactions
+  - Caching
+  - Built-in conventions
+  - Configurations
+  - Migrations
 
 ## Section 11. Adding Entity Framwork to out project 
 
+1. 安裝 Extensions: NuGet Gallery (by pcislo)
+2. command 選擇 **NuGet: Open NuGet Gallery**
+3. 搜尋 Microsoft.EntityFrameworkCore.Sqlite 3.1.10 安裝在 API project
+
 ## Section 12. Adding a DbContext class
+
+
 
 ## Section 13. Creating the Connection string
 
 * code . 
 
-* nuget add package 
-* Microsoft.EntityFrameworkCore 3.0.0
-* Microsoft.EntityFrameworkCore.Sqlite 3.0.0
 * dotnet tool install --global dotnet-ef --version 3.0.0
 * dotnet ef migrations -h
 * dotnet ef migrations add InitialCreate
