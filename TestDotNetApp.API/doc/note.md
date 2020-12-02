@@ -87,18 +87,78 @@ dotnet watch run // file watcher, 看檔案有沒有更改過
 
 ## Section 12. Adding a DbContext class
 
+- 建立 Data 資料夾, 並在裡面加入 DataContext class
 
+```csharp
+
+    public class DataContext : DbContext
+    {
+        public DataContext(DbContextOptions options) 
+            : base(options)
+        {
+        }
+
+        public DbSet<CarManufacturer> MyProperty { get; set; }
+    }
+
+```
+
+- Startup 的 ConfigureService 加入 DbContext 設定
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+  services.AddDbContext<DataContext>(options => 
+  {
+    options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
+  });
+  services.AddControllers();
+}
+```
 
 ## Section 13. Creating the Connection string
 
-* code . 
+- configuration file: appsettings.json, appsettings.Development.json
 
-* dotnet tool install --global dotnet-ef --version 3.0.0
-* dotnet ef migrations -h
-* dotnet ef migrations add InitialCreate
-* 要再安裝 Microsoft.EntityFrameworkCore.Design 3.0.0
+```json
+{
+  "ConnectionStrings" : {
+    "DefaultConnection": "Data source=yamano.db"
+  }
+}
+
+```
+
+- 到 nuget.org, 搜尋 [dotnet-ef](https://www.nuget.org/packages/dotnet-ef/)
+
+- 複製指令, 然後安裝, global tool, 所以不用切路徑再安裝
+
+```cmd
+dotnet tool install --global dotnet-ef --version 3.1.10
+dotnet tool update --global dotnet-ef --version 3.1.10
+```
+
+- 還要安裝 Microsoft.EntityFrameworkCore.Design 3.1.10 (打開 nuget gallery)
+
+- 建立 migrations
+
+```cmd
+dotnet ef migrations -h
+dotnet ef migrations add InitialCreate -o Data/Migrations
+```
+
+## Section 14. Creating the database using Entity Framework Code first migrations
+
+## Section 15. Adding a new API controller
+
+## Section 16. Making our code Asynchronous
+
+## Section 17. Saving our code into Source control 
+
+# Section 3: Building a walking skeleton Part Two - Angular
+
+
 * dotnet ef database update // update the migrations
-
 * test URL: http://localhost:5000/api/values 
 * asynchronous 
 
