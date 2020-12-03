@@ -149,28 +149,187 @@ dotnet ef migrations add InitialCreate -o Data/Migrations
 
 ## Section 14. Creating the database using Entity Framework Code first migrations
 
+- update the migrations
+
+```cmd
+dotnet ef database update 
+```
+
+- 執行完後, 會產生 *.db 檔案
+
+- 可以在 Extensions 中搜尋 SQLite, 並安裝 SQLite(by alexcvzz)
+
+- 先自己建立一些假資料
+
 ## Section 15. Adding a new API controller
+
+- 建立一個新的 controller, 並設定兩個 "endpoint"
+
+```csharp
+    [ApiController]
+    [Route("api/[controller]")]
+    public class CarManufacturersController : ControllerBase
+    {
+        private readonly DataContext _context;
+        public CarManufacturersController(DataContext context)
+        {
+            _context = context;
+        }
+
+        [HttpGet]
+        public ActionResult<IEnumerable<CarManufacturer>> GetCarManufacturers()
+        {
+            var manufacturers = _context.CarManufacturers.ToList();
+
+            return manufacturers;
+        }
+
+        // url:port/api/carmanufacturers/3
+        [HttpGet("{id}")]
+        public ActionResult<CarManufacturer> GetCarManufacturer(int id)
+        {
+            var manufacturer = _context.CarManufacturers.Find(id);
+
+            return manufacturer;
+        }
+    }
+```
+
+- 測試 https://localhost:5001/api/carmanufacturers/
+- 測試 https://localhost:5001/api/carmanufacturers/1
 
 ## Section 16. Making our code Asynchronous
 
+```csharp
+[HttpGet]
+ public async Task<ActionResult<IEnumerable<CarManufacturer>>> GetCarManufacturers()
+ {
+    var manufacturers = await _context.CarManufacturers.ToListAsync();
+
+    return manufacturers;
+ }
+
+```
+
 ## Section 17. Saving our code into Source control 
+
+- 到 [git官網](https://git-scm.com/), 下載並安裝
+
+- 到 github 建立帳號
+
+```cmd
+git status // 查看目前資料夾的 git 狀態
+git init
+dotnet new gitignore // 產生 .gitignore 檔案
+```
+
+- Stage change -> Commit, 然後到 github 建立 repository
+
+```cmd
+git remote add origin https://github.com/users/repositoryName.git
+
+// push
+git push -u origin master
+```
 
 # Section 3: Building a walking skeleton Part Two - Angular
 
+1. Using the Angular CLI
+2. How to create a new Angular app
+3. The Angular project files
+4. The Angular bootstrap process
+5. Using the Angular HTTP Client Service
+6. Running an Angular app over HTTPS
+7. How to add packages using npm
 
-* dotnet ef database update // update the migrations
-* test URL: http://localhost:5000/api/values 
-* asynchronous 
+## Section 20. Creating the Angular application
+
+- [Angular CLI 官網](https://cli.angular.io/)
+  - 需要先安裝 node js
+  - ng 指令是安裝完後才有的
+
+```cmd
+node --version // 先檢查 node js版本
+npm --version 
+
+npm install -g @angular/cli // install angular CLI
+
+// 切到 project 的 root folder
+ng new my-dream-app // create new angular application
+// (can not use '.')
+
+// 會問要不要 routing, 要用CSS
+
+cd my-dream-app
+ng serve // run the application
+```
+
+## Section 21. Running the angular project and reviewing the bootstrap of the app
+
+```cmd
+cd client
+ng serve
+
+// http://localhost:4200
+```
+
+- index.html 中 有 <app-root> component 來自於 app.component.ts
+
+```typescript
+// this is decorator, giving a normal class some extra powers
+// 讓這個 class (AppComponent) 可以當作 component
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+```
+
+- 刪除掉 app.component.html 內的所有內容, 自己新增內容
+
+```html
+<h1>{{title}}</h1>
+```
+
+- 用 {{}} get data from our component into our template
+
+- 在 app.module.ts 中, 有 @NgModule decorator 設定是 angular module
+  - declarations: 宣告那些在我們的application 中, 可以使用哪些 components
+  - imports: 要使用哪些其他 modules
+  - providers: 
+  - bootstrap:
+
+```typescript
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+```
 
 
+## Section 22. Adding VS Code extensions to work with Angular
+
+## Section 23. Making HTTP requests in Angular
+
+## Section 24. Adding CORS support in the API
+
+## Section 25. Displaying the fetched users in the browser
+
+## Section 26. Adding bootstrap and font-awesome
+
+## Section 27. Using HTTPS in angular - MAC
+
+## Section 28. Using HTTPS in angular - WINDOWS
 
 ## Angular 
 
-> Angular CLI (\AppData\Roaming\npm\node_modules\@angular\cli\bin\ng)
-  npm install -g @angular/cli 
-  ng new my-dream-app (ng new TestDotNetApp-SPA)(can not use '.')
-  cd my-dream-app
-  ng serve
 
 > -SPA/src/app/app.module.ts
 
