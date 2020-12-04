@@ -297,7 +297,7 @@ ng serve
   - declarations: 宣告那些在我們的application 中, 可以使用哪些 components
   - imports: 要使用哪些其他 modules
   - providers: 
-  - bootstrap:
+  - bootstrap: the set of components that are bootstrapped then this module is bootrapped, 這些 component 會自動 call entryComponents
 
 ```typescript
 @NgModule({
@@ -313,10 +313,37 @@ ng serve
 })
 ```
 
+- 在 main.ts 中, 會bootstrap AppModule
+
+```typescript
+platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.error(err));
+```
 
 ## Section 22. Adding VS Code extensions to work with Angular
 
+1. Angular Language Service (by Angular)
+2. Angular Snippets (by John Papa)
+3. Bracket Pair Colorizer 2 (by CoenraadS)
+
+- other extensions for Angular projects
+  - Angular Files
+  - Auto Rename Tag
+  - Debugger for Chrome
+  - Material Icon Theme
+  - Prettier
+  - TSLint
+  - Angular2-switcher
+
 ## Section 23. Making HTTP requests in Angular
+
+- 在 app.module.ts 中, import HttpClientModule
+
+- 為了要用 life cycle event, AppComponent class 要 implement OnInit
+
+- a life cycle hook, that is called after Angular has initialized all data bound properties, OnInit 會在 contructor 之後
+
+- 要呼叫 subscribe 才會取得 data
 
 ## Section 24. Adding CORS support in the API
 
@@ -331,21 +358,6 @@ ng serve
 ## Angular 
 
 
-> -SPA/src/app/app.module.ts
-
-> -SPA/src/app/app.component.ts 用 @Component 來decorate (is class, but also has Angular features?)
-
-> extensions for Angular projects
-  Angular Snippets
-  Angular Files
-  Angular Language Service
-  Auto Rename Tag
-  Bracket Pair Colorizer
-  Debugger for Chrome
-  Material Icon Theme
-  Prettier
-  TSLint
-  Angular2-switcher
 > Alt + O 從 value.component.ts 移到 value.component.html
   Alt + I 移到 value.component.css
   Alt + U 移到 value.component.ts
